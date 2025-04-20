@@ -1,26 +1,467 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+    box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+:after,
+:before {
+    box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+
+.bottom_nav_style {
+    bottom: 0;
+    flex: none;
+    height: 1px;
+    left: calc(50.00000000000002% - 100% / 2);
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.clearNav {
+    -webkit-backdrop-filter: saturate(180%) blur(5px) !important;
+    backdrop-filter: blur(5px);
+    background-color: rgba(5, 5, 5, .6) !important
+}
+
+
+#scroll-scale {
+    transition: transform 0.2s ease-out;
+}
+
+.contact-select select option:not(.default-option) {
+    color: #000;
+}
+
+.contact-select:before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    box-sizing: content-box;
+    padding: 12px;
+    border: none;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    mask-repeat: no-repeat;
+    mask-size: 16px;
+    background-color: #888888;
+    padding-left: 10px;
+    background-position: 10px center;
+    mask-position: 10px center;
+    mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M 3.5 6 L 8 10.5 L 12.5 6" fill="transparent" stroke-width="1.5" stroke="rgb(153, 153, 153)" stroke-linecap="round" stroke-linejoin="round"></path></svg>');
+}
+
+
+@media (max-width: 1199px) and (min-width: 810px) {
+    h1.header-title {
+        font-size: 72px;
+    }
+}
+
+@media (max-width: 809px) and (min-width: 0px) {
+    h1.header-title {
+        font-size: 58px;
+    }
+}
+
+.bottom_nav_style {
+    bottom: 0;
+    flex: none;
+    height: 1px;
+    left: calc(50.00000000000002% - 100% / 2);
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.sm-nav-link-opened {
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: flex-start;
+    padding: 42px 20px;
+    width: 100%;
+}
+
+@media (min-width: 810px) and (max-width: 1199px) {
+
+    .consulting-section-items-list,
+    .other-section-items-list {
+        grid-template-columns: repeat(2, minmax(50px, 1fr));
+    }
+}
+
+@media (max-width: 809px) {
+    .header-section {
+        padding: 10px;
+    }
+
+    .consulting-section,
+    .other-items-sections,
+    .cybersecurity-sections,
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .contact-section {
+        gap: 80px;
+        height: min-content;
+        padding: 40px 24px 100px;
+    }
+
+    .contact-section-items {
+        flex-direction: column;
+    }
+
+    .contact-section-map {
+        flex: none;
+        height: 480px;
+        width: 100%;
+    }
+
+    .consulting-section-title,
+    .contact-section-title,
+    .about-section-title {
+        font-size: 51px;
+    }
+
+    .consulting-section-items-list,
+    .other-section-items-list {
+        grid-template-columns: repeat(1, minmax(50px, 1fr));
+    }
+
+    .cybersecurity-section-items {
+        gap: 60px;
+    }
+
+    .cybersecurity-section-last-item:first-child {
+        order: 2;
+    }
+
+    .cybersecurity-section-last-item:last-child {
+        order: 1;
+    }
+}
+
+@media (max-width: 809px) and (min-width: 0px) {
+    .cybersecurity-section-title {
+        font-size: 51px;
+    }
+
+    .cybersecurity-section-item-title {
+        font-size: 36px;
+        font-weight: 500;
+    }
+}
+
+
+
+
+
+  
+  .tree-category:before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 4px);
+    width: 3px;
+    height: 100%;
+    top: 0;
+    background-color: #ffffff;
+    opacity: 0.4;
+  }
+  
+.tree-split:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 4px;
+    top: 0;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 570px;
+    height: 2px;
+    background-color: #ffffff;
+    opacity: 0.4;
+}
+  
+.tree-split-backend::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 250px;
+    height: 2px;
+    right: 141px;
+    background-color: #ffffff;
+    opacity: 0.4;
+}
+
+
+button[data-target]:focus img {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+  }
+  
+  
+  /* === Conteneur principal === */
+  .framer-18azqax {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  
+    width: 100%;
+    max-width: 1260px;
+    height: min-content;
+    padding: 0 40px;
+    overflow: hidden;
+    flex: none;
+  }
+  
+  /* === Bloc de texte === */
+  .framer-u4l76e {
+    position: relative;
+    flex: none;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    opacity: 0.7;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+  
+  /* === Style de texte global (polices et typo) === */
+  .framer-styles-preset-1m2icuf:not(.rich-text-wrapper) {
+    --framer-font-family: "Inter", sans-serif;
+    --framer-font-size: 16px;
+    --framer-font-style: normal;
+    --framer-font-weight: 600;
+    --framer-letter-spacing: -0.02em;
+    --framer-line-height: 1.6em;
+    --framer-paragraph-spacing: 20px;
+    --framer-text-alignment: start;
+    --framer-text-decoration: none;
+    --framer-text-transform: none;
+  }
+  
+  /* === Appliquer les variables aux éléments de texte === */
+  .framer-text,
+  .framer-text:not([data-text-fill]) {
+    font-family: var(--framer-font-family, "Inter", sans-serif);
+    font-style: var(--framer-font-style, normal);
+    font-weight: var(--framer-font-weight, 400);
+    font-size: var(--framer-font-size, 16px);
+    letter-spacing: var(--framer-letter-spacing, 0);
+    text-transform: var(--framer-text-transform, none);
+    text-decoration: var(--framer-text-decoration, none);
+    line-height: var(--framer-line-height, 1.6em);
+    text-align: var(--framer-text-alignment, start);
+    -webkit-text-stroke-width: var(--framer-text-stroke-width, initial);
+    -webkit-text-stroke-color: var(--framer-text-stroke-color, initial);
+    font-feature-settings: var(--framer-font-open-type-features, normal);
+    font-variation-settings: var(--framer-font-variation-axes, normal);
+    text-wrap: var(--framer-text-wrap-override, normal);
+  }
+  
+  /* Supprimer les marges/paddings inutiles des éléments textuels */
+  .framer-text,
+  figure.framer-text,
+  h1.framer-text,
+  h2.framer-text,
+  h3.framer-text,
+  h4.framer-text,
+  h5.framer-text,
+  h6.framer-text,
+  ol.framer-text,
+  ul.framer-text {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* === Conteneur du carrousel === */
+  .framer-cwblq8-container {
+    position: relative;
+    flex: 1 0 0;
+    width: 1px;
+    height: 76px;
+  }
+  
+  /* === Sous-conteneur d'éléments === */
+  .framer-15uj8iw {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: min-content;
+    height: min-content;
+    overflow: visible;
+    padding: 0;
+    animation: scroll-right 40s linear infinite;
+
+  }
+  
+  /* === Éléments individuels dans le carrousel === */
+  .framer-1bwf1nm,
+   .framer-m7x0ky,
+   .framer-a1xor6,
+   .framer-dj1ob4,
+   .framer-b3x7k0,
+   .framer-z7f0bv,
+   .framer-yisqt0,
+   .framer-1axlpmb {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+  
+    width: 150px;
+    min-height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: none;
+    cursor: default;
+    will-change: var(--framer-will-change-override, transform);
+  }
+  
+  /* === Groupes d’icônes ou de texte === */
+   .framer-5z15hs,
+   .framer-pxfzg0 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: min-content;
+    height: min-content;
+    overflow: visible;
+    padding: 0;
+  }
+  
+  /* === Icônes (taille carrée) === */
+  .framer-8n6oob,
+   .framer-eq5xhq {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    flex: none;
+  }
+  
+  /* === Petits blocs de texte avec liens === */
+   .framer-1fjqka3,
+   .framer-1ooo265,
+   .framer-o7icon,
+   .framer-j0vkm1,
+   .framer-2bezxf,
+   .framer-e29mum,
+   .framer-vj6r1,
+   .framer-1twnxb5,
+   .framer-ir2prw,
+   .framer-1i8tet7 {
+    position: relative;
+    flex: none;
+    width: auto;
+    height: auto;
+    white-space: pre;
+    --framer-link-text-color: #0099ff;
+    --framer-link-text-decoration: underline;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(1%);
+    }
+  }
+    
+  
+   .framer-1bwf1nm,  .framer-m7x0ky,  .framer-a1xor6,  .framer-dj1ob4,  .framer-b3x7k0,  .framer-z7f0bv,  .framer-yisqt0,  .framer-1axlpmb {
+    align-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: default;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0px;
+    height: min-content;
+    justify-content: center;
+    min-height: 80px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 150px;
+    will-change: var(--framer-will-change-override, transform);
+}
+.framer-15uj8iw {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: min-content;
+}
+
+@media (max-width: 809px) {
+    .carrousel-header {
+        flex-direction: column;
+        padding: 0 40px;
+    }
+    .carrousel-items{
+        width: inherit;
+    }
 }
