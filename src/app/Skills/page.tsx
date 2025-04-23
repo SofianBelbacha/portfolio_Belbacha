@@ -1,9 +1,13 @@
-// components/Header.tsx
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/app/_components/ui/card"
+import { Progress } from "@/app/_components/ui/progress"
+import { Label } from "../_components/ui/label";
+import { Input } from "../_components/ui/input";
+import { Button } from "../_components/ui/button";
 
 export default function Skills() {
   return (
@@ -26,30 +30,29 @@ export default function Skills() {
             et pratique. Voici les domaines dans lesquels je suis compétent :
         </div>
 
-        <div className="relative flex flex-col items-start gap-6 max-w-[600px] mx-auto text-white p-[20px] rounded-[20px] bg-[rgb(17,17,17)] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4)] shadow-[inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
-            <div className="flex justify-between items-center w-full">
-              <div className="flex items-center gap-4">
-                <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" width={40} height={40} />
-                <h2 className="text-xl font-bold text-white">HTML</h2>
-              </div>
-              <div>
-                <span className="text-sm text-zinc-300 italic">Formation disponible</span>
-              </div>
+        <Card className="w-[350px]">
+        <CardHeader>
+          <CardTitle>Create project</CardTitle>
+          <CardDescription>Deploy your new project in one-click.</CardDescription>
+        </CardHeader>
+      <CardContent>
+        <form>
+          <div className="grid w-full items-center gap-4">
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" placeholder="Name of your project" />
             </div>
-            <p className="text-zinc-300 text-base leading-relaxed">
-              Maîtrise du langage de structure d'une page web. Je suis capable de concevoir des documents bien organisés
-              et accessibles grâce à une utilisation précise des balises HTML.
-            </p>
-            <div className="w-full">
-              <div className="flex justify-between mb-1">
-                <span className="text-sm text-zinc-400">Niveau</span>
-                <span className="text-sm text-zinc-400">90%</span>
-              </div>
-              <div className="w-full bg-zinc-800 rounded-full h-3 overflow-hidden">
-                <div className="bg-gradient-to-r from-orange-400 to-red-500 h-full rounded-full" style={{"width": "90%"}}></div>
-              </div>
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="framework">Framework</Label>
             </div>
-        </div>
+          </div>
+        </form>
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <Button variant="outline">Cancel</Button>
+        <Button>Deploy</Button>
+      </CardFooter>
+        </Card>
         <div className="w-[3px] h-15 bg-[#FFFFFF] opacity-40 mx-auto "></div>
         <div className="relative flex flex-col items-start gap-6 max-w-[600px] mx-auto text-white p-[20px] rounded-[20px] bg-[rgb(17,17,17)] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4)] shadow-[inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
             <div className="flex justify-between items-center w-full">
@@ -136,10 +139,9 @@ export default function Skills() {
         <div className="text-center py-16 text-[#8491c7] text-sm uppercase relative tree-category">
             Orientation : Choix du langage
             <strong className="block text-white text-4xl font-semibold tracking-widest whitespace-nowrap">stacks
-                maîtrisés</strong>
+                maîtrisés
+            </strong>
         </div>
-
-
         <div className="relative flex flex-col md:flex-row justify-around items-start gap-10 tree-split">
             <div className="w-full md:w-1/2 max-w-[540px] ">
                 <div className="text-center text-[#8491c7] text-sm uppercase py-16 relative tree-category">

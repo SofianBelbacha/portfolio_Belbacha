@@ -6,6 +6,7 @@ import Header from "./_components/layout/header";
 import Footer from "./_components/layout/footer";
 import Contact from "./_components/layout/contact";
 import { ReactNode } from "react";
+import { AnalyticsProvider } from '@/app/_components/providers/AnalyticsProvider';
 import "./globals.css";
 
 const inter = Inter({
@@ -30,9 +31,11 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+
   return (
     <html lang="fr">
       <body className="bg-black text-white">
+        <AnalyticsProvider />
         <Header />
         <main>{children}</main>
         <Contact />

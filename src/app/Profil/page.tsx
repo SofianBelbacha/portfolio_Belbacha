@@ -1,7 +1,11 @@
 import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/app/_components/ui/card"
+import { Badge } from "@/app/_components/ui/badge"
+import { Button } from "@/app/_components/ui/button"
+
 export default function Profil() {
   return (
-    <section className="cybersecurity-section flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
+  <section className="cybersecurity-section flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
     <div className="flex flex-col items-center justify-center gap-2.5 w-full max-w-[800px]">
         <h2 className="about-section-title text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
             About Me
@@ -160,136 +164,129 @@ export default function Profil() {
   </p>
 </div>
 
-<div className="w-full">
-  <h3 className="text-xl font-semibold mb-4">Experience</h3>
-  <div className="space-y-6">
-    <div className="border-l-4 border-yellow-500 pl-4">
-      <h4 className="text-lg font-semibold">Front-end Developer</h4>
-      <p className="text-sm text-zinc-400">1 Feb 2018 – Present • Full-Time</p>
-      <p className="mt-2 text-zinc-300">Worked on high-end web apps, designing interfaces and improving UX for
-        enterprise clients.</p>
+      <section>
+        <h3 className="text-xl font-semibold mb-4">Experience</h3>
+        <div className="space-y-6">
+          <div className="pl-4">
+            <h4 className="text-lg font-semibold">Front-end Developer</h4>
+            <p className="text-sm text-zinc-400">1 Feb 2018 – Present • Full-Time</p>
+            <p className="mt-2 text-zinc-300">Worked on high-end web apps, designing interfaces and improving UX for
+              enterprise clients.</p>
+          </div>
+          <div className="pl-4">
+            <h4 className="text-lg font-semibold">UI/UX Designer</h4>
+            <p className="text-sm text-zinc-400">2016 – 2018 • Freelance</p>
+            <p className="mt-2 text-zinc-300">Created clean UI designs for startups and helped teams improve their product
+              usability.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 className="text-xl font-semibold mb-4">Education</h3>
+        <div className="space-y-6">
+          <div className="pl-4">
+            <h4 className="text-lg font-semibold">University of Boston – BSc Computer Science</h4>
+            <p className="text-sm text-zinc-400">2014 – 2018 • Graduated</p>
+            <p className="mt-2 text-zinc-300">Studied computer science with a focus on front-end development and
+              interaction design.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 className="text-2xl font-bold mb-2">Who I Am</h3>
+        <p className="text-zinc-300 leading-relaxed">
+          I'm a designer & developer with a passion for web design. I enjoy developing simple, clean and slick
+          websites that provide real value to the end user. I’m always looking for new challenges and ways to push the
+          limits of user experience.
+        </p>
+      </section>
+
+      <section>
+        <h3 className="text-2xl font-bold mb-2">Career Goal</h3>
+        <p className="text-zinc-300">
+          Seeking a dynamic role where I can merge design and development to create impactful digital experiences and
+          continue growing as a creative developer.
+        </p>
+      </section>
+
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: "30+", label: "Projects Completed" },
+          { value: "5y", label: "Experience" },
+          { value: "100%", label: "Client Satisfaction" },
+          { value: "2x", label: "Hackathon Winner" },
+        ].map((item, i) => (
+          <div key={i} className="bg-zinc-800 p-6 rounded-lg shadow-inner">
+            <h4 className="text-4xl font-bold">{item.value}</h4>
+            <p className="text-sm text-zinc-400">{item.label}</p>
+          </div>
+        ))}
+      </section>
+
+      <section>
+        <h3 className="text-2xl font-bold mb-4">My Skills</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-zinc-300">
+          <div>
+            <h4 className="font-semibold mb-2">Development</h4>
+            <ul className="space-y-1">
+              <li>HTML / CSS / JS</li>
+              <li>React / Next.js</li>
+              <li>Tailwind / Bootstrap</li>
+              <li>PHP / Laravel</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Design</h4>
+            <ul className="space-y-1">
+              <li>Figma</li>
+              <li>Adobe XD</li>
+              <li>Photoshop</li>
+              <li>UI / UX Thinking</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Tools & Workflow</h4>
+            <ul className="space-y-1">
+              <li>Git & GitHub</li>
+              <li>VS Code</li>
+              <li>Slack, Trello</li>
+              <li>Agile / Scrum</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 className="text-2xl font-bold mb-4">Languages</h3>
+        <ul className="space-y-2 text-zinc-300">
+          <li><span className="text-white font-semibold">🇫🇷 French:</span> Native</li>
+          <li><span className="text-white font-semibold">🇬🇧 English:</span> Fluent</li>
+          <li><span className="text-white font-semibold">🇮🇩 Indonesian:</span> Intermediate</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 className="text-2xl font-bold mb-4">Soft Skills</h3>
+        <div className="flex flex-wrap gap-3">
+          {["Autonomy", "Creativity", "Teamwork", "Problem-Solving", "Curiosity"].map((skill, i) => (
+            <Badge key={i} variant="secondary" className="text-sm px-4 py-2 bg-zinc-800 text-white">
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </section>
+
+      <div className="flex flex-wrap gap-4 justify-center">
+        <Button asChild className="bg-white text-black hover:bg-opacity-90">
+          <a href="/cv.pdf" download>📎 Download CV</a>
+        </Button>
+        <Button asChild className="bg-white text-black hover:bg-opacity-90">
+          <a href="#contact">📨 Contact Me</a>
+        </Button>
+      </div>
     </div>
-    <div className="border-l-4 border-yellow-500 pl-4">
-      <h4 className="text-lg font-semibold">UI/UX Designer</h4>
-      <p className="text-sm text-zinc-400">2016 – 2018 • Freelance</p>
-      <p className="mt-2 text-zinc-300">Created clean UI designs for startups and helped teams improve their product
-        usability.</p>
-    </div>
-  </div>
-</div>
-
-<div className="w-full">
-  <h3 className="text-xl font-semibold mb-4">Education</h3>
-  <div className="space-y-6">
-    <div className="border-l-4 border-yellow-500 pl-4">
-      <h4 className="text-lg font-semibold">University of Boston – BSc Computer Science</h4>
-      <p className="text-sm text-zinc-400">2014 – 2018 • Graduated</p>
-      <p className="mt-2 text-zinc-300">Studied computer science with a focus on front-end development and
-        interaction design.</p>
-    </div>
-  </div>
-</div>
-</div>
-
-<div className="flex flex-col gap-10 max-w-[900px] w-full text-white">
-<div
-  className="bg-[rgb(17,17,17)] p-8 rounded-[20px] shadow-[inset_0px_2px_0px_rgba(255,255,255,0.05),16px_24px_20px_rgba(0,0,0,0.4)]">
-  <h3 className="text-2xl font-bold mb-2">Who I Am</h3>
-  <p className="text-zinc-300 text-base leading-relaxed">
-    I'm a designer & developer with a passion for web design. I enjoy developing simple, clean and slick
-    websites that provide real value to the end user. I’m always looking for new challenges and ways to push the
-    limits of user experience.
-  </p>
-</div>
-
-<div className="bg-[rgb(17,17,17)] p-8 rounded-[20px]">
-  <h3 className="text-2xl font-bold mb-2">Career Goal</h3>
-  <p className="text-zinc-300">
-    Seeking a dynamic role where I can merge design and development to create impactful digital experiences and
-    continue growing as a creative developer.
-  </p>
-</div>
-
-<div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-  <div className="bg-zinc-800 p-6 rounded-lg shadow-inner">
-    <h4 className="text-4xl font-bold text-white">30+</h4>
-    <p className="text-sm text-zinc-400">Projects Completed</p>
-  </div>
-  <div className="bg-zinc-800 p-6 rounded-lg shadow-inner">
-    <h4 className="text-4xl font-bold text-white">5y</h4>
-    <p className="text-sm text-zinc-400">Experience</p>
-  </div>
-  <div className="bg-zinc-800 p-6 rounded-lg shadow-inner">
-    <h4 className="text-4xl font-bold text-white">100%</h4>
-    <p className="text-sm text-zinc-400">Client Satisfaction</p>
-  </div>
-  <div className="bg-zinc-800 p-6 rounded-lg shadow-inner">
-    <h4 className="text-4xl font-bold text-white">2x</h4>
-    <p className="text-sm text-zinc-400">Hackathon Winner</p>
-  </div>
-</div>
-<div className="bg-[rgb(17,17,17)] p-8 rounded-[20px]">
-  <h3 className="text-2xl font-bold mb-4">My Skills</h3>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-    <div>
-      <h4 className="font-semibold mb-2">Development</h4>
-      <ul className="space-y-1 text-zinc-300">
-        <li>HTML / CSS / JS</li>
-        <li>React / Next.js</li>
-        <li>Tailwind / Bootstrap</li>
-        <li>PHP / Laravel</li>
-      </ul>
-    </div>
-    <div>
-      <h4 className="font-semibold mb-2">Design</h4>
-      <ul className="space-y-1 text-zinc-300">
-        <li>Figma</li>
-        <li>Adobe XD</li>
-        <li>Photoshop</li>
-        <li>UI / UX Thinking</li>
-      </ul>
-    </div>
-    <div>
-      <h4 className="font-semibold mb-2">Tools & Workflow</h4>
-      <ul className="space-y-1 text-zinc-300">
-        <li>Git & GitHub</li>
-        <li>VS Code</li>
-        <li>Slack, Trello</li>
-        <li>Agile / Scrum</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div className="bg-[rgb(17,17,17)] p-8 rounded-[20px]">
-  <h3 className="text-2xl font-bold mb-4">Languages</h3>
-  <ul className="space-y-2 text-zinc-300">
-    <li><span className="text-white font-semibold">🇫🇷 French:</span> Native</li>
-    <li><span className="text-white font-semibold">🇬🇧 English:</span> Fluent</li>
-    <li><span className="text-white font-semibold">🇮🇩 Indonesian:</span> Intermediate</li>
-  </ul>
-</div>
-
-<div className="bg-[rgb(17,17,17)] p-8 rounded-[20px]">
-  <h3 className="text-2xl font-bold mb-4">Soft Skills</h3>
-  <div className="flex flex-wrap gap-3">
-    <span className="bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm">Autonomy</span>
-    <span className="bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm">Creativity</span>
-    <span className="bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm">Teamwork</span>
-    <span className="bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm">Problem-Solving</span>
-    <span className="bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm">Curiosity</span>
-  </div>
-</div>
-
-<div className="flex flex-wrap gap-4 justify-center">
-  <a href="/cv.pdf" download
-    className="px-6 py-3 text-sm font-medium bg-white text-black rounded-md hover:bg-opacity-90 transition">📎
-    Download CV</a>
-  <a href="#contact"
-    className="px-6 py-3 text-sm font-medium bg-white text-black rounded-md hover:bg-opacity-90 transition">📨
-    Contact Me</a>
-</div>
-</div>
-    </section>
+  </section>
 );
 }
