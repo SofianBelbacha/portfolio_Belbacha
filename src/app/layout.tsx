@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
-    <html lang="fr">
+    <html lang="fr" className="dark">
       <body className="bg-black text-white">
         <AnalyticsProvider />
         <Header />
