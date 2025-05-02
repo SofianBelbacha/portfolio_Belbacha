@@ -9,14 +9,13 @@ export default function Contact() {
         className="absolute bottom-[-470px] left-[-136px] right-[-136px] h-[675px] overflow-hidden [background:radial-gradient(65%_52%_at_50%_55%,#33ddff80,#4d8eff80_50.900901%,#09090b00)]"
         style={{ opacity: 1, transform: "none" }}
     />
-    <div className="flex flex-col items-center justify-center gap-[20px] w-full max-w-[500px]">
+    <div className="flex flex-col items-center justify-center gap-[20px] w-full max-w-[508px]">
         <h2 className="contact-section-title text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center">
-        Ready to Secure Your Business?
+          Vous cherchez un collaborateur?
         </h2>
         <p className="text-[24px] leading-[1.2] tracking-[-0.8px] font-semibold text-[#999999] text-center">
-        Let us help you secure your business with{" "}
-        <span className="text-white">tailored solutions</span> and expert support.
-        Contact us today for a free consultation!
+        Je suis disponible pour discuter de vos projets, partager des idées ou répondre à vos questions.{" "}
+        <span className="text-white">N'hésitez pas à me contacter.</span>
         </p>
     </div>
     <div className="contact-section-items relative flex items-center justify-center gap-[10px] w-full max-w-[1200px]">

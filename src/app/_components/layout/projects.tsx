@@ -1,79 +1,74 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { db } from '@/firebase/firebase.config';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, Timestamp } from 'firebase/firestore';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Project } from "@/types/project";
 
-interface Project {
-    id: string,
-    title: string,
-    description: string,
-    image: string,
-    tags: string[],
-    url: string[],
-    createdAt: number
-}
-
-export default function Projects(){
+  interface ProjectsProps {
+    projects: Project[];
+    openModal?: (id: string) => void; // si besoin
+    }  
+  
+export default function Projects({ projects }: ProjectsProps){
     const [isOpen, setIsOpen] = useState(false);
-    const [projects, setProjects] = useState<Project[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    
-    useEffect(() => {
-        const fetchProjects = async () => {
-            const snapshot = await getDocs(collection(db, 'projects'));
-            const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as unknown as Project));
-            setProjects(data);
-        };
-        fetchProjects();
-        }, []);
-    
-        const openModal = (id: string) => {
-        const index = projects.findIndex((p) => p.id === id);
-        if (index !== -1) {
-            setCurrentIndex(index);
-            setIsOpen(true);
-        }
-        };
-        
-        const closeModal = () => setIsOpen(false);
-        const prevProject = () => {
-        setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-        };
-    
-        const nextProject = () => {
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
-        };
-        const currentProject = projects[currentIndex];
+  
+    const openModal = (id: string) => {
+      const index = projects.findIndex((p) => p.id === id);
+      if (index !== -1) {
+        setCurrentIndex(index);
+        setIsOpen(true);
+      }
+    };
+  
+    const closeModal = () => setIsOpen(false);
+    const prevProject = () =>
+      setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    const nextProject = () =>
+      setCurrentIndex((prev) => (prev + 1) % projects.length);
+  
+    const currentProject = projects[currentIndex];  
     return(
         <div className="other-section-items-list grid flex-none gap-6 auto-rows-fr grid-cols-2 h-min justify-center max-w-[1200px] overflow-visible p-0 relative w-full">
-            {projects.map((project) => (
-                <div key={project.id} onClick={() => openModal(project.id)} className="group relative cursor-pointer p-[20px] rounded-[20px] bg-[rgb(17,17,17)] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4)] shadow-[inset_0px_2px_0px_0px_rgba(184,180,180,0.08)] transition-transform group-hover:brightness-90">
-                    <div className="relative w-full aspect-[3/2] overflow-hidden rounded-2xl">
-                        <Image fill className="object-cover rounded-2xl w-full h-auto object-cover transition duration-300 group-hover:brightness-75"
-                            src={project.image}
-                            alt={`Aperçu de ${project.title}`}/>
-                    </div>
-                
-                    <div className="group absolute left-[7px] bottom-[12px] z-[1] flex items-center justify-center p-[11px] h-min w-min overflow-hidden bg-[rgb(10,10,10)] rounded-full">
-                        <div className="relative h-[27px] w-[25px] overflow-hidden">
-                            <div className="flex flex-col transition-transform duration-300 ease-in-out group-hover:-translate-y-[27px]">
-                                <div className="w-[25px] h-[27px] aspect-square flex-none" style={{"transform": "rotate(-35deg)"}}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="w-full h-full fill-white">
-                                        <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-                                    </svg>
-                                </div>
-                                <div className="w-[25px] h-[27px] aspect-square flex-none" style={{"transform": "rotate(-35deg)"}}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="w-full h-full fill-white">
-                                        <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-                                    </svg>
+            {projects.length > 0 ? (
+                projects.map((project) => (
+                <div className="flex flex-col" key={project.id}>
+                    <div key={project.id} onClick={() => openModal(project.id)} className="group relative cursor-pointer p-[20px] rounded-[20px] border border-white/15 transition-transform group-hover:brightness-90">
+                        <div className="relative w-full aspect-[3/2] overflow-hidden rounded-2xl">
+                            <Image fill className="object-cover rounded-2xl w-full h-auto object-cover transition duration-300 group-hover:brightness-75"
+                                src={project.coverImage}
+                                alt={`Aperçu de ${project.title}`}/>
+                        </div>        
+                        <div className="group absolute left-[7px] bottom-[12px] z-[1] flex items-center justify-center p-[11px] h-min w-min overflow-hidden bg-[rgb(10,10,10)] rounded-full">
+                            <div className="relative h-[27px] w-[25px] overflow-hidden">
+                                <div className="flex flex-col transition-transform duration-300 ease-in-out group-hover:-translate-y-[27px]">
+                                    <div className="w-[25px] h-[27px] aspect-square flex-none" style={{"transform": "rotate(-35deg)"}}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="w-full h-full fill-white">
+                                            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                                        </svg>
+                                    </div>
+                                    <div className="w-[25px] h-[27px] aspect-square flex-none" style={{"transform": "rotate(-35deg)"}}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="w-full h-full fill-white">
+                                            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className="flex flex-col px-3 py-3 gap-2">
+                        <p className="text-md ">{project.title}</p>
+                        <p className="text-sm">{`${project.createdAt}`}</p>
+                    </div>
                 </div>
-                ))}
+                ))
+            ) : (
+                <div className="col-span-full text-center text-zinc-400 py-12">
+                  <p className="text-lg">Aucun projet ne correspond à votre recherche.</p>
+                </div>
+              )}
             {isOpen && (
                 <div id="portfolioModal" className={`${currentProject ? 'grid' : 'hidden'} fixed inset-0 z-[999] place-items-center bg-black/70 backdrop-blur-sm transition-opacity duration-300`}>
                     <div className="relative m-4 w-1/3 rounded-lg bg-white shadow-md">
@@ -91,7 +86,7 @@ export default function Projects(){
                             </button>
                         </div>        
                         <div className="border-y border-blue-gray-100">
-                            <Image width={1080} height={432} src={currentProject.image} alt="project detail" className="h-64 w-full object-cover" />
+                            <Image width={1080} height={432} src={currentProject.coverImage} alt="project detail" className="h-64 w-full object-cover" />
                         </div>
                         <div className="p-4 text-slate-700 text-sm leading-relaxed">
                             <p>

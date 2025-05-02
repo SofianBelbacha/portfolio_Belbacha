@@ -2,291 +2,361 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/_components/ui/card"
 import { Badge } from "@/app/_components/ui/badge"
 import { Button } from "@/app/_components/ui/button"
+import { ArrowUpRight, BadgeCheck, BriefcaseBusiness, CirclePlay, Clock, Download, Link2, Mail, MapPin, PhoneCall, Settings } from "lucide-react";
+import Image from "next/image";
+import { Separator } from "../_components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "../_components/ui/tabs";
+import { Avatar, AvatarImage } from "../_components/ui/avatar";
 
 export default function Profil() {
   return (
-  <section className="cybersecurity-section flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
-    <div className="flex flex-col items-center justify-center gap-2.5 w-full max-w-[800px]">
-        <h2 className="about-section-title text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
-            About Me
+    <section className="consulting-section flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
+      <div className="flex flex-col items-center justify-center gap-2.5 w-full max-w-[800px]">
+        <h2 className="consulting-section-title text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
+          Page de Profil
         </h2>
         <p className="text-[24px] leading-[1.2] tracking-[-0.8px] font-semibold text-[#999999] text-center font-[Inter,sans-serif]">
-            Step into the Future with Confidence, Grow Your Business with Our Advanced Technology and
-            <span className="text-white">Expert Consulting Services!</span>
+          Vous trouverez sur cette page toutes les informations me concernant tels que <span className="text-white"> mon parcours, mon cv, mes expériences...</span>
         </p>
-    </div>
-    <div className="cybersecurity-section-items flex flex-col items-center justify-center gap-[100px] w-full max-w-[1200px] overflow-visible p-0 relative">
-        <div className="contents">
-            <div className="relative w-full h-auto flex-none">
-                <div className="flex flex-row flex-wrap items-center justify-center gap-[60px] w-[1120px] overflow-hidden p-0 relative"
-                    style={{"width": "100%", "opacity": 1}}>
-                    <div className="flex flex-col items-start justify-center gap-[20px] flex-[1_0_0px] h-min p-0 relative"
-                        style={{"opacity": 1}}>
-                        <div className="flex flex-row items-center justify-center gap-[6px] h-[28px] px-[12px] overflow-hidden relative w-min flex-none border border-solid border-[#222426] bg-white/15"
-                            style={{"opacity": 1}}>
-                            <div className="w-[8px] h-[8px] aspect-square flex-none overflow-hidden relative will-change-transform"
-                                style={{"backgroundColor": "rgb(51, 221, 255)", "borderRadius": "4px", "opacity": 1}}>
-                            </div>
-                            <div className="flex-none h-auto relative select-none whitespace-pre w-auto"
-                                style={{"outline": "none", "display": "flex", "flexDirection": "column", "justifyContent": "flexStart", "flexShrink": 0, "transform": "none", "opacity": 1}}>
-                                <p className="text-[12px] text-white font-semibold">Enterprise-Grade Security</p>
-                            </div>
-                        </div>
-                        <div className="flex-none h-auto overflow-visible relative w-full break-words"
-                            style={{"outline": "none", "display": "flex", "flexDirection": "column", "justifyContent": "flex-start", "flexShrink": 0, "transform": "none", "opacity": 1}}>
-                            <h3
-                                className="cybersecurity-section-item-title font-Inter font-semibold text-[#fff] text-[50px] leading-[1.2em] tracking-[-3.5px] text-start">
-                                Seamless Cloud Integration for Your Business
-                            </h3>
-                        </div>
-                        <div className="flex-none h-auto overflow-visible relative w-full break-words text-left">
-                            <p
-                                className="font-inter font-medium text-[#888888] text-[20px] leading-[28px] tracking-[-0.5px] text-start transform-none">
-                                Leverage the power of cloud technology to scale your operations, enhance
-                                security, and drive innovation. Experience efficiency like never before.
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap gap-[5px] h-min justify-start items-center content-center relative w-full whitespace-nowrap"
-                            style={{"opacity": 1}}>
-                            <div className="flex-none h-auto relative w-auto" style={{"opacity": 1}}>
-                                <div className="flex flex-row flex-nowrap gap-2.5 h-min justify-center items-center content-center overflow-visible p-4 relative w-min"
-                                    style={{"backgroundColor": "rgb(34, 34, 34)", "opacity": 1}}>
-                                    <div className=" flex-none h-6 relative w-6" style={{"opacity": 1}}>
-                                        <div style={{"display":"contents"}}><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 256 256" focusable="false"
-                                                color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                style={{"userSelect": "none", "width": "100%", "height": "100%", "display": "inline-block", "fill": "var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255)); color: var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))", "flexShrink": 0}}>
-                                                <g color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                    >
-                                                    <path
-                                                        d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div
-                                        style={{"outline": "none", "display": "flex", "flexDirection": "column", "justifyContent": "flex-start", "flexShrink": 0, "transform": "none", "opacity": 1}}>
-                                        <p className="text-[14px] font-semibold text-white">99.9% Uptime</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex-none h-auto relative w-auto" style={{"opacity": 1}}>
-                                <div className="flex flex-row flex-nowrap gap-2.5 h-min justify-center items-center content-center overflow-visible p-4 relative w-min"
-                                    style={{"backgroundColor": "rgb(34, 34, 34)", "opacity": 1}}>
-                                    <div className=" flex-none h-6 relative w-6" style={{"opacity": 1}}>
-                                        <div style={{"display":"contents"}}><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 256 256" focusable="false"
-                                                color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                style={{"userSelect": "none", "width": "100%", "height": "100%", "display": "inline-block", "fill": "var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255)); color: var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))", "flexShrink": 0}}>
-                                                <g color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                    >
-                                                    <path
-                                                        d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div
-                                        style={{"outline": "none", "display": "flex", "flexDirection": "column", "justifyContent": "flex-start", "flexShrink": 0, "transform": "none", "opacity": 1}}>
-                                        <p className="text-[14px] font-semibold text-white">99.9% Uptime</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex-none h-auto relative w-auto" style={{"opacity": 1}}>
-                                <div className="flex flex-row flex-nowrap gap-2.5 h-min justify-center items-center content-center overflow-visible p-4 relative w-min"
-                                    style={{"backgroundColor": "rgb(34, 34, 34)", "opacity": 1}}>
-                                    <div className=" flex-none h-6 relative w-6" style={{"opacity": 1}}>
-                                        <div style={{"display":"contents"}}><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 256 256" focusable="false"
-                                                color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                style={{"userSelect": "none", "width": "100%", "height": "100%", "display": "inline-block", "fill": "var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255)); color: var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))", "flexShrink": 0}}>
-                                                <g color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                    >
-                                                    <path
-                                                        d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z">
-                                                    </path>
-                                                </g>
-                                            </svg></div>
-                                    </div>
-                                    <div
-                                        style={{"outline": "none", "display": "flex", "flexDirection": "column", "justifyContent": "flex-start", "flexShrink": 0, "transform": "none", "opacity": 1}}>
-                                        <p className="text-[14px] font-semibold text-white">99.9% Uptime</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex-none h-auto relative w-auto" style={{"opacity": 1}}>
-                                <div className="flex flex-row flex-nowrap gap-2.5 h-min justify-center items-center content-center overflow-visible p-4 relative w-min"
-                                    style={{"backgroundColor": "rgb(34, 34, 34)", "opacity": 1}}>
-                                    <div className=" flex-none h-6 relative w-6" style={{"opacity": 1}}>
-                                        <div style={{"display":"contents"}}><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 256 256" focusable="false"
-                                                color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                style={{"userSelect": "none", "width": "100%", "height": "100%", "display": "inline-block", "fill": "var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255)); color: var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))", "flexShrink": 0}}>
-                                                <g color="var(--token-f5a827a8-ff91-4264-9182-8b9065322201, rgb(255, 255, 255))"
-                                                    >
-                                                    <path
-                                                        d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z">
-                                                    </path>
-                                                </g>
-                                            </svg></div>
-                                    </div>
-                                    <div
-                                        style={{"outline": "none", "display": "flex", "flexDirection": "column", "justifyContent": "flex-start", "flexShrink": 0, "transform": "none", "opacity": 1}}>
-                                        <p className="text-[14px] font-semibold text-white">99.9% Uptime</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="scroll-scale flex flex-col gap-5 justify-center items-center overflow-hidden relative w-full max-w-[570px] mx-auto aspect-[1.2/1] rounded-[20px]"
-                        style={{"willChange": "transform", "transform": "scale(1)"}}>
-                        <div className="absolute rounded-inherit">
-                            <iframe
-                                src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=text%2Fx-csharp&width=760&ds=true&dsyoff=67px&dsblur=50px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=10px&lh=141%25&si=false&es=2x&wm=false&code=public%2520class%2520DevProfile%250A%257B%250A%2520%2520%2520%2520public%2520string%2520Name%2520%253D%253E%2520%2522Ton%2520Pr%25C3%25A9nom%2522%253B%250A%2520%2520%2520%2520public%2520string%2520Role%2520%253D%253E%2520%2522D%25C3%25A9veloppeur%2520.NET%2520%252F%2520Fullstack%2522%253B%250A%2520%2520%2520%2520public%2520string%255B%255D%2520Stack%2520%253D%253E%2520new%255B%255D%2520%257B%2520%2522C%2523%2522%252C%2520%2522.NET%2522%252C%2520%2522Blazor%2522%252C%2520%2522SQL%2522%252C%2520%2522JavaScript%2522%2520%257D%253B%250A%250A%2520%2520%2520%2520public%2520string%2520AboutMe%28%29%2520%253D%253E%2520%2524%2522Salut%252C%2520je%2520suis%2520%257BName%257D%252C%2520passionn%25C3%25A9%2520par%2520le%2520clean%2520code%2520et%2520les%2520interfaces%2520bien%2520pens%25C3%25A9es.%2522%253B%250A%257D%250A"
-                                style={{"width": "760px", "height": "245px", "border":0, "transform": "scale(1)", "overflow":"hidden"}}
-                                sandbox="allow-scripts allow-same-origin">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<div className="flex flex-col items-start gap-10 max-w-[1200px] w-full px-8 py-10  text-white">
-
-<div>
-  <h3 className="text-2xl font-bold mb-2">About Me</h3>
-  <p className="text-zinc-300 text-base leading-relaxed">
-    I'm a designer & developer with a passion for web design. I enjoy developing simple, clean, and slick
-    websites that provide real value to the end user.
-  </p>
-</div>
-
-      <section>
-        <h3 className="text-xl font-semibold mb-4">Experience</h3>
-        <div className="space-y-6">
-          <div className="pl-4">
-            <h4 className="text-lg font-semibold">Front-end Developer</h4>
-            <p className="text-sm text-zinc-400">1 Feb 2018 – Present • Full-Time</p>
-            <p className="mt-2 text-zinc-300">Worked on high-end web apps, designing interfaces and improving UX for
-              enterprise clients.</p>
-          </div>
-          <div className="pl-4">
-            <h4 className="text-lg font-semibold">UI/UX Designer</h4>
-            <p className="text-sm text-zinc-400">2016 – 2018 • Freelance</p>
-            <p className="mt-2 text-zinc-300">Created clean UI designs for startups and helped teams improve their product
-              usability.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h3 className="text-xl font-semibold mb-4">Education</h3>
-        <div className="space-y-6">
-          <div className="pl-4">
-            <h4 className="text-lg font-semibold">University of Boston – BSc Computer Science</h4>
-            <p className="text-sm text-zinc-400">2014 – 2018 • Graduated</p>
-            <p className="mt-2 text-zinc-300">Studied computer science with a focus on front-end development and
-              interaction design.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h3 className="text-2xl font-bold mb-2">Who I Am</h3>
-        <p className="text-zinc-300 leading-relaxed">
-          I'm a designer & developer with a passion for web design. I enjoy developing simple, clean and slick
-          websites that provide real value to the end user. I’m always looking for new challenges and ways to push the
-          limits of user experience.
-        </p>
-      </section>
-
-      <section>
-        <h3 className="text-2xl font-bold mb-2">Career Goal</h3>
-        <p className="text-zinc-300">
-          Seeking a dynamic role where I can merge design and development to create impactful digital experiences and
-          continue growing as a creative developer.
-        </p>
-      </section>
-
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        {[
-          { value: "30+", label: "Projects Completed" },
-          { value: "5y", label: "Experience" },
-          { value: "100%", label: "Client Satisfaction" },
-          { value: "2x", label: "Hackathon Winner" },
-        ].map((item, i) => (
-          <div key={i} className="bg-zinc-800 p-6 rounded-lg shadow-inner">
-            <h4 className="text-4xl font-bold">{item.value}</h4>
-            <p className="text-sm text-zinc-400">{item.label}</p>
-          </div>
-        ))}
-      </section>
-
-      <section>
-        <h3 className="text-2xl font-bold mb-4">My Skills</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-zinc-300">
-          <div>
-            <h4 className="font-semibold mb-2">Development</h4>
-            <ul className="space-y-1">
-              <li>HTML / CSS / JS</li>
-              <li>React / Next.js</li>
-              <li>Tailwind / Bootstrap</li>
-              <li>PHP / Laravel</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Design</h4>
-            <ul className="space-y-1">
-              <li>Figma</li>
-              <li>Adobe XD</li>
-              <li>Photoshop</li>
-              <li>UI / UX Thinking</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Tools & Workflow</h4>
-            <ul className="space-y-1">
-              <li>Git & GitHub</li>
-              <li>VS Code</li>
-              <li>Slack, Trello</li>
-              <li>Agile / Scrum</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h3 className="text-2xl font-bold mb-4">Languages</h3>
-        <ul className="space-y-2 text-zinc-300">
-          <li><span className="text-white font-semibold">🇫🇷 French:</span> Native</li>
-          <li><span className="text-white font-semibold">🇬🇧 English:</span> Fluent</li>
-          <li><span className="text-white font-semibold">🇮🇩 Indonesian:</span> Intermediate</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 className="text-2xl font-bold mb-4">Soft Skills</h3>
-        <div className="flex flex-wrap gap-3">
-          {["Autonomy", "Creativity", "Teamwork", "Problem-Solving", "Curiosity"].map((skill, i) => (
-            <Badge key={i} variant="secondary" className="text-sm px-4 py-2 bg-zinc-800 text-white">
-              {skill}
-            </Badge>
-          ))}
-        </div>
-      </section>
-
-      <div className="flex flex-wrap gap-4 justify-center">
-        <Button asChild className="bg-white text-black hover:bg-opacity-90">
-          <a href="/cv.pdf" download>📎 Download CV</a>
-        </Button>
-        <Button asChild className="bg-white text-black hover:bg-opacity-90">
-          <a href="#contact">📨 Contact Me</a>
-        </Button>
       </div>
-    </div>
-  </section>
-);
+      <div className="p-4 pb-0 xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto xl:group-data-[theme-content-layout=centered]/layout:mt-8">
+        <div className="space-y-4">
+          <h1 className="text-xl font-bold tracking-tight lg:text-2xl">Page de Profil</h1>
+          <div className="grid gap-4 xl:grid-cols-3">
+            <div className="space-y-4 xl:col-span-1">
+              <Card className="flex flex-col gap-6 relative py-6 rounded-xl border border-white/20 bg-transparent">
+                <CardContent className="px-6">
+                  <Badge className="absolute start-4 top-4">Pro</Badge>
+                  <div className="space-y-12">
+                    <div className="flex flex-col items-center space-y-4">
+                      <Avatar className="size-20">
+                        <AvatarImage src="https://media.licdn.com/dms/image/v2/D5635AQHBftiD_vYVmg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1726931279395?e=1746554400&v=beta&t=G-YWxXgkA8qSMz-Rjzs6hec15ALsbMNjCl9DEybt5fg" alt="@shadcn" />
+                      </Avatar>
+                      <div className="text-center">
+                        <h5 className="text-xl font-semibold">Sofian Belbacha</h5>
+                        <div className="text-muted-foreground text-sm">Développeur Full Stack</div>
+                      </div>
+                    </div>
+                    <div className="bg-muted grid grid-cols-3 divide-x rounded-md border text-center *:py-3">
+                      <div className="flex flex-col items-center gap-[5px] justify-center">
+                        <Image src="linkedin-svgrepo-com.svg" alt={"Linkedin Logo"} className="h-[20px]" width={30} height={20} />
+                        <Link href="https://www.linkedin.com/in/sofian-belbacha/" target="_blank" className="text-muted-foreground text-sm">Linkedin</Link>
+                      </div>
+                      <div>
+                        <h5 className="text-lg font-semibold">32</h5>
+                        <div className="text-muted-foreground text-sm">Projects</div>
+                      </div>
+                      <div className="flex flex-col items-center gap-[5px] justify-center">
+                        <svg data-v-54e46119="" width={30} height={20} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="github-link--logo">
+                          <path data-v-54e46119="" fillRule="evenodd" clipRule="evenodd" d="M12.3019 0C5.50526 0 0 5.50526 0 12.3019C0 17.7392 3.52669 22.3458 8.4127 23.977C9.0244 24.0902 9.25095 23.7126 9.25095 23.3804C9.25095 23.0858 9.2434 22.3156 9.23585 21.2885C5.81488 22.0286 5.08991 19.6422 5.08991 19.6422C4.53108 18.2225 3.72304 17.8373 3.72304 17.8373C2.60537 17.0746 3.80611 17.0897 3.80611 17.0897C5.03705 17.1803 5.69405 18.3584 5.69405 18.3584C6.78906 20.2388 8.57129 19.6951 9.27361 19.3779C9.38688 18.585 9.70406 18.0412 10.0514 17.7316C7.32524 17.4295 4.45556 16.3723 4.45556 11.66C4.45556 10.3158 4.93132 9.22074 5.72426 8.35984C5.59588 8.04266 5.17298 6.79662 5.83754 5.10501C5.83754 5.10501 6.87213 4.77274 9.22074 6.36616C10.2025 6.0943 11.2522 5.95837 12.3019 5.95082C13.344 5.95837 14.4013 6.0943 15.383 6.36616C17.7316 4.77274 18.7662 5.10501 18.7662 5.10501C19.4383 6.79662 19.0154 8.05021 18.887 8.35984C19.6724 9.22074 20.1482 10.3158 20.1482 11.66C20.1482 16.3874 17.271 17.422 14.5297 17.7316C14.9677 18.1092 15.3679 18.8644 15.3679 20.0123C15.3679 21.6586 15.3528 22.9801 15.3528 23.3879C15.3528 23.7202 15.5718 24.0978 16.1986 23.977C21.0846 22.3458 24.6038 17.7392 24.6038 12.3094C24.6038 5.50526 19.0985 0 12.3019 0Z" fill="white"></path>
+                        </svg>
+                        <Link href="https://github.com/SofianBelbacha" target="_blank" className="text-muted-foreground text-sm">Github</Link>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-y-4">
+                      <div className="flex items-center gap-3 text-sm">
+                        <Mail className="size-4 text-muted-foreground" /> sofianbelbacha@gmail.com
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <PhoneCall className="size-4 text-muted-foreground" /> (+33) 7 58 97 96 16
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <MapPin className="size-4 text-muted-foreground" /> Béziers, Occitanie, France
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <Link2 className="size-4 text-muted-foreground" />
+                        <a
+                          href="https://shadcnuikit.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary hover:underline"
+                        >
+                          https://shadcnuikit.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="flex flex-col gap-6 border border-white/20 bg-transparent">
+                <CardHeader className="grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6">
+                  <div className="flex justify-between">
+                    <CardTitle className="leading-none font-semibold">Skills</CardTitle>
+                    <Link className="text-muted-foreground hover:text-primary text-sm hover:underline" href="/Skills">View All</Link>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="px-6">
+                  <div className="flex flex-wrap gap-2">
+                    <Badge>Git/Github</Badge>
+                    <Badge>ASP.NET Core</Badge>
+                    <Badge>HTML</Badge>
+                    <Badge>React</Badge>
+                    <Badge>Tailwind CSS</Badge>
+                    <Badge>JavaScipt</Badge>
+                    <Badge>Symfony</Badge>
+                    <Badge>Next.Js</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="flex flex-col gap-6 py-6 rounded-xl border border-white/20 bg-transparent">
+                <CardHeader className="px-6 pb-0">
+                  <CardTitle>About Me</CardTitle>
+                </CardHeader>
+                <CardContent className="px-6 space-y-4">
+                  <p>
+                    Je suis Sofian Belbacha, développeur full stack, passionné par la technologie et curieux de nature. Mon parcours m’a amené à concevoir des applications web modernes, performantes et sécurisées, en combinant les meilleures pratiques front-end et back-end.
+                  </p>
+                  <p>
+                    Mais mon intérêt pour l’informatique ne s’arrête pas au développement web. Je me forme activement aux pratiques DevOps — notamment à l’automatisation, à l’intégration continue (CI/CD), à Docker, et à la gestion d’infrastructure — dans une démarche d’amélioration continue.
+                  </p>
+                  <p>
+                    Mon profil est volontairement polyvalent : j’ai également touché à la gestion de systèmes, au scripting, à la configuration réseau et à des missions plus techniques en lien avec la cybersécurité. Cette diversité me permet de mieux comprendre les enjeux globaux d’un projet IT et d’y apporter des solutions fiables et cohérentes.
+                  </p>
+                  <p>
+                    Aujourd’hui, je cherche à intégrer une équipe en tant que salarié, dans laquelle je pourrais continuer à apprendre, apporter mes compétences et relever de nouveaux défis techniques.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="flex flex-col gap-6 rounded-xl border py-6">
+                <CardHeader className="px-6">
+                  <div className="flex items-start justify-between">
+                    <CardTitle>Mon CV</CardTitle>
+                    <button
+                      className="size-9 rounded-md border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
+                      aria-label="Voir plus"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </button>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="px-6 space-y-4">
+                  <div className="w-full rounded-md overflow-hidden shadow">
+                    <img
+                      src="https://attractivecv.com/wp-content/uploads/2023/01/cv-cadre-exemple.jpg"
+                      alt="Aperçu de mon CV"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="space-y-4 xl:col-span-2">
+              <Card className="flex flex-col gap-6 py-6 rounded-xl border border-white/20 bg-transparent">
+                <CardHeader className="px-6">
+                  <CardTitle>Parcours</CardTitle>
+                </CardHeader>
+                <CardContent className="px-6">
+                  <ol className="relative border-s">
+                    <li className="ms-6 mb-10 space-y-2">
+                      <span className="bg-muted absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full border">
+                        <BriefcaseBusiness className="text-primary size-3" />
+                      </span>
+                      <h3 className="flex items-center font-semibold">
+                        Bachelor 3 Informatique
+                        <Badge className="ms-2">Latest</Badge>
+                      </h3>
+                      <time className="text-muted-foreground flex items-center gap-1.5 text-sm leading-none">
+                        <Clock className="size-3" />
+                        Montpellier Ynov Campus / Sep 2024 - Janv 2025
+                      </time>
+                      <p className="text-muted-foreground">
+                        Le Bachelor 3 Informatique d’Ynov Campus est une formation professionnalisante
+                        qui prépare les étudiants à devenir des développeurs polyvalents, capables de répondre
+                        aux besoins actuels du marché du numérique. Cette troisième année du cursus informatique
+                        est axée sur la consolidation des compétences techniques et le développement de projets concrets.
+                      </p>
+                      <ul className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Conception et développement d'applications :</span> capacité à créer des applications web et mobiles fonctionnelles et performantes.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Gestion de projets informatiques :</span> aptitude à planifier, organiser et suivre des projets en utilisant des outils et méthodes adaptés.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Introduction à l’intelligence artificielle :</span> découverte des fondements de l'IA à travers des projets concrets en python, compréhension des concepts de machine learning.
+
+
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Adaptabilité technologique :</span> préparation à l'apprentissage continu face à l'évolution rapide des technologies.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Découverte de nouveaux outils :</span> familiarisation avec des technologies comme Laravel, notamment pour la création d’une API RESTful, ainsi qu’avec SQLite, un système de gestion de base de données léger, idéal pour les projets en local ou à petite échelle.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Sécurité informatique :</span> Principes de base de la sécurité des systèmes d'information, mise en œuvre de mesures de protection des données
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="ms-6 mb-10 space-y-2">
+                      <span className="bg-muted absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full border">
+                        <BadgeCheck className="text-primary size-3" />
+                      </span>
+                      <h3 className="font-semibold">BTS Service Informatique aux organisations</h3>
+                      <time className="text-muted-foreground flex items-center gap-1.5 text-sm leading-none">
+                        <Clock className="size-3" />
+                        Lycée Marc Bloch, Sérignan / Sep 2023 - Juin 2024
+                      </time>
+                      <p className="text-muted-foreground">
+                        Le BTS Services Informatiques aux Organisations (SIO) option Solutions Logicielles et Applications Métiers (SLAM)
+                        forme des professionnels capables de concevoir, développer et maintenir des applications informatiques répondant
+                        aux besoins des entreprises. Les compétences techniques que j'ai acquises incluent :
+                      </p>
+                      <ul className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Développement et Programmation :</span> Maîtrise des langages de programmation (PHP, C# (.NET Framework), SQL, HTML, CSS)
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Bases de Données :</span> Conception et gestion de bases de données relationnelles, rédaction de requêtes SQL, utilisation de SGBD (MySQL, SQL Server)
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Programmation orientée objet :</span> (C# et PHP) et modèle MVC
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Analyse et Conception :</span> Utilisation des outils de modélisation (UML, MERISE), analyse des besoins utilisateurs
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Tests et validation :</span> Conception et réalisation de tests unitaires
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Sécurité informatique :</span> Principes de base de la sécurité des systèmes d'information, mise en œuvre de mesures de protection des données
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
+                </CardContent>
+              </Card>
+              <Card className="flex flex-col gap-6 py-6 rounded-xl border border-white/20 bg-transparent">
+                <CardHeader className="px-6">
+                  <CardTitle>Experiences</CardTitle>
+                </CardHeader>
+
+                <CardContent className="px-6">
+                  <ol className="relative border-s">
+                    <li className="ms-6 mb-10 space-y-2">
+                      <span className="bg-muted absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full border">
+                        <BriefcaseBusiness className="text-primary size-3" />
+                      </span>
+                      <h3 className="flex items-center font-semibold">
+                        Développeur Backend PHP
+                        <Badge className="ms-2">Latest</Badge>
+                      </h3>
+                      <time className="text-muted-foreground flex items-center gap-1.5 text-sm leading-none">
+                        <Clock className="size-3" />
+                        ADSL Informatique Sérignan (34) / Mai 2023 - Juil 2023
+                      </time>
+                      <p className="text-muted-foreground">
+                        Tentation Voyage est un site de voyage intuitive et interactive, permettant aux utilisateurs de rechercher des destinations adaptées à leurs envies, de planifier des itinéraires sur mesure et de réserver facilement leurs séjours. Grâce à une interface conviviale et riche en fonctionnalités, le site offre également des recommandations personnalisées et des guides pratiques pour aider les voyageurs à prendre des décisions éclairées et à vivre des expériences inoubliables.
+                        Lors de ce stage, j’ai principalement travaillé sur une fonctionnalité clé du site de voyage : la mise en place d’une interface permettant aux utilisateurs de remplir des formulaires interactifs pour générer des roadtrips personnalisés au format PDF. Cette partie du site vise à offrir une solution pratique et intuitive, aidant les voyageurs à organiser leurs itinéraires de manière structurée et à disposer d’un document téléchargeable regroupant toutes les informations nécessaires pour leur aventure. Pour mener à bien cette mission, plusieurs étapes ont été menées :
+                      </p>
+                      <ul className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Analyse des besoins et cahier des charges :</span> Collaboration pour identifier les besoins clients et rédiger un cahier des charges détaillé.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Conception d’une base de données MySQL :</span> Création d’une base de données structurée et performante, facilitant une gestion des données et améliorant la rapidité des requêtes de 40 %.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Exploitation des données :</span> Utilisation de SQL pour extraire et analyser des données clés, facilitant la prise de décision.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Architecture MVC en PHP :</span> Conception et développement de l’architecture du site en PHP en utilisant le modèle MVC, optimisant la modularité et la maintenance du code.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Mise en place d’une structure collaborative :</span> Définition et implémentation d'outils et de processus de travail pour améliorer l’efficacité et la communication au sein de l’équipe.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Ajout de fonctionnalités :</span> Développement et intégration de nouvelles fonctionnalités dans un site existant, améliorant l’expérience utilisateur et la performance du site.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Résolution de bugs :</span> Résolution de bugs en analysant et en corrigeant des dysfonctionnements, renforçant la stabilité du site et réduisant les incidents signalés de 50 %.
+                          </span>
+                        </li>
+                        <li className="pl-4 relative">
+                          <span className="absolute left-0 top-1 text-primary">•</span>
+                          <span className="block ml-2">
+                            <span className="font-medium text-foreground">Normes de sécurité :</span> Implémentation de normes de sécurité, garantissant la protection des données utilisateurs et la conformité aux normes de sécurité en vigueur (RGPD, etc.).
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  );
 }
+

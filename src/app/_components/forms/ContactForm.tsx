@@ -42,7 +42,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit(onSubmit)} className="relative z-[1] flex flex-col gap-[20px] w-full p-[20px] border border-white/15 backdrop-blur-[5px] flex-1 basis-0">
             <label className="flex flex-col gap-[10px] w-full">
                 <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Name
+                    Nom complet
                 </p>
                 <div className="relative w-full h-[40px] bg-white/15 rounded-[10px]">
                     <input
@@ -72,7 +72,7 @@ export default function ContactForm() {
             </label>
             <label className="flex flex-col gap-[10px] w-full">
                 <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Service Selection
+                    Sujet
                 </p>
                 <div className="contact-select relative w-full h-[40px] bg-white/15 rounded-[10px]">
                     <select
@@ -82,20 +82,18 @@ export default function ContactForm() {
                         required
                         className="w-full h-full px-[12px] bg-transparent text-[#888888] appearance-none">
                         <option value="" disabled>Select…</option>
-                        <option value="Network Solutions">Network Solutions</option>
-                        <option value="Penetration Testing">Penetration Testing</option>
-                        <option value="Maintenance Agreements">Maintenance Agreements</option>
-                        <option value="Firewall Solutions">Firewall Solutions</option>
-                        <option value="DLP Solutions">DLP Solutions</option>
-                        <option value="Backup Services">Backup Services</option>
-                        <option value="Other">Other</option>
+                        <option value="Maintenance Agreements">Signalement d'un dysfonctionnement rencontré</option>
+                        <option value="Firewall Solutions">Collaboration pour vos projets</option>
+                        <option value="DLP Solutions">Echange/Renseignement</option>
+                        <option value="Opportunité professionnelle">Opportunité professionnelle</option>
+                        <option value="Autres">Autres</option>
                     </select>
                     <p className="text-[15px] text-[#850000]">{errors.service?.message}</p>
                 </div>
             </label>
             <label className="flex flex-col gap-[10px] w-full">
                 <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Your Company
+                    Message
                 </p>
                 <div className="relative w-full bg-white/15 rounded-[10px]">
                     <textarea

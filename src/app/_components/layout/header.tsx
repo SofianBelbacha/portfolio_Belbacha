@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/../public/logo.png"
 import { useRef, useState } from "react";
+import { toast } from "sonner";
+import { Button } from "@/app/_components/ui/button"
 
 export default function Header() {
   const itemNavRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ export default function Header() {
                 className="leading-[28px] tracking-[-0.8px] text-white"
                 style={{ fontSize: 20, fontWeight: 700 }}
                 >
-                PHOTON
+                SOFIAN
                 </Link>
             </div>
             {/* BURGER ICON */}
@@ -57,7 +59,18 @@ export default function Header() {
                 <Link href="/Skills" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300">
                     Competences
                 </Link>
-                <Link href="/Blog" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300">
+                <Link href="/Blog" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300"
+                    onClick={(e) => {
+                        e.preventDefault(),
+                    toast("En cours...", {
+                        description: "Page en cours de développement",
+                        action: {
+                        label: "Fermer",
+                        onClick: () => console.log("Fermer"),
+                        },
+                    })}
+                    }
+                >
                     Blog
                 </Link>
                 {/* SOCIAL LINKS */}
@@ -117,7 +130,7 @@ export default function Header() {
             <Link href="/"
                 className="leading-[28px] tracking-[-0.8px] text-white"
                 style={{ fontSize: 20, fontWeight: 700 }}>
-                PHOTON
+                SOFIAN
             </Link>
             </div>
             <div className="md:flex flex-grow items-center hidden">
@@ -131,7 +144,18 @@ export default function Header() {
                 <Link href="/Skills" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300">
                     Competences
                 </Link>
-                <Link href="/Blog" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300">
+                <Link href="/Blog" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300"
+                    onClick={(e) => {
+                        e.preventDefault(),
+                    toast("En cours...", {
+                        description: "Page en cours de développement",
+                        action: {
+                        label: "Fermer",
+                        onClick: () => console.log("Fermer"),
+                        },
+                    })}
+                    }
+                >
                     Blog
                 </Link>
             </div>

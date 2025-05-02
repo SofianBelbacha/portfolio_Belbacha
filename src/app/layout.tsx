@@ -7,6 +7,7 @@ import Footer from "./_components/layout/footer";
 import Contact from "./_components/layout/contact";
 import { ReactNode } from "react";
 import { AnalyticsProvider } from '@/app/_components/providers/AnalyticsProvider';
+import { Toaster } from "@/app/_components/ui/sonner";
 import "./globals.css";
 
 const inter = Inter({
@@ -34,10 +35,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang="fr" className="dark">
+      <head>
+      <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      </head>
       <body className="bg-black text-white">
         <AnalyticsProvider />
         <Header />
         <main>{children}</main>
+        <Toaster richColors />
         <Contact />
         <Footer />
         <div className="pointer-events-none fixed bottom-0 left-0 right-0 h-[100px] z-10 bg-gradient-to-b from-[rgba(5,5,5,0)] to-black opacity-100">

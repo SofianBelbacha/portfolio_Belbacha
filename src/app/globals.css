@@ -36,12 +36,12 @@
     --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
     --sidebar-border: oklch(0.92 0.004 286.32);
     --sidebar-ring: oklch(0.705 0.015 286.067);
-  }
-  
-  .dark {
+}
+
+.dark {
     --background: oklch(0.141 0.005 285.823);
     --foreground: oklch(0.985 0 0);
-    --card: rgba(0, 0, 0, 0)    ;
+    --card: rgba(0, 0, 0, 0);
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.21 0.006 285.885);
     --popover-foreground: oklch(0.985 0 0);
@@ -70,8 +70,8 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.552 0.016 285.938);
-  }
-  
+}
+
 * {
     box-sizing: border-box;
 }
@@ -90,6 +90,11 @@ body {
 html,
 body {
     overflow-x: hidden;
+}
+
+html>body[data-scroll-locked] {
+    overflow: visible !important;
+    margin-right: 0 !important;
 }
 
 .bottom_nav_style {
@@ -149,6 +154,19 @@ body {
 @media (max-width: 809px) and (min-width: 0px) {
     h1.header-title {
         font-size: 58px;
+    }
+}
+
+@media (max-width: 1252px) and (min-width: 1199px) {
+    .badge-header {
+        bottom: 100%;
+        left: 15%;
+    }
+}
+
+@media (max-width: 1198px) and (min-width: 0px) {
+    .badge-header {
+        bottom: 103%;
     }
 }
 
@@ -244,16 +262,23 @@ body {
     }
 }
 
-  .tree-category:before {
+.tree-category:before {
     content: "";
     position: absolute;
     left: calc(50% - 4px);
-    width: 3px;
+    width: 2px;
     height: 100%;
     top: 0;
     background-color: #ffffff;
     opacity: 0.4;
-  }
+}
+
+@media (max-width: 1023px) {
+    .tree-split:before {
+        display: none !important;
+    }
+
+}
 
 .tree-split:before {
     content: "";
@@ -270,7 +295,7 @@ body {
     opacity: 0.4;
 }
 
-.tree-split-backend::after{
+.tree-split-backend::after {
     content: "";
     display: block;
     position: absolute;
@@ -286,10 +311,10 @@ body {
 button[data-target]:focus img {
     transform: scale(1.1);
     transition: transform 0.2s;
-  }
+}
 
-  /* === Conteneur principal === */
-  .framer-18azqax {
+/* === Conteneur principal === */
+.framer-18azqax {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -308,10 +333,10 @@ button[data-target]:focus img {
     padding: 0 40px;
     overflow: hidden;
     flex: none;
-  }
+}
 
-  /* === Bloc de texte === */
-  .framer-u4l76e {
+/* === Bloc de texte === */
+.framer-u4l76e {
     position: relative;
     flex: none;
     width: auto;
@@ -320,10 +345,10 @@ button[data-target]:focus img {
     opacity: 0.7;
     word-break: break-word;
     word-wrap: break-word;
-  }
+}
 
-  /* === Style de texte global (polices et typo) === */
-  .framer-styles-preset-1m2icuf:not(.rich-text-wrapper) {
+/* === Style de texte global (polices et typo) === */
+.framer-styles-preset-1m2icuf:not(.rich-text-wrapper) {
     --framer-font-family: "Inter", sans-serif;
     --framer-font-size: 16px;
     --framer-font-style: normal;
@@ -334,11 +359,11 @@ button[data-target]:focus img {
     --framer-text-alignment: start;
     --framer-text-decoration: none;
     --framer-text-transform: none;
-  }
+}
 
-  /* === Appliquer les variables aux éléments de texte === */
-  .framer-text,
-  .framer-text:not([data-text-fill]) {
+/* === Appliquer les variables aux éléments de texte === */
+.framer-text,
+.framer-text:not([data-text-fill]) {
     font-family: var(--framer-font-family, "Inter", sans-serif);
     font-style: var(--framer-font-style, normal);
     font-weight: var(--framer-font-weight, 400);
@@ -353,33 +378,33 @@ button[data-target]:focus img {
     font-feature-settings: var(--framer-font-open-type-features, normal);
     font-variation-settings: var(--framer-font-variation-axes, normal);
     text-wrap: var(--framer-text-wrap-override, normal);
-  }
+}
 
-  /* Supprimer les marges/paddings inutiles des éléments textuels */
-  .framer-text,
-  figure.framer-text,
-  h1.framer-text,
-  h2.framer-text,
-  h3.framer-text,
-  h4.framer-text,
-  h5.framer-text,
-  h6.framer-text,
-  ol.framer-text,
-  ul.framer-text {
+/* Supprimer les marges/paddings inutiles des éléments textuels */
+.framer-text,
+figure.framer-text,
+h1.framer-text,
+h2.framer-text,
+h3.framer-text,
+h4.framer-text,
+h5.framer-text,
+h6.framer-text,
+ol.framer-text,
+ul.framer-text {
     margin: 0;
     padding: 0;
-  }
+}
 
-  /* === Conteneur du carrousel === */
-  .framer-cwblq8-container {
+/* === Conteneur du carrousel === */
+.framer-cwblq8-container {
     position: relative;
     flex: 1 0 0;
     width: 1px;
     height: 76px;
-  }
+}
 
-  /* === Sous-conteneur d'éléments === */
-  .framer-15uj8iw {
+/* === Sous-conteneur d'éléments === */
+.framer-15uj8iw {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -393,25 +418,25 @@ button[data-target]:focus img {
     padding: 0;
     animation: scroll-right 40s linear infinite;
 
-  }
+}
 
-  /* === Éléments individuels dans le carrousel === */
-  .framer-1bwf1nm,
-   .framer-m7x0ky,
-   .framer-a1xor6,
-   .framer-dj1ob4,
-   .framer-b3x7k0,
-   .framer-z7f0bv,
-   .framer-yisqt0,
-   .framer-1axlpmb {
+/* === Éléments individuels dans le carrousel === */
+.framer-1bwf1nm,
+.framer-m7x0ky,
+.framer-a1xor6,
+.framer-dj1ob4,
+.framer-b3x7k0,
+.framer-z7f0bv,
+.framer-yisqt0,
+.framer-1axlpmb {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 0;
     padding: 0;
-
+    flex-wrap: nowrap;
     width: 150px;
     min-height: 80px;
     border-radius: 10px;
@@ -419,11 +444,11 @@ button[data-target]:focus img {
     flex: none;
     cursor: default;
     will-change: var(--framer-will-change-override, transform);
-  }
+}
 
-  /* === Groupes d’icônes ou de texte === */
-   .framer-5z15hs,
-   .framer-pxfzg0 {
+/* === Groupes d’icônes ou de texte === */
+.framer-5z15hs,
+.framer-pxfzg0 {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -435,28 +460,28 @@ button[data-target]:focus img {
     height: min-content;
     overflow: visible;
     padding: 0;
-  }
+}
 
-  /* === Icônes (taille carrée) === */
-  .framer-8n6oob,
-   .framer-eq5xhq {
+/* === Icônes (taille carrée) === */
+.framer-8n6oob,
+.framer-eq5xhq {
     position: relative;
     width: 26px;
     height: 26px;
     flex: none;
-  }
+}
 
-  /* === Petits blocs de texte avec liens === */
-   .framer-1fjqka3,
-   .framer-1ooo265,
-   .framer-o7icon,
-   .framer-j0vkm1,
-   .framer-2bezxf,
-   .framer-e29mum,
-   .framer-vj6r1,
-   .framer-1twnxb5,
-   .framer-ir2prw,
-   .framer-1i8tet7 {
+/* === Petits blocs de texte avec liens === */
+.framer-1fjqka3,
+.framer-1ooo265,
+.framer-o7icon,
+.framer-j0vkm1,
+.framer-2bezxf,
+.framer-e29mum,
+.framer-vj6r1,
+.framer-1twnxb5,
+.framer-ir2prw,
+.framer-1i8tet7 {
     position: relative;
     flex: none;
     width: auto;
@@ -464,42 +489,24 @@ button[data-target]:focus img {
     white-space: pre;
     --framer-link-text-color: #0099ff;
     --framer-link-text-decoration: underline;
-  }
+}
 
-  .carousel-wrapper {
+.carousel-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
-  }
-
-  @keyframes scroll-right {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(1%);
-    }
-  }
-
-   .framer-1bwf1nm,  .framer-m7x0ky,  .framer-a1xor6,  .framer-dj1ob4,  .framer-b3x7k0,  .framer-z7f0bv,  .framer-yisqt0,  .framer-1axlpmb {
-    align-content: center;
-    align-items: center;
-    border-radius: 10px;
-    cursor: default;
-    display: flex;
-    flex: none;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 0px;
-    height: min-content;
-    justify-content: center;
-    min-height: 80px;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    width: 150px;
-    will-change: var(--framer-will-change-override, transform);
 }
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(1%);
+    }
+}
+
 .framer-15uj8iw {
     align-content: center;
     align-items: center;
@@ -520,7 +527,8 @@ button[data-target]:focus img {
         flex-direction: column;
         padding: 0 40px;
     }
-    .carrousel-items{
+
+    .carrousel-items {
         width: inherit;
     }
 }
@@ -633,10 +641,11 @@ button[data-target]:focus img {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }

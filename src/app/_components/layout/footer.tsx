@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="relative w-full flex flex-col items-center justify-start gap-[30px] p-[80px_40px] overflow-hidden bg-black">
     <div className="contents">
         <div style={{outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", flexShrink: 0, transform: "none", opacity: 1}}>
-            <h4 className="text-[20px] font-bold text-white">PHOTON
+            <h4 className="text-[20px] font-bold text-white">SOFIAN
             </h4>
         </div>
     </div>
@@ -15,25 +15,25 @@ export default function Footer() {
         <div className="contents">
             <Link className="text-white font-semibold" data-highlight="true"
                 href="./#expertise" tabIndex={0} style={{opacity: 1}}>
-                Expertise
+                Profil
             </Link>
         </div>
         <div className="contents">
             <Link className="text-white font-semibold" data-highlight="true"
                 href="./#Services" tabIndex={1} style={{opacity: 1}}>
-                Services
+                Portfolio
             </Link>
         </div>
         <div className="contents">
             <Link className="text-white font-semibold" data-highlight="true"
                 href="./#Solutions" tabIndex={2} style={{opacity: 1}}>
-                Solutions
+                Compétences
             </Link>
         </div>
         <div className="contents">
             <Link className="text-white font-semibold" data-highlight="true"
                 href="./#Pricing" tabIndex={3} style={{opacity: 1}}>
-                Pricing
+                Blog
             </Link>
         </div>
     </div>
@@ -59,11 +59,11 @@ export default function Footer() {
     </div>
     <div className="relative w-auto opacity-50 text-[#FFFFFF]"
         style={{outline:"none",display:"flex",flexDirection:"column",justifyContent:"flex-start",flexShrink:0,transform:"none"}}>
-        <p className="text-[14px] font-semibold">© 2025 Photon, Inc. All rights reserved.</p>
+        <p className="text-[14px] font-semibold">© 2025 Sofian, Inc. All rights reserved.</p>
     </div>
     <div className="relative w-auto opacity-50 text-[#FFFFFF]"
         style={{outline:"none",display:"flex",flexDirection:"column",justifyContent:"flex-start",flexShrink:0,transform:"none"}}>
-        <p className="text-[14px] font-semibold">Built in Framer</p>
+        <p className="text-[14px] font-semibold">Built by Sofian</p>
     </div>
     </footer>
 

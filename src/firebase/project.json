@@ -1,0 +1,81 @@
+{
+  "title": "Projet - Watchlist ASP.NET Core",
+  "mainTool": {
+    "name": "ASP.NET Core",
+    "avatarUrl": "/icon/aspnet-core.svg"
+  },
+  "coverImage": "https://i.postimg.cc/GhKDGCXx/watchlist-preview.jpg",
+  "tags": [
+    { "name": "C#" },
+    { "name": "ASP.NET Core" },
+    { "name": "Microsoft Visual Studio" },
+    { "name": "Entity Framework Core" },
+    { "name": "Razor Pages" },
+    { "name": "Bootstrap" },
+    { "name": "SQL Server" },
+    { "name": "Backend" }
+
+  ],
+  "summary": "Application web permettant de gérer une liste personnalisée de films avec tri, notation et authentification sécurisée.",
+  "links": {
+    "demo": "",
+    "github": "https://github.com/SofianBelbacha/Projet_ASP.NET_Watchlist"
+  },
+  "overview": "Watchlist est une application développée avec ASP.NET Core qui offre aux utilisateurs une interface intuitive pour gérer leur collection de films. Elle propose des fonctionnalités de recherche, de tri par note ou année, ainsi qu’un système de notation personnel. Grâce à l’authentification intégrée via Identity Framework, les utilisateurs peuvent créer un compte sécurisé pour suivre leurs films, marquer ceux qu’ils ont vus et attribuer une note.",
+  "features": [
+    {
+      "title": "Recherche avancée",
+      "description": "Filtrer les films par titre, année de sortie ou note utilisateur."
+    },
+    {
+      "title": "Gestion des films",
+      "description": "Ajouter des films à une watchlist, les marquer comme vus, et les noter."
+    },
+    {
+      "title": "Tri personnalisé",
+      "description": "Trier la liste par année de sortie, ordre alphabétique ou note."
+    },
+    {
+      "title": "Authentification sécurisée",
+      "description": "Inscription, connexion et gestion de compte grâce à Identity Framework."
+    }
+  ],
+  "technologies": [
+    {
+      "name": "C#",
+      "iconUrl": "/icon/c-sharp.svg",
+      "description": "C# est un langage moderne, typé, orienté objet, développé par Microsoft."
+    },
+    {
+      "name": "ASP.NET Core",
+      "iconUrl": "/icon/aspnet-core.svg",
+      "description": "Framework open-source développé par Microsoft pour la création d'applications web modernes côté serveur."
+    },
+    {
+      "name": "Entity Framework Core",
+      "iconUrl": "https://i.postimg.cc/RFGVjRfT/Bitmap-MEDIUM-Entity-Framework-Core.png",
+      "description": "ORM pour .NET facilitant la communication avec une base de données relationnelle."
+    },
+    {
+      "name": "Razor Pages",
+      "iconUrl": "https://i.postimg.cc/1t2syWm0/1-ce-Vc-T-d-NYf9-K4-Wxa-Y4vyx-Q.png",
+      "description": "Razor Pages permet de créer des pages dynamiques dans les applications ASP.NET Core."
+    },
+    {
+      "name": "Bootstrap",
+      "iconUrl": "/icon/bootstrap.svg",
+      "description": "Framework CSS pour créer des interfaces web réactives et modernes."
+    },
+    {
+      "name": "SQL Server",
+      "iconUrl": "/icon/sql-database-generic-svgrepo-com.svg",
+      "description": "Système de gestion de base de données relationnelle utilisé pour stocker les films et utilisateurs."
+    },
+    {
+      "name": "Identity Framework",
+      "iconUrl": "https://i.postimg.cc/RFGVjRfT/Bitmap-MEDIUM-Entity-Framework-Core.png",
+      "description": "Système d’authentification et de gestion des utilisateurs intégré à ASP.NET Core."
+    }
+  ],
+  "createdAt": "2024-04-25"
+}

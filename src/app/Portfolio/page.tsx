@@ -1,47 +1,113 @@
+"use client";
+import { useEffect, useState } from 'react';
+import FilterSectionPortfolio from '../_components/layout/filterSectionPortfolio';
 import Projects from '../_components/layout/projects';
+import Link from 'next/link';
+import { db } from '@/firebase/firebase.config';
+import { getDocs, collection, Timestamp } from 'firebase/firestore';
+import { Project } from "@/types/project";
+import { useSearchParams } from "next/navigation";
 
 export default function Portfolio(){
-    return(
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [filtered, setFiltered] = useState<Project[]>([]);
+    const [search, setSearch] = useState("");
+    const [sortOrder, setSortOrder] = useState("recent");
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const searchParams = useSearchParams();
+    const initialTag = searchParams.get("tag");
+    const [selectedTags, setSelectedTags] = useState<string[]>(
+      initialTag ? [initialTag] : []
+    );
+
+    useEffect(() => {
+      if (initialTag && projects.length > 0) {
+        setSelectedTags([initialTag]);
+      }
+    }, [initialTag, projects]);
+    
+    useEffect(() => {
+      const fetchProjects = async () => {
+        const snapshot = await getDocs(collection(db, "projects"));
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Project[];
+  
+        setProjects(data);
+        setFiltered(data); // initial state
+      };
+  
+      fetchProjects();
+    }, []);
+  
+    useEffect(() => {
+      const filtered = projects
+        .filter((project) => {
+          const matchSearch = project.title.toLowerCase().includes(search.toLowerCase());
+          const matchTags =
+            selectedTags.length === 0 || selectedTags.every((tag) => project.tags.map((t) => t.name).includes(tag));
+          const matchCategory =
+            selectedCategory === "All" || project.tags.some(tag => tag.typeProject === selectedCategory);
+  
+          return matchSearch && matchTags && matchCategory;
+          ;
+        })
+        .sort((a, b) => {
+          if (sortOrder === "alpha") return a.title.localeCompare(b.title);
+          if (sortOrder === "recent") {
+            const aMillis = a.createdAt instanceof Timestamp ? a.createdAt.toMillis() : new Date(a.createdAt).getTime();
+            const bMillis = b.createdAt instanceof Timestamp ? b.createdAt.toMillis() : new Date(b.createdAt).getTime();
+            return bMillis - aMillis; // tri du plus récent au plus ancien
+          }
+          if (sortOrder === "oldest") {
+            const aMillis = a.createdAt instanceof Timestamp ? a.createdAt.toMillis() : new Date(a.createdAt).getTime();
+            const bMillis = b.createdAt instanceof Timestamp ? b.createdAt.toMillis() : new Date(b.createdAt).getTime();
+            return aMillis - bMillis; // tri du plus ancien au plus récent
+          }          
+        return 0;
+        });
+  
+      setFiltered(filtered);
+    }, [projects, search, selectedTags, sortOrder, selectedCategory]);
+        return(
         <section className="other-items-sections flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
             <div className="flex flex-col items-center justify-center gap-2.5 w-full max-w-[800px]">
                 <h2
                     className="text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
-                    How We Secure Your Future
+                    Portfolio
                 </h2>
                 <p
                     className="text-[24px] leading-[1.2] tracking-[-0.8px] font-semibold text-[#999999] text-center font-[Inter,sans-serif]">
-                    Comprehensive solutions
-                    <span className="text-white">tailored to meet your unique needs.</span>
-                    our services designed to enhance efficiency, improve performance, and drive growth.
+                    Un aperçu concret de mes compétences à travers des projets 
+                    <span className="text-white"> variés, techniques et passionnants.</span>
                 </p>
             </div>
-            <div className="flex flex-col self-start items-start gap-6 max-w-[700px] ml-20 text-white p-[20px] rounded-[20px] bg-[rgb(17,17,17)] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4)] shadow-[inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
-                <div>
-                <h2 className="text-2xl font-bold text-white mb-2">My Work</h2>
-                <p className="text-zinc-300 text-base leading-relaxed">
-                    I'm a designer & developer with a passion for web design. I enjoy developing simple, clean and slick websites that provide real value to the end user.
-                </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                    <a href="#all" className="px-5 py-2 rounded-lg text-sm font-medium text-black bg-white hover:bg-[rgba(255,255,255,0.8)] transition-all duration-200 ease-in-out">
-                        All
-                    </a>
-                    <a href="#web" className="px-5 py-2 rounded-lg text-sm font-medium text-black bg-white hover:bg-[rgba(255,255,255,0.8)] transition-all duration-200 ease-in-out">
-                        Web Design
-                    </a>
-                    <a href="#dev" className="px-5 py-2 rounded-lg text-sm font-medium text-black bg-white hover:bg-[rgba(255,255,255,0.8)] transition-all duration-200 ease-in-out">
-                        Development
-                    </a>
-                    <a href="#branding" className="px-5 py-2 rounded-lg text-sm font-medium text-black bg-white hover:bg-[rgba(255,255,255,0.8)] transition-all duration-200 ease-in-out">
-                        Branding
-                    </a>
-                </div>
-            </div>
-            <Projects />
-            <a href="#solutions" className="flex items-center justify-center gap-2 h-[44px] px-4 bg-zinc-900 hover:bg-[rgb(77,142,255)] text-white text-sm font-semibold border cursor-pointer overflow-hidden relative transition"
+            <FilterSectionPortfolio
+                search={search}
+                setSearch={setSearch}
+                selectedTags={selectedTags}
+                setSelectedTags={setSelectedTags}
+                sortOrder={sortOrder}
+                setSortOrder={setSortOrder}
+                allTags={
+                    Array.from(
+                        new Set(
+                            projects.flatMap((p) =>
+                                p.tags .filter((t) => t.name !== undefined && t.name !== "") .map((t) => t.name)
+                            )
+                        )
+                    )     
+                }
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}              
+            />
+            <Projects projects={filtered} />
+            
+            <Link href="#solutions" className="flex items-center justify-center gap-2 h-[44px] px-4 bg-zinc-900 hover:bg-[rgb(77,142,255)] text-white text-sm font-semibold border cursor-pointer overflow-hidden relative transition"
                 style={{"willChange": "transform","borderRadius": "12px;border-color: rgb(77, 142, 255)"}}>
                 Explore Features
-            </a>
+            </Link>
         </section>
     );
 }
