@@ -10,6 +10,8 @@ import { ReactNode } from "react";
 import { AnalyticsProvider } from '@/app/_components/providers/AnalyticsProvider';
 import { Toaster } from "@/app/_components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react"
+import Script from "next/script"
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,8 +43,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {/* Google Tag (gtag.js) - Chargé uniquement en production */}
           {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
-            <script
+            <Script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
+            <Script
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
