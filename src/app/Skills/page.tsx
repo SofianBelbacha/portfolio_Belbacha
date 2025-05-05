@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   title: "Compétences | Sofian Belbacha - Développeur Full Stack",
   description: "Découvrez mes compétences techniques : React, Next.js, ASP.NET, JavaScript, HTML, UI/UX et bien plus.",
   keywords: ["Sofian Belbacha", "profil", "développeur", "parcours", "compétences", "JavaScript", "React", "Next.js"],
-  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.dev" }],
+  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app" }],
   creator: "Sofian Belbacha",
   openGraph: {
     title: "Compétences | Sofian Belbacha - Développeur Full Stack",
     description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
-    url: "https://sofianbelbacha.dev/portfolio",
+    url: "https://sofianbelbacha.vercel.app/portfolio",
     siteName: "Sofian Belbacha - Développeur & Futur DevOps",
     images: [
       {

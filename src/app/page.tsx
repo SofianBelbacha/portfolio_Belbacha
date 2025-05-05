@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   title: "Accueil | Sofian Belbacha - Développeur Full Stack",
   description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
   keywords: ["Sofian Belbacha", "portfolio", "développeur web", "frontend", "backend", "Next.js", "React", "ASP.NET Core", "projets web", "DevOps"],
-  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.dev" }],
+  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app" }],
   creator: "Sofian Belbacha",
   openGraph: {
     title: "Accueil | Sofian Belbacha - Développeur Full Stack",
     description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
-    url: "https://sofianbelbacha.dev/",
+    url: "https://sofianbelbacha.vercel.app/",
     siteName: "Sofian Belbacha - Développeur & Futur DevOps",
     images: [
       {
