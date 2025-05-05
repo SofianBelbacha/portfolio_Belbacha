@@ -24,7 +24,9 @@ export default function CarouselSkills() {
   const router = useRouter();
   const [activeBlock, setActiveBlock] = useState("php")
   const [api, setApi] = React.useState<CarouselApi>()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [current, setCurrent] = React.useState(0)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [count, setCount] = React.useState(0)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -77,7 +79,7 @@ export default function CarouselSkills() {
 
                 <CardContent className="px-6 pb-6 pt-2 space-y-6">
                   <p className="text-zinc-300 text-base leading-relaxed">
-                    Maîtrise du langage de structure d'une page web. Je suis capable de concevoir des documents bien organisés
+                    Maîtrise du langage de structure d&apos;une page web. Je suis capable de concevoir des documents bien organisés
                     et accessibles grâce à une utilisation précise des balises HTML.
                   </p>
 
@@ -197,7 +199,7 @@ export default function CarouselSkills() {
                 <CardContent className="px-6 pb-6 pt-2 space-y-6">
                   <p className="text-zinc-300 text-base leading-relaxed">
                     Je sais héberger un site web, le rendre accessible au public et comprendre les
-                    bases des noms de domaine, de l'hébergement et du déploiement.
+                    bases des noms de domaine, de l&apos;hébergement et du déploiement.
                   </p>
 
                   <div className="space-y-2">
@@ -255,8 +257,8 @@ export default function CarouselSkills() {
 
                 <CardContent className="px-6 pb-6 pt-2 space-y-6">
                   <p className="text-zinc-300 text-base leading-relaxed">
-                    Solide compréhension des fondamentaux de l’algorithmique (acquis à l'aide des bases python), indispensable pour
-                    aborder n’importe quel langage de programmation de manière logique et efficace.
+                    Solide compréhension des fondamentaux de l’algorithmique (acquis à l&apos;aide des bases python), indispensable pour
+                    aborder n&apos;importe quel langage de programmation de manière logique et efficace.
                   </p>
 
                   <div className="space-y-2">
@@ -452,7 +454,7 @@ export default function CarouselSkills() {
 
                     <CardContent className="px-6 pb-6 pt-2 space-y-6">
                       <p className="text-zinc-300 text-base leading-relaxed">
-                        Utilisation de l'outil de versionning Git pour la gestion des versions de projet, travail collaboratif et gestion d’historique des modifications.</p>
+                        Utilisation de l&apos;outil de versionning Git pour la gestion des versions de projet, travail collaboratif et gestion d’historique des modifications.</p>
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm text-zinc-400">
                           <span>Niveau</span>
@@ -729,7 +731,7 @@ export default function CarouselSkills() {
                       </CardHeader>
                       <CardContent className="px-6 pb-6 pt-2 space-y-6">
                         <p className="text-zinc-300 text-base leading-relaxed">
-                          Je maîtrise PHP pour la création d'applications web côté serveur.
+                          Je maîtrise PHP pour la création d&apos;applications web côté serveur.
                           Je peut concevoir des architectures solides tout en respectant les bonnes pratiques
                           du développement backend.</p>
 
@@ -925,8 +927,8 @@ export default function CarouselSkills() {
                       </CardHeader>
                       <CardContent className="px-6 pb-6 pt-2 space-y-6">
                         <p className="text-zinc-300 text-base leading-relaxed">
-                          J’utilise C# pour répondre à des besoins variés. Allant de la conception d' applications web avec ASP.NET, jusqu'a la
-                          création d'applications de bureau avec Windows Forms.
+                          J&apos;utilise C# pour répondre à des besoins variés. Allant de la conception d&apos; applications web avec ASP.NET, jusqu&apos;a la
+                          création d&apos;applications de bureau avec Windows Forms.
                         </p>
 
                         <div className="space-y-2">

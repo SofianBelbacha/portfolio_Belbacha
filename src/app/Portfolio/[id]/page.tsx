@@ -113,7 +113,7 @@ const ProjectDetail = async ({ params }: { params: { id: string } }) => {
                         </div>
 
                         <div>
-                            <h2 className="text-lg font-semibold text-white mb-2">vue d'ensemble</h2>
+                            <h2 className="text-lg font-semibold text-white mb-2">vue d&apos;ensemble</h2>
                             <p className="text-muted-foreground text-sm leading-6">{project.overview}</p>
                         </div>
 

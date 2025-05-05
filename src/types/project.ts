@@ -2,7 +2,7 @@ export interface Project {
     id: string;
     title: string;
     mainTool: {
-        [x: string]: any;
+        [x: string]: unknown;
         name: string;
         avatarUrl: string;
     };

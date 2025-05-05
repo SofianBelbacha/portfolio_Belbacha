@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 export default function HomePortfolio() {
     useEffect(() => {
-        const images = document.querySelectorAll(".animated-image");
         const wrappers = document.querySelectorAll(".scroll-scale");
 
         let ticking = false;
@@ -18,7 +17,7 @@ export default function HomePortfolio() {
                 const targetY = windowHeight;
                 const elementTop = rect.top;
 
-                let progress = Math.max(0, Math.min(1, (targetY - elementTop) / (windowHeight * 0.4)));
+                const progress = Math.max(0, Math.min(1, (targetY - elementTop) / (windowHeight * 0.4)));
 
                 const scale = 0.7 + progress * 0.3;
 

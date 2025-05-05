@@ -8,7 +8,9 @@ import { toast } from "sonner";
 import Form from 'next/form'
 
 export default function ContactForm() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [success, setSuccess] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [error, setError] = useState("");
 
     const {
@@ -44,7 +46,8 @@ export default function ContactForm() {
                   label: "Fermer",
                   onClick: () => console.log("Toast fermé"),
                 },
-              });          
+              });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any   
         } catch (err: any) {
             setError(err.message || "Erreur");
             toast("Erreur", {
@@ -99,7 +102,7 @@ export default function ContactForm() {
                         required
                         className="w-full h-full px-[12px] bg-transparent text-[#888888] appearance-none">
                         <option value="" disabled>Select…</option>
-                        <option value="Maintenance Agreements">Signalement d'un dysfonctionnement rencontré</option>
+                        <option value="Maintenance Agreements">Signalement d&apos;un dysfonctionnement rencontré</option>
                         <option value="Firewall Solutions">Collaboration pour vos projets</option>
                         <option value="DLP Solutions">Echange/Renseignement</option>
                         <option value="Opportunité professionnelle">Opportunité professionnelle</option>

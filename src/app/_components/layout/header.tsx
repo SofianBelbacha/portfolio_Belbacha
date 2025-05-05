@@ -55,7 +55,7 @@ export default function Header() {
                     </Link>
                     <Link href="/Blog" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300"
                         onClick={(e) => {
-                            e.preventDefault(),
+                            e.preventDefault();
                                 toast("En cours...", {
                                     description: "Page en cours de développement",
                                     action: {
@@ -110,7 +110,7 @@ export default function Header() {
                         </Link>
                         <Link href="/Blog" className="mr-5 cursor-pointer text-white hover:text-white font-semibold transition duration-300"
                             onClick={(e) => {
-                                e.preventDefault(),
+                                e.preventDefault();
                                     toast("En cours...", {
                                         description: "Page en cours de développement",
                                         action: {
