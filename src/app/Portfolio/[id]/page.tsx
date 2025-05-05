@@ -10,12 +10,9 @@ import { Metadata } from 'next';
 
 export async function generateStaticParams() {
     const snapshot = await adminDb.collection('projects').get();
-    const paths = snapshot.docs.map((doc) => ({
-        id: doc.id,
-    }));
 
-    return paths.map((path) => ({
-        id: path.id,
+    return snapshot.docs.map((doc) => ({
+        params: { id: doc.id },  // Correctement structuré avec `params`
     }));
 }
 
@@ -62,8 +59,13 @@ export async function generateMetadata(
     };
 }
 
+type PageProps = {
+    params: { id: string };
+  };
+  
 
-const ProjectDetail = async ({ params }: { params: { id: string } }) => {
+
+const ProjectDetail = async ({ params }: PageProps) => {
     const project = await fetchProject(params.id);
 
     if (!project) {
