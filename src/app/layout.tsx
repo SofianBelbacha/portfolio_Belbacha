@@ -39,16 +39,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
       <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
           {/* Google Tag (gtag.js) - Chargé uniquement en production */}
-          {process.env.NODE_ENV === 'production' && (
+          {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=G-808Y0BVX93`} />
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
             <script
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', 'G-808Y0BVX93');
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
                 `,
               }}
             />
