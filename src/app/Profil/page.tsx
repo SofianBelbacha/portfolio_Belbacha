@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
-  metadataBase: new URL("https://sofianbelbacha.dev"),
+  metadataBase: new URL("https://sofianbelbacha.vercel.app"),
 };
 
 export default function Profil() {

@@ -31,15 +31,13 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://i.postimg.cc/3x1PQcd6/og-portfolio.png",
-        width: 1200,
-        height: 630,
         alt: "Aperçu de mon portfolio",
       },
     ],
     locale: "fr_FR",
     type: "website",
   },
-  metadataBase: new URL("https://sofianbelbacha.dev"),
+  metadataBase: new URL("https://sofianbelbacha.vercel.app"),
 };
 
 

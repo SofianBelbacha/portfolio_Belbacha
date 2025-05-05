@@ -9,6 +9,7 @@ import Contact from "./_components/layout/contact";
 import { ReactNode } from "react";
 import { AnalyticsProvider } from '@/app/_components/providers/AnalyticsProvider';
 import { Toaster } from "@/app/_components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr" className={`dark ${inter.variable} ${geistSans.variable} ${geistMono.variable}`}>
       <head>
       <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          {/* Google Tag (gtag.js) - Chargé uniquement en production */}
+          {process.env.NODE_ENV === 'production' && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=G-808Y0BVX93`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-808Y0BVX93');
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="bg-black text-white">
         <AnalyticsProvider />
@@ -47,6 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <div className="pointer-events-none fixed bottom-0 left-0 right-0 h-[100px] z-10 bg-gradient-to-b from-[rgba(5,5,5,0)] to-black opacity-100">
         </div>
+        <Analytics />
       </body>
     </html>
   );

@@ -40,22 +40,23 @@ export async function generateMetadata(
     return {
         title: `${project.title} | Sofian Belbacha - Développeur Full Stack`,
         description: project.summary || "Projet issu de mon portfolio personnel",
+        authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.dev" }],
+        creator: "Sofian Belbacha",      
         openGraph: {
             title: `${project.title} | Sofian Belbacha - Développeur Full Stack`,
             description: project.summary,
-            url: `https://ton-domaine.dev/projects/${params.id}`,
+            url: `https://sofianbelbacha.vercel.app/Portfolio/${params.id}`,
             siteName: "Sofian Belbacha - Développeur & Futur DevOps",
             images: [
                 {
                     url: project.coverImage,
-                    width: 1200,
-                    height: 630,
                     alt: project.title,
                 },
             ],
             locale: 'fr_FR',
             type: 'website',
         },
+        metadataBase: new URL("https://sofianbelbacha.vercel.app"),
     };
 }
 
