@@ -11,27 +11,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'images.pexels.com',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'framerusercontent.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'cdn.brandfetch.io',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
         pathname: '/**',
       },
       {

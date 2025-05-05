@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firestore";
-
 export interface Project {
     id: string;
     title: string;
@@ -28,6 +26,6 @@ export interface Project {
         iconUrl: string;
         description: string;
     }[];
-    createdAt: string | Date; // à parser si besoin en `Date` ou `Timestamp`
+    createdAt: Date;
 }
 

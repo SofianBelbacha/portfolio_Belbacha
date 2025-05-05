@@ -1,4 +1,4 @@
-const { Timestamp } = require("firebase-admin").firestore; // 👈 pour utiliser Timestamp
+const { Timestamp } = require("firebase-admin").firestore;
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./portfolio-firebase-828d2-firebase-adminsdk-fbsvc-9d9beb87dd.json");

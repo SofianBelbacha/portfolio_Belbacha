@@ -10,8 +10,6 @@ import { Button } from "@/app/_components/ui/button"
 import { Progress } from "@/app/_components/ui/progress"
 import { Separator } from "@/app/_components/ui/separator"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/_components/ui/tooltip"
-import { Popover, PopoverContent, PopoverTrigger } from "@/app/_components/ui/popover"
-import { MoreVertical } from "lucide-react"
 import Image from "next/image";
 import { useState, useRef } from "react";
 import clsx from "clsx";
@@ -44,12 +42,16 @@ export default function CarouselSkills() {
   }, [api])
 
   return (
-    <div className="max-w-[1130px] mx-auto py-20 px-4">
+    <div className="w-full lg:max-w-[1130px] mx-auto py-20 px-4">
       <div className="max-w-[500px] flex flex-col gap-[20px] mb-7">
-        <h2 className="text-left text-4xl text-[30px] font-bold tracking-tight mb-16">Des bases solides pour construire des projets web robustes</h2>
+        <h2 className="text-left text-4xl font-bold tracking-tight mb-16">Des bases solides pour construire des projets web robustes</h2>
       </div>
-      <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
-        <CarouselPrevious />
+      <Carousel setApi={setApi} className="max-w-[600px] mx-auto relative">
+        <div className="flex justify-center gap-x-2 px-2 size-min absolute left-[46%] top-[-6%] z-10 md:hidden">
+          <CarouselPrevious />
+          <CarouselNext />
+        </div>
+        <CarouselPrevious className="hidden md:visible" />
         <CarouselContent>
           <CarouselItem className="select-none">
             <TooltipProvider>
@@ -289,24 +291,24 @@ export default function CarouselSkills() {
             </TooltipProvider>
           </CarouselItem>
         </CarouselContent>
-        <CarouselNext />
+        <CarouselNext className="hidden md:visible" />
       </Carousel>
       <div className="text-center py-16  text-sm uppercase relative tree-category">
         Orientation : Choix du langage
-        <strong className="block text-white text-4xl font-semibold tracking-widest whitespace-nowrap">stacks
+        <strong className="block text-white text-4xl font-semibold tracking-widest">stacks
           maîtrisés
         </strong>
       </div>
-      <div className="relative flex flex-col lg:flex-row justify-around items-start gap-10 tree-split">
+      <div className="relative flex flex-col lg:flex-row justify-center items-start gap-10 tree-split">
         <div className="w-full lg:w-1/2">
           <div className="text-center  text-sm uppercase py-16 relative tree-category">
             Partie <strong className="block text-white text-4xl font-semibold tracking-widest">Frontend</strong>
           </div>
-          <Carousel setApi={setApi} orientation="vertical" className="max-w-[600px] mx-auto">
-            <CarouselContent className="max-h-[452px]" ref={contentRef}>
+          <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
+            <CarouselContent ref={contentRef}>
               <CarouselItem className="select-none">
                 <TooltipProvider>
-                  <Card className="h-full relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
+                  <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
                     <CardHeader className="flex flex-col gap-4 p-6 pb-2">
                       <div className="flex justify-between items-start w-full">
                         <div className="flex items-center gap-4">
@@ -487,10 +489,10 @@ export default function CarouselSkills() {
             <ScrollHint scrollRef={contentRef} />
           </Carousel>
           <div className="text-center py-16  text-sm uppercase relative tree-category">
-            Spécialisation <strong className="block text-white text-4xl font-semibold tracking-widest whitespace-nowrap">Framework</strong>
+            Spécialisation <strong className="block text-white text-4xl font-semibold tracking-widest">Framework</strong>
           </div>
-          <Carousel setApi={setApi} orientation="vertical" className="max-w-[600px] mx-auto">
-            <CarouselContent className="max-h-[452px]" ref={contentRef}>
+          <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
+            <CarouselContent ref={contentRef}>
               <CarouselItem className="select-none">
                 <TooltipProvider>
                   <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
@@ -621,7 +623,7 @@ export default function CarouselSkills() {
           </Carousel>
         </div>
         <div className="w-full lg:w-1/2">
-          <div className="tree-split-backend">
+          <div className="relative tree-split-backend">
             <div className="text-center  text-sm uppercase py-16 relative tree-category">
               Partie <strong className="block text-white text-4xl font-semibold tracking-widest">BackEnd</strong>
             </div>
@@ -630,17 +632,19 @@ export default function CarouselSkills() {
             <button data-target="php" onClick={() => setActiveBlock("php")} className="flex flex-col items-center focus:outline-none">
               <div className="w-[3px] h-24 bg-white opacity-30"></div>
               <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width={80} height={80} className="transition-transform duration-300 hover:scale-110" />
+              <div className={`w-[3px] h-24 bg-white branch-split-aspnet ${activeBlock === "php" ? "opacity-30" : "opacity-0"}`}></div>
             </button>
 
             <button data-target="aspnet" onClick={() => setActiveBlock("aspnet")} className="flex flex-col items-center focus:outline-none">
               <div className="w-[3px] h-24 bg-white opacity-30"></div>
               <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" width={80} height={80} className="transition-transform duration-300 hover:scale-110" />
+              <div className={`w-[3px] h-24 bg-white branch-split-aspnet ${activeBlock === "aspnet" ? "opacity-30" : "opacity-0"}`}></div>
+         
             </button>
           </div>
           <div id="php" className={clsx("backend-block", { hidden: activeBlock !== "php" })}>
-            <div className="w-[3px] h-15 bg-[#FFFFFF] mr-97 opacity-40 mx-auto"></div>
-            <Carousel setApi={setApi} orientation="vertical" className="max-w-[600px] mx-auto">
-              <CarouselContent className="max-h-[452px]" ref={contentRef}>
+            <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
+              <CarouselContent ref={contentRef}>
                 <CarouselItem className="select-none">
                   <TooltipProvider>
                     <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
@@ -770,7 +774,7 @@ export default function CarouselSkills() {
             </Carousel>
             <div className="text-center py-16  text-sm uppercase relative tree-category">
               Spécialisation
-              <strong className="block text-white text-4xl font-semibold tracking-widest whitespace-nowrap">Framework</strong>
+              <strong className="block text-white text-4xl font-semibold tracking-widest">Framework</strong>
             </div>
             <TooltipProvider>
               <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
@@ -835,9 +839,8 @@ export default function CarouselSkills() {
             </TooltipProvider>
           </div>
           <div id="aspnet" className={clsx("backend-block", { hidden: activeBlock !== "aspnet" })}>
-            <div className="w-[3px] h-10 bg-[#FFFFFF] ml-97 opacity-40 mx-auto"></div>
-            <Carousel setApi={setApi} orientation="vertical" className="max-w-[600px] mx-auto">
-              <CarouselContent className="max-h-[452px]" ref={contentRef}>
+            <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
+              <CarouselContent ref={contentRef}>
                 <CarouselItem className="select-none">
                   <TooltipProvider>
                     <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
@@ -968,7 +971,7 @@ export default function CarouselSkills() {
 
             <div className="text-center py-16  text-sm uppercase relative tree-category">
               Spécialisation
-              <strong className="block text-white text-4xl font-semibold tracking-widest whitespace-nowrap">ASP.NET Core</strong>
+              <strong className="block text-white text-4xl font-semibold tracking-widest">ASP.NET Core</strong>
             </div>
             <TooltipProvider>
               <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">

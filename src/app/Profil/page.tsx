@@ -1,12 +1,35 @@
+export const dynamic = "force-static";
+
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/_components/ui/card"
 import { Badge } from "@/app/_components/ui/badge"
-import { Button } from "@/app/_components/ui/button"
-import { ArrowUpRight, BadgeCheck, BriefcaseBusiness, CirclePlay, Clock, Download, Link2, Mail, MapPin, PhoneCall, Settings } from "lucide-react";
+import { BadgeCheck, BriefcaseBusiness, Clock, Link2, Mail, MapPin, PhoneCall } from "lucide-react";
 import Image from "next/image";
-import { Separator } from "../_components/ui/separator";
-import { Tabs, TabsList, TabsTrigger } from "../_components/ui/tabs";
 import { Avatar, AvatarImage } from "../_components/ui/avatar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Profil | Sofian Belbacha - Développeur Full Stack",
+  description: "Développeur passionné, je vous invite à découvrir mon parcours, mon expérience et les technologies que j’ai apprises et maîtrisées.",
+  keywords: ["Sofian Belbacha", "profil", "développeur", "parcours", "compétences", "JavaScript", "React", "Next.js"],
+  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.dev" }],
+  creator: "Sofian Belbacha",
+  openGraph: {
+    title: "Profil | Sofian Belbacha - Développeur Full Stack",
+    description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
+    url: "https://sofianbelbacha.dev/Profil",
+    siteName: "Sofian Belbacha - Développeur & Futur DevOps",
+    images: [
+      {
+        url: "https://i.postimg.cc/3x1PQcd6/og-portfolio.png",
+        alt: "Aperçu de mon portfolio",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  metadataBase: new URL("https://sofianbelbacha.dev"),
+};
 
 export default function Profil() {
   return (
@@ -26,7 +49,7 @@ export default function Profil() {
             <div className="space-y-4 xl:col-span-1">
               <Card className="flex flex-col gap-6 relative py-6 rounded-xl border border-white/20 bg-transparent">
                 <CardContent className="px-6">
-                  <Badge className="absolute start-4 top-4">Pro</Badge>
+                  <Badge className="absolute start-4 top-4">Profil</Badge>
                   <div className="space-y-12">
                     <div className="flex flex-col items-center space-y-4">
                       <Avatar className="size-20">
@@ -37,14 +60,10 @@ export default function Profil() {
                         <div className="text-muted-foreground text-sm">Développeur Full Stack</div>
                       </div>
                     </div>
-                    <div className="bg-muted grid grid-cols-3 divide-x rounded-md border text-center *:py-3">
+                    <div className="bg-muted grid grid-cols-2 divide-x rounded-md border text-center *:py-3">
                       <div className="flex flex-col items-center gap-[5px] justify-center">
                         <Image src="linkedin-svgrepo-com.svg" alt={"Linkedin Logo"} className="h-[20px]" width={30} height={20} />
                         <Link href="https://www.linkedin.com/in/sofian-belbacha/" target="_blank" className="text-muted-foreground text-sm">Linkedin</Link>
-                      </div>
-                      <div>
-                        <h5 className="text-lg font-semibold">32</h5>
-                        <div className="text-muted-foreground text-sm">Projects</div>
                       </div>
                       <div className="flex flex-col items-center gap-[5px] justify-center">
                         <svg data-v-54e46119="" width={30} height={20} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="github-link--logo">
@@ -82,7 +101,8 @@ export default function Profil() {
                 <CardHeader className="grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6">
                   <div className="flex justify-between">
                     <CardTitle className="leading-none font-semibold">Skills</CardTitle>
-                    <Link className="text-muted-foreground hover:text-primary text-sm hover:underline" href="/Skills">View All</Link>
+                    <Link className="text-muted-foreground hover:text-primary text-sm hover:underline" href="/Skills">Voir tout
+                    </Link>
                   </div>
                 </CardHeader>
 
@@ -101,7 +121,7 @@ export default function Profil() {
               </Card>
               <Card className="flex flex-col gap-6 py-6 rounded-xl border border-white/20 bg-transparent">
                 <CardHeader className="px-6 pb-0">
-                  <CardTitle>About Me</CardTitle>
+                  <CardTitle>À propos de moi</CardTitle>
                 </CardHeader>
                 <CardContent className="px-6 space-y-4">
                   <p>
@@ -122,31 +142,23 @@ export default function Profil() {
                 <CardHeader className="px-6">
                   <div className="flex items-start justify-between">
                     <CardTitle>Mon CV</CardTitle>
-                    <button
-                      className="size-9 rounded-md border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
-                      aria-label="Voir plus"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M9 18l6-6-6-6" />
-                      </svg>
-                    </button>
+                    <Link href={"/personal/CV_Portfolio_Belbacha.pdf"} target="_blank">
+                      <button className="size-9 flex items-center justify-center rounded-md border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
+                        aria-label="Voir plus">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" >
+                          <path d="M9 18l6-6-6-6" />
+                        </svg>
+                      </button>
+                    </Link>
                   </div>
                 </CardHeader>
 
                 <CardContent className="px-6 space-y-4">
-                  <div className="w-full rounded-md overflow-hidden shadow">
-                    <img
-                      src="https://attractivecv.com/wp-content/uploads/2023/01/cv-cadre-exemple.jpg"
-                      alt="Aperçu de mon CV"
-                      className="w-full h-auto object-cover"
+                  <div className="h-[603px] max-w-full overflow-hidden rounded-md shadow">
+                    <iframe
+                      src="/personal/CV_Portfolio_Belbacha.pdf"
+                      className="w-full h-full"
+                      title="CV de Belbacha"
                     />
                   </div>
                 </CardContent>
@@ -181,7 +193,7 @@ export default function Profil() {
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Conception et développement d'applications :</span> capacité à créer des applications web et mobiles fonctionnelles et performantes.
+                            <span className="font-medium text-foreground">Conception et développement d&apos;applications :</span> capacité à créer des applications web et mobiles fonctionnelles et performantes.
                           </span>
                         </li>
                         <li className="pl-4 relative">
@@ -193,7 +205,7 @@ export default function Profil() {
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Introduction à l’intelligence artificielle :</span> découverte des fondements de l'IA à travers des projets concrets en python, compréhension des concepts de machine learning.
+                            <span className="font-medium text-foreground">Introduction à l’intelligence artificielle :</span> découverte des fondements de l&apos;IA à travers des projets concrets en python, compréhension des concepts de machine learning.
 
 
                           </span>
@@ -201,7 +213,7 @@ export default function Profil() {
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Adaptabilité technologique :</span> préparation à l'apprentissage continu face à l'évolution rapide des technologies.
+                            <span className="font-medium text-foreground">Adaptabilité technologique :</span> préparation à l&apos;apprentissage continu face à l&apos;évolution rapide des technologies.
                           </span>
                         </li>
                         <li className="pl-4 relative">
@@ -213,7 +225,7 @@ export default function Profil() {
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Sécurité informatique :</span> Principes de base de la sécurité des systèmes d'information, mise en œuvre de mesures de protection des données
+                            <span className="font-medium text-foreground">Sécurité informatique :</span> Principes de base de la sécurité des systèmes d&apos;information, mise en œuvre de mesures de protection des données
                           </span>
                         </li>
                       </ul>
@@ -230,7 +242,7 @@ export default function Profil() {
                       <p className="text-muted-foreground">
                         Le BTS Services Informatiques aux Organisations (SIO) option Solutions Logicielles et Applications Métiers (SLAM)
                         forme des professionnels capables de concevoir, développer et maintenir des applications informatiques répondant
-                        aux besoins des entreprises. Les compétences techniques que j'ai acquises incluent :
+                        aux besoins des entreprises. Les compétences techniques que j&apos;ai acquises incluent :
                       </p>
                       <ul className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                         <li className="pl-4 relative">
@@ -266,7 +278,7 @@ export default function Profil() {
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Sécurité informatique :</span> Principes de base de la sécurité des systèmes d'information, mise en œuvre de mesures de protection des données
+                            <span className="font-medium text-foreground">Sécurité informatique :</span> Principes de base de la sécurité des systèmes d&apos;information, mise en œuvre de mesures de protection des données
                           </span>
                         </li>
                       </ul>
@@ -276,7 +288,7 @@ export default function Profil() {
               </Card>
               <Card className="flex flex-col gap-6 py-6 rounded-xl border border-white/20 bg-transparent">
                 <CardHeader className="px-6">
-                  <CardTitle>Experiences</CardTitle>
+                  <CardTitle>Expériences</CardTitle>
                 </CardHeader>
 
                 <CardContent className="px-6">
@@ -325,7 +337,7 @@ export default function Profil() {
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Mise en place d’une structure collaborative :</span> Définition et implémentation d'outils et de processus de travail pour améliorer l’efficacité et la communication au sein de l’équipe.
+                            <span className="font-medium text-foreground">Mise en place d’une structure collaborative :</span> Définition et implémentation d&apos;outils et de processus de travail pour améliorer l’efficacité et la communication au sein de l’équipe.
                           </span>
                         </li>
                         <li className="pl-4 relative">

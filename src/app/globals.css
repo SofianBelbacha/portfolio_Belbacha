@@ -289,7 +289,7 @@ html>body[data-scroll-locked] {
     top: 0;
     width: 100%;
     margin: 0 auto;
-    max-width: 570px;
+    max-width: 590px;
     height: 2px;
     background-color: #ffffff;
     opacity: 0.4;
@@ -298,7 +298,6 @@ html>body[data-scroll-locked] {
 .tree-split-backend::after {
     content: "";
     display: block;
-    position: absolute;
     width: 100%;
     margin: 0 auto;
     max-width: 250px;

@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, ContactFormData } from "@/lib/contactSchema";
 import { useState } from "react";
+import { toast } from "sonner";
+import Form from 'next/form'
 
 export default function ContactForm() {
     const [success, setSuccess] = useState(false);
@@ -35,11 +37,26 @@ export default function ContactForm() {
 
             setSuccess(true);
             reset();
+
+            toast("Message envoyé",{
+                description: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+                action: {
+                  label: "Fermer",
+                  onClick: () => console.log("Toast fermé"),
+                },
+              });          
         } catch (err: any) {
             setError(err.message || "Erreur");
+            toast("Erreur", {
+                description: err.message || "Une erreur s’est produite.",
+                action: {
+                    label: "Fermer",
+                    onClick: () => console.log("Toast fermé"),
+                },
+            });          
         }
     }; return (
-        <form onSubmit={handleSubmit(onSubmit)} className="relative z-[1] flex flex-col gap-[20px] w-full p-[20px] border border-white/15 backdrop-blur-[5px] flex-1 basis-0">
+        <Form action={""} onSubmit={handleSubmit(onSubmit)} className="relative z-[1] flex flex-col gap-[20px] w-full p-[20px] border border-white/15 backdrop-blur-[5px] flex-1 basis-0">
             <label className="flex flex-col gap-[10px] w-full">
                 <p className="font-[600] text-[16px] leading-[1.6em] text-white">
                     Nom complet
@@ -114,8 +131,6 @@ export default function ContactForm() {
                     {isSubmitting ? "Envoi..." : "Envoyer"}
                 </p>
             </button>
-            {success && <p className="text-[15px] leading-[1.6em] text-white">Message envoyé</p>}
-            {error && <p className="text-[15px] leading-[1.6em] text-white">{error}</p>}
-        </form>
+        </Form>
     );
 }

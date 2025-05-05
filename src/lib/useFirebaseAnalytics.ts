@@ -4,7 +4,7 @@
 import { useEffect } from 'react';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 import { app } from '@/firebase/firebase.config';
-
+ 
 export const useFirebaseAnalytics = () => {
   useEffect(() => {
     const loadAnalytics = async () => {

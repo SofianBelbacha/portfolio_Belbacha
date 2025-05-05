@@ -1,4 +1,5 @@
 // app/layout.tsx
+import "./globals.css";
 import { Inter } from "next/font/google"; // Import de la police
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -8,7 +9,6 @@ import Contact from "./_components/layout/contact";
 import { ReactNode } from "react";
 import { AnalyticsProvider } from '@/app/_components/providers/AnalyticsProvider';
 import { Toaster } from "@/app/_components/ui/sonner";
-import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
-    <html lang="fr" className="dark">
+    <html lang="fr" className={`dark ${inter.variable} ${geistSans.variable} ${geistMono.variable}`}>
       <head>
       <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </head>
