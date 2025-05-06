@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   creator: "Sofian Belbacha",
   openGraph: {
     title: "Profil | Sofian Belbacha - Développeur Full Stack",
-    description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
+    description: "Développeur passionné, je vous invite à découvrir mon parcours, mon expérience et les technologies que j’ai apprises et maîtrisées.",
     url: "https://sofianbelbacha.vercel.app/Profil",
     siteName: "Sofian Belbacha - Développeur & Futur DevOps",
     images: [

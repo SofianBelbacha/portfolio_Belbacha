@@ -311,9 +311,11 @@ export default function Home() {
                     <ArrowUpRight className="!h-5 !w-5" />
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="sm:w-auto rounded-full text-base shadow-none cursor-pointer">
-                  <Download className="!h-5 !w-5" /> Télecharger mon CV
-                </Button>
+                <Link href={"/personal/CV_Portfolio_Belbacha.pdf"} target="_blank">
+                  <Button variant="outline" size="lg" className="sm:w-auto rounded-full text-base shadow-none cursor-pointer">
+                    <Download className="!h-5 !w-5" /> Télecharger mon CV
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="relative lg:max-w-lg xl:max-w-xl w-full bg-accent rounded-xl aspect-square">

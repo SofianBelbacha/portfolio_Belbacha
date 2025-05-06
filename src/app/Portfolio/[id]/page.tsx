@@ -10,12 +10,12 @@ import { Metadata } from 'next';
 
 export async function generateStaticParams() {
     const snapshot = await adminDb.collection('projects').get();
-
+  
     return snapshot.docs.map((doc) => ({
-        params: { id: doc.id },  // Correctement structuré avec `params`
+      id: doc.id,
     }));
-}
-
+  }
+  
 export const dynamic = 'force-static'; // ISR
 export const revalidate = 86400; // toutes les 60s
 
@@ -49,7 +49,7 @@ export async function generateMetadata(
             siteName: "Sofian Belbacha - Développeur & Futur DevOps",
             images: [
                 {
-                    url: project.coverImage,
+                    url: project.coverImage || "https://i.postimg.cc/3x1PQcd6/og-portfolio.png",
                     alt: project.title,
                 },
             ],
