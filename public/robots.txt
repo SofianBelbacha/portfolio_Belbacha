@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sofianbelbacha.vercel.app
+
+# Sitemaps
+Sitemap: https://sofianbelbacha.vercel.app/sitemap.xml
