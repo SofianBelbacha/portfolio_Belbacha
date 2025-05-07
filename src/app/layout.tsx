@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 `,
               }}
             />
-            {console.log("GA ID visible côté client:", process.env.NEXT_PUBLIC_GA_ID)}
+            <meta name="google-site-verification" content="GJhiqE5sy7GitDAscpGr9OA8LPC68RSEzcXLP0WEldE" />
           </>
         )}
       </head>
