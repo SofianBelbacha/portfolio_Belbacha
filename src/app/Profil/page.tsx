@@ -53,7 +53,7 @@ export default function Profil() {
                   <div className="space-y-12">
                     <div className="flex flex-col items-center space-y-4">
                       <Avatar className="size-20">
-                        <AvatarImage src="https://media.licdn.com/dms/image/v2/D5635AQHBftiD_vYVmg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1726931279395?e=1746554400&v=beta&t=G-YWxXgkA8qSMz-Rjzs6hec15ALsbMNjCl9DEybt5fg" alt="@shadcn" />
+                        <AvatarImage src="./linkedin_profil-image.jpg" alt="@shadcn" />
                       </Avatar>
                       <div className="text-center">
                         <h5 className="text-xl font-semibold">Sofian Belbacha</h5>
