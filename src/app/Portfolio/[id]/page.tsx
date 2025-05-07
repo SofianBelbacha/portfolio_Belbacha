@@ -42,14 +42,11 @@ export async function generateMetadata(
         description: project.summary || "Projet issu de mon portfolio personnel",
         authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app" }],
         creator: "Sofian Belbacha",
-        icons: {
-            icon: "../favicon.ico",
-        },                
         openGraph: {
             title: `${project.title} | Sofian Belbacha - Développeur Full Stack`,
             description: project.summary,
             url: `https://sofianbelbacha.vercel.app/Portfolio/${params.id}`,
-            siteName: "Sofian Belbacha - Développeur & Futur DevOps",
+            siteName: "SOFIAN",
             images: [
                 {
                     url: project.coverImage || "https://i.postimg.cc/3x1PQcd6/og-portfolio.png",
