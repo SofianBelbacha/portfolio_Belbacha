@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   keywords: ["Sofian Belbacha", "portfolio", "développeur web", "frontend", "backend", "Next.js", "React", "projets web"],
   authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app" }],
   creator: "Sofian Belbacha",
+  icons: {
+    icon: "../favicon.ico",
+  },  
   openGraph: {
     title: "Projets | Sofian Belbacha - Développeur Full Stack",
     description: "Découvrez les projets que j'au réalisés : applications web, sites modernes, intégration responsive et bien plus.",

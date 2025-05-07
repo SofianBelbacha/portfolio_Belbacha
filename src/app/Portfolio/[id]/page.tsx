@@ -41,7 +41,10 @@ export async function generateMetadata(
         title: `${project.title} | Sofian Belbacha - Développeur Full Stack`,
         description: project.summary || "Projet issu de mon portfolio personnel",
         authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app" }],
-        creator: "Sofian Belbacha",      
+        creator: "Sofian Belbacha",
+        icons: {
+            icon: "../favicon.ico",
+        },                
         openGraph: {
             title: `${project.title} | Sofian Belbacha - Développeur Full Stack`,
             description: project.summary,
