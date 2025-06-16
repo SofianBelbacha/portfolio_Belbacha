@@ -1,81 +1,77 @@
 {
-  "title": "Projet - Watchlist ASP.NET Core",
+  "title": "Projet - Serveur Mail Personnel (Postfix + Dovecot + Rainloop)",
   "mainTool": {
-    "name": "ASP.NET Core",
-    "avatarUrl": "/icon/aspnet-core.svg"
+    "name": "Postfix",
+    "avatarUrl": "/icon/Postfix-logo.svg"
   },
-  "coverImage": "https://i.postimg.cc/GhKDGCXx/watchlist-preview.jpg",
+  "coverImage": "https://i.postimg.cc/CxkBMFZS/screen-rainloop.png",
   "tags": [
-    { "name": "C#" },
-    { "name": "ASP.NET Core" },
-    { "name": "Microsoft Visual Studio" },
-    { "name": "Entity Framework Core" },
-    { "name": "Razor Pages" },
-    { "name": "Bootstrap" },
-    { "name": "SQL Server" },
-    { "name": "Backend" }
-
+    { "name": "Postfix" },
+    { "name": "Dovecot" },
+    { "name": "Rainloop" },
+    { "name": "PHP" },
+    { "name": "MariaDB" },
+    { "name": "Linux (Debian)" }
   ],
-  "summary": "Application web permettant de gérer une liste personnalisée de films avec tri, notation et authentification sécurisée.",
+  "summary": "Un serveur mail personnel auto-hébergé avec Postfix, Dovecot, Rainloop et une interface d'administration PHP.",
   "links": {
     "demo": "",
-    "github": "https://github.com/SofianBelbacha/Projet_ASP.NET_Watchlist"
+    "github": "https://github.com/SofianBelbacha/Projet_solution_messagerie"
   },
-  "overview": "Watchlist est une application développée avec ASP.NET Core qui offre aux utilisateurs une interface intuitive pour gérer leur collection de films. Elle propose des fonctionnalités de recherche, de tri par note ou année, ainsi qu’un système de notation personnel. Grâce à l’authentification intégrée via Identity Framework, les utilisateurs peuvent créer un compte sécurisé pour suivre leurs films, marquer ceux qu’ils ont vus et attribuer une note.",
+  "overview": "Ce projet met en place un serveur mail personnel complet auto-hébergé sur une machine Debian. Il s'appuie sur Postfix pour la gestion de l'envoi des mails (SMTP), Dovecot pour la réception (IMAP), et Rainloop comme interface Webmail simple et moderne. Une interface d’administration en PHP permet également de redémarrer les services facilement. La gestion des comptes utilisateurs est assurée via une base de données MariaDB.",
   "features": [
     {
-      "title": "Recherche avancée",
-      "description": "Filtrer les films par titre, année de sortie ou note utilisateur."
+      "title": "Service SMTP avec Postfix",
+      "description": "Permet l’envoi d’e-mails avec authentification SMTP sécurisée."
     },
     {
-      "title": "Gestion des films",
-      "description": "Ajouter des films à une watchlist, les marquer comme vus, et les noter."
+      "title": "Service IMAP avec Dovecot",
+      "description": "Permet la réception des e-mails avec accès distant via IMAP."
     },
     {
-      "title": "Tri personnalisé",
-      "description": "Trier la liste par année de sortie, ordre alphabétique ou note."
+      "title": "Webmail moderne",
+      "description": "Accès aux boîtes mail via Rainloop, interface web légère et rapide."
     },
     {
-      "title": "Authentification sécurisée",
-      "description": "Inscription, connexion et gestion de compte grâce à Identity Framework."
+      "title": "Interface d’administration",
+      "description": "Mini dashboard PHP pour redémarrer Postfix et Dovecot."
+    },
+    {
+      "title": "Gestion via MariaDB",
+      "description": "Stockage des utilisateurs, mots de passe et domaines dans une base de données MariaDB."
     }
   ],
   "technologies": [
     {
-      "name": "C#",
-      "iconUrl": "/icon/c-sharp.svg",
-      "description": "C# est un langage moderne, typé, orienté objet, développé par Microsoft."
+      "name": "Postfix",
+      "iconUrl": "/icon/Postfix-logo.svg",
+      "description": "Postfix est un agent de transfert de mail (MTA) rapide et sécurisé utilisé pour l’envoi des courriels (SMTP)."
     },
     {
-      "name": "ASP.NET Core",
-      "iconUrl": "/icon/aspnet-core.svg",
-      "description": "Framework open-source développé par Microsoft pour la création d'applications web modernes côté serveur."
+      "name": "Dovecot",
+      "iconUrl": "/icon/dovecot.svg",
+      "description": "Dovecot est un serveur IMAP léger et sécurisé pour la réception et la consultation des emails."
     },
     {
-      "name": "Entity Framework Core",
-      "iconUrl": "https://i.postimg.cc/RFGVjRfT/Bitmap-MEDIUM-Entity-Framework-Core.png",
-      "description": "ORM pour .NET facilitant la communication avec une base de données relationnelle."
+      "name": "Rainloop",
+      "iconUrl": "/icon/email-18-svgrepo-com",
+      "description": "Rainloop est un client webmail moderne, rapide et simple à intégrer."
     },
     {
-      "name": "Razor Pages",
-      "iconUrl": "https://i.postimg.cc/1t2syWm0/1-ce-Vc-T-d-NYf9-K4-Wxa-Y4vyx-Q.png",
-      "description": "Razor Pages permet de créer des pages dynamiques dans les applications ASP.NET Core."
+      "name": "MariaDB",
+      "iconUrl": "/icon/mariadb.svg",
+      "description": "Système de gestion de base de données relationnelle open source, utilisé pour gérer les utilisateurs."
     },
     {
-      "name": "Bootstrap",
-      "iconUrl": "/icon/bootstrap.svg",
-      "description": "Framework CSS pour créer des interfaces web réactives et modernes."
+      "name": "PHP",
+      "iconUrl": "/icon/php.svg",
+      "description": "Langage de script côté serveur utilisé ici pour créer l’interface d’administration web."
     },
     {
-      "name": "SQL Server",
-      "iconUrl": "/icon/sql-database-generic-svgrepo-com.svg",
-      "description": "Système de gestion de base de données relationnelle utilisé pour stocker les films et utilisateurs."
-    },
-    {
-      "name": "Identity Framework",
-      "iconUrl": "https://i.postimg.cc/RFGVjRfT/Bitmap-MEDIUM-Entity-Framework-Core.png",
-      "description": "Système d’authentification et de gestion des utilisateurs intégré à ASP.NET Core."
+      "name": "Linux (Debian)",
+      "iconUrl": "/icon/debian.svg",
+      "description": "Distribution Linux stable et robuste utilisée pour héberger le serveur de messagerie."
     }
   ],
-  "createdAt": "2024-04-25"
+  "createdAt": "2025-06-15"
 }
