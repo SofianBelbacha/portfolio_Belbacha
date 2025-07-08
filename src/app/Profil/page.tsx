@@ -142,7 +142,7 @@ export default function Profil() {
                 <CardHeader className="px-6">
                   <div className="flex items-start justify-between">
                     <CardTitle>Mon CV</CardTitle>
-                    <Link href={"/personal/CV_Portfolio_Belbacha.pdf"} target="_blank">
+                    <Link href={"/personal/CV_SOFIAN_BELBACHA.pdf"} target="_blank">
                       <button className="size-9 flex items-center justify-center rounded-md border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
                         aria-label="Voir plus">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" >
