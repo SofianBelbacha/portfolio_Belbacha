@@ -156,7 +156,7 @@ export default function Profil() {
                 <CardContent className="px-6 space-y-4">
                   <div className="h-[603px] max-w-full overflow-hidden rounded-md shadow">
                     <iframe
-                      src="/personal/CV_Portfolio_Belbacha.pdf"
+                      src="/personal/CV_SOFIAN_BELBACHA.pdf"
                       className="w-full h-full"
                       title="CV de Belbacha"
                     />
