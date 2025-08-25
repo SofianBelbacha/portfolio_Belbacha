@@ -358,11 +358,11 @@ export default function Skills() {
                     width={20}
                     height={20}
                   />
-                  <span>Découverte de Docker & Containerisation</span>
+                  <span>Découverte de Docker & Conteneurisation</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <ActivitySquare className="w-5 h-5 text-green-400" />
-                  <span>Prise en main de CI/CD (GitHub Actions)</span>
+                  <span>Prise en main de CI/CD (GitLab CI)</span>
                 </div>
               </CardContent>
             </Card>

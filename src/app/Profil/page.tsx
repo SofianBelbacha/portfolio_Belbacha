@@ -77,7 +77,7 @@ export default function Profil() {
                         <Mail className="size-4 text-muted-foreground" /> sofianbelbacha@gmail.com
                       </div>
                       <div className="flex items-center gap-3 text-sm">
-                        <PhoneCall className="size-4 text-muted-foreground" /> (+33) 7 58 97 96 16
+                        <PhoneCall className="size-4 text-muted-foreground" /> (+33) 7 53 44 18 07
                       </div>
                       <div className="flex items-center gap-3 text-sm">
                         <MapPin className="size-4 text-muted-foreground" /> Béziers, Occitanie, France
@@ -128,11 +128,9 @@ export default function Profil() {
                     Je suis Sofian Belbacha, développeur full stack, passionné par la technologie et curieux de nature. Mon parcours m’a amené à concevoir des applications web modernes, performantes et sécurisées, en combinant les meilleures pratiques front-end et back-end.
                   </p>
                   <p>
-                    Mais mon intérêt pour l’informatique ne s’arrête pas au développement web. Je me forme activement aux pratiques DevOps — notamment à l’automatisation, à l’intégration continue (CI/CD), à Docker, et à la gestion d’infrastructure — dans une démarche d’amélioration continue.
-                  </p>
+                    Au-delà du développement web, je me forme activement aux pratiques DevOps (automatisation, CI/CD, Docker, gestion d’infrastructures) dans une démarche d’amélioration continue.</p>
                   <p>
-                    Mon profil est volontairement polyvalent : j’ai également touché à la gestion de systèmes, au scripting, à la configuration réseau et à des missions plus techniques en lien avec la cybersécurité. Cette diversité me permet de mieux comprendre les enjeux globaux d’un projet IT et d’y apporter des solutions fiables et cohérentes.
-                  </p>
+                    Au delà de ça, je m’intéresse particulièrement à la cybersécurité, un domaine essentiel face aux enjeux actuels du numérique. J’explore les bonnes pratiques de sécurisation des applications, la protection des données sensibles et la conformité aux normes en vigueur.                  </p>
                   <p>
                     Aujourd’hui, je cherche à intégrer une équipe en tant que salarié, dans laquelle je pourrais continuer à apprendre, apporter mes compétences et relever de nouveaux défis techniques.
                   </p>
@@ -306,56 +304,48 @@ export default function Profil() {
                         ADSL Informatique Sérignan (34) / Mai 2023 - Juil 2023
                       </time>
                       <p className="text-muted-foreground">
-                        Création d'une interface permettant de générer des roadtrips personnalisés au format PDF pour le site de voyage interactif Tentation Voyage, une plateforme intuitive qui aide les utilisateurs à découvrir des destinations en fonction de leurs préférences, à concevoir des itinéraires sur mesure et à réserver leurs séjours en toute simplicité. Grâce à une interface conviviale et riche en fonctionnalités, le site offre également des recommandations personnalisées et des guides pratiques pour aider les voyageurs à prendre des décisions éclairées et à vivre des expériences inoubliables.
-                        Lors de ce stage, j’ai principalement travaillé sur une fonctionnalité clé du site de voyage : la mise en place d’une interface permettant aux utilisateurs de remplir des formulaires interactifs pour générer des roadtrips personnalisés au format PDF. Cette partie du site vise à offrir une solution pratique et intuitive, aidant les voyageurs à organiser leurs itinéraires de manière structurée et à disposer d’un document téléchargeable regroupant toutes les informations nécessaires pour leur aventure. Pour mener à bien cette mission, plusieurs étapes ont été menées :
+                          Lors de ce stage, j’ai travaillé sur le développement d’une interface pour le site Tentation Voyage, 
+                          une plateforme interactive qui propose des destinations et itinéraires personnalisés. 
+                          Ma mission principale a été de concevoir une fonctionnalité permettant aux utilisateurs de remplir 
+                          des formulaires afin de générer des road trips personnalisés au format PDF. Cette solution vise à 
+                          offrir une expérience pratique et intuitive, regroupant dans un document téléchargeable 
+                          toutes les informations nécessaires pour organiser et vivre un voyage sur mesure.                      
                       </p>
                       <ul className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Analyse des besoins et cahier des charges :</span> Collaboration pour identifier les besoins clients et rédiger un cahier des charges détaillé.
+                            <span className="font-medium text-foreground">Analyse des besoins et cahier des charges :</span> Identification des attentes clients et rédaction d'un cahier des charges détaillé.
                           </span>
                         </li>
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Conception d’une base de données MySQL :</span> Création d’une base de données structurée et performante, facilitant une gestion des données et améliorant la rapidité des requêtes de 40 %.
+                            <span className="font-medium text-foreground">Mise en place d’une structure collaborative :</span> Mise en place de workflows pour le travail collaboratif en équipe. 
                           </span>
                         </li>
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Exploitation des données :</span> Utilisation de SQL pour extraire et analyser des données clés, facilitant la prise de décision.
+                            <span className="font-medium text-foreground">Conception d’une base de données MySQL :</span> Mise en place d'une base de données MySQL et utilisation de requêtes SQL pour gérer les données du road trip.
                           </span>
                         </li>
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Architecture MVC en PHP :</span> Conception et développement de l’architecture du site en PHP en utilisant le modèle MVC, optimisant la modularité et la maintenance du code.
+                            <span className="font-medium text-foreground">Architecture MVC en PHP :</span> Développement back-end du road trip en PHP en utilisant une architecture MVC modulaire.
                           </span>
                         </li>
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
-                            <span className="font-medium text-foreground">Mise en place d’une structure collaborative :</span> Définition et implémentation d&apos;outils et de processus de travail pour améliorer l’efficacité et la communication au sein de l’équipe.
-                          </span>
-                        </li>
-                        <li className="pl-4 relative">
-                          <span className="absolute left-0 top-1 text-primary">•</span>
-                          <span className="block ml-2">
-                            <span className="font-medium text-foreground">Ajout de fonctionnalités :</span> Développement et intégration de nouvelles fonctionnalités dans un site existant, améliorant l’expérience utilisateur et la performance du site.
+                            <span className="font-medium text-foreground">Ajout de fonctionnalités :</span> Intégration d’options supplémentaires afin d’enrichir l’expérience utilisateur et les performances du site.
                           </span>
                         </li>
                         <li className="pl-4 relative">
                           <span className="absolute left-0 top-1 text-primary">•</span>
                           <span className="block ml-2">
                             <span className="font-medium text-foreground">Résolution de bugs :</span> Résolution de bugs en analysant et en corrigeant des dysfonctionnements, renforçant la stabilité du site et réduisant les incidents signalés de 50 %.
-                          </span>
-                        </li>
-                        <li className="pl-4 relative">
-                          <span className="absolute left-0 top-1 text-primary">•</span>
-                          <span className="block ml-2">
-                            <span className="font-medium text-foreground">Normes de sécurité :</span> Implémentation de normes de sécurité, garantissant la protection des données utilisateurs et la conformité aux normes de sécurité en vigueur (RGPD, etc.).
                           </span>
                         </li>
                       </ul>

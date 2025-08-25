@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="relative w-full flex flex-col items-center justify-start gap-[30px] p-[80px_40px] overflow-hidden bg-black">
+        <footer className="relative w-full flex flex-col items-center justify-start gap-[30px] p-[80px_40px] overflow-hidden bg-black border border-white/20">
             <div className="contents">
                 <div style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", flexShrink: 0, transform: "none", opacity: 1 }}>
                     <h4 className="text-[20px] font-bold text-white">SOFIAN</h4>
