@@ -40,8 +40,9 @@ export default function Home() {
             👋, Je suis Sofian
           </Badge>
           <h1 className="header-title text-[7vw] md:text-[90px] font-bold leading-[1.1] tracking-[-0.04em] text-white text-center w-full font-[Inter]">
-            Développeur & Futur DevOps
-          </h1></div>
+            <p>Développeur web full-stack</p>
+          </h1>
+        </div>
         <div className="w-full max-w-[500px]">
           <p className="tracking-[-0.8px] font-[Inter] font-semibold text-[24px] leading-[1.2] tracking-[-0.05em] text-[#999999] text-center">
             Junior passionné, prêt à contribuer au succès d&apos;une équipe dynamique
@@ -58,8 +59,8 @@ export default function Home() {
         <div className="framer-18azqax carrousel-header">
           <div className="framer-u4l76e" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", flexShrink: 0, transform: "none" }}>
             <p className="framer-text framer-styles-preset-1m2icuf" style={{}}>
-              Compétences clés pour vos projets</p>
-
+              Compétences clés pour vos projets
+            </p>
           </div>
           <div className="framer-cwblq8-container carrousel-items">
             <section style={{ "display": "flex", "width": "100%", "height": "100%", "maxWidth": "100%", "maxHeight": "100%", "placeItems": "center", "margin": "0px", "padding": "0px", "listStyleType": "none", "opacity": "1", "maskImage": "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 17.5%, rgb(0, 0, 0) 82.5%, rgba(0, 0, 0, 0) 100%)", "overflow": "hidden" }}>
@@ -336,7 +337,9 @@ export default function Home() {
             Objectifs de Carrière
           </h2>
           <p className="text-[24px] leading-[1.2] tracking-[-0.8px] font-semibold text-[#999999] text-center font-[Inter,sans-serif]">
-            Mon ambition est de bâtir une carrière solide en tant que <span className="text-white">Développeur et Ingénieur DevOps</span>, en combinant passion pour la technologie et quête d&apos;excellence !
+            Passionné par l’automatisation, l’optimisation et la qualité des logiciels, <span className="text-white"> je vise un poste DevOps  </span>
+            au sein d’une grande entreprise tech, où je pourrai contribuer à toutes les étapes du cycle de vie logiciel, 
+            de la conception à la production. Je souhaite développer mes compétences en :
           </p>
         </div>
         <div className="consulting-section-items-list grid gap-2.5 grid-rows-2 grid-cols-3 justify-center max-w-[1200px] w-full relative">
@@ -445,10 +448,10 @@ export default function Home() {
               </div>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px]">
-              Travail en Équipe
+              Travail d'équipe
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] group-hover:opacity-100">
-              Collaborer efficacement en équipes Scrum/Kanban pour livrer des projets de qualité.
+              Collaborer efficacement en équipes Scrum pour livrer des projets de qualité.
             </p>
           </div>
           <div className="group flex flex-col gap-2.5 p-[30px] w-full border border-[#2e2e2e] relative overflow-hidden">
@@ -467,10 +470,10 @@ export default function Home() {
               </div>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px]">
-              Formation Continue
+               Veille informatique
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] group-hover:opacity-100">
-              Se former régulièrement aux dernières technologies pour rester à la pointe de l&apos;innovation.
+              Rester à jour sur les avancées technologiques pour accompagner la transformation digitale des entreprises.            
             </p>
           </div>
         </div>
@@ -479,12 +482,10 @@ export default function Home() {
       <section className="other-items-sections flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
         <div className="flex flex-col items-center justify-center gap-2.5 w-full max-w-[800px]">
           <h2 className="text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
-            Mon expertise au service de vos projets techniques
+            De la Conception au Déploiement
           </h2>
           <p className="text-[24px] leading-[1.2] tracking-[-0.8px] font-semibold text-[#999999] text-center font-[Inter,sans-serif]">
-            Je mets mes compétences au service de projets ambitieux, conçus pour être
-            <span className="text-white"> fiable, durable et évolutive </span>
-            avec une attention particulière à chaque détail.
+            Chaque projet que je mène reflète mon approche DevOps : <span className="text-white">  automatiser, sécuriser et optimiser </span> tout en gardant un code robuste et maintenable.
           </p>
         </div>
         <div className="other-section-items-list grid gap-2.5 grid-rows-2 grid-cols-3 justify-center max-w-[1200px] w-full relative">
@@ -497,16 +498,15 @@ export default function Home() {
                               group-hover:translate-x-[400px] group-hover:translate-y-[400px]" style={{ "background": "radial-gradient(40.2% 99.24% at 50% 50%, rgba(68,68,68,0.45) 0%, rgba(68,68,68,0) 100%)" }}>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px] relative z-10">
-              Analyse & Conception
+              Développement d’applications
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-100 relative z-10">
-              Je définis une architecture adaptée à vos besoins. Chaque projet commence par une compréhension fine de vos enjeux.
-            </p>
+              Conception et implémentation d’applications web avec PHP/Symfony, C#/ASP.NET, et JavaScript/React/Next.js.            </p>
             <div className="flex items-center justify-center gap-[10px] px-2 py-1 rounded-full relative w-min h-min overflow-hidden">
               <div className="w-[12px] h-[12px] rounded-full bg-[#33DDFF] flex-none" />
               <div className="flex flex-col justify-start flex-none relative">
                 <p className="text-[14px] font-semibold leading-[1.2em] text-[#33DDFF] font-[Inter] whitespace-nowrap">
-                  Analyse et conception
+                  Développement Full Stack
                 </p>
               </div>
               <div className="absolute inset-0 bg-[#33DDFF] opacity-10 pointer-events-none" />
@@ -521,16 +521,15 @@ export default function Home() {
                               group-hover:translate-x-[400px] group-hover:translate-y-[400px]" style={{ "background": "radial-gradient(40.2% 99.24% at 50% 50%, rgba(68,68,68,0.45) 0%, rgba(68,68,68,0) 100%)" }}>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px] relative z-10">
-              Développement
+                Création de pipelines CI/CD
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-100 relative z-10">
-              Je développe des solutions performantes, fiables et évolutives. Mon code est pensé pour être maintenable, sécurisé et optimisé.
-            </p>
+              Création de pipelines avec GitLab CI/CD, pour automatiser les tests et déploiements et réduire le temps de mise en production.            </p>
             <div className="flex items-center justify-center gap-[10px] px-2 py-1 rounded-full relative w-min h-min overflow-hidden">
               <div className="w-[12px] h-[12px] rounded-full bg-[#E74C3C] flex-none" />
               <div className="flex flex-col justify-start flex-none relative">
                 <p className="text-[14px] font-semibold leading-[1.2em] text-[#E74C3C] font-[Inter] whitespace-nowrap">
-                  Développement
+                  pipelines CI/CD
                 </p>
               </div>
               <div className="absolute inset-0 bg-[#E74C3C] opacity-10 pointer-events-none" />
@@ -545,16 +544,15 @@ export default function Home() {
                               group-hover:translate-x-[400px] group-hover:translate-y-[400px]" style={{ "background": "radial-gradient(40.2% 99.24% at 50% 50%, rgba(68,68,68,0.45) 0%, rgba(68,68,68,0) 100%)" }}>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px] relative z-10">
-              Intégration & Tests
+              Gestion de bases de données
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-100 relative z-10">
-              Chaque fonctionnalité est testée et validée. Je privilégie une démarche qualité pour garantir la stabilité de vos projets.
-            </p>
+              Modélisation de bases MySQL, PostgreSQL, SQL Server ou SQLite pour garantir la fiabilité et la scalabilité des systèmes.            </p>
             <div className="flex items-center justify-center gap-[10px] px-2 py-1 rounded-full relative w-min h-min overflow-hidden">
               <div className="w-[12px] h-[12px] rounded-full bg-[#2ECC71] flex-none" />
               <div className="flex flex-col justify-start flex-none relative">
                 <p className="text-[14px] font-semibold leading-[1.2em] text-[#2ECC71] font-[Inter] whitespace-nowrap">
-                  Intégration & Tests
+                  bases de données
                 </p>
               </div>
               <div className="absolute inset-0 bg-[#2ECC71] opacity-10 pointer-events-none" />
@@ -569,16 +567,15 @@ export default function Home() {
                               group-hover:translate-x-[400px] group-hover:translate-y-[400px]" style={{ "background": "radial-gradient(40.2% 99.24% at 50% 50%, rgba(68,68,68,0.45) 0%, rgba(68,68,68,0) 100%)" }}>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px] relative z-10">
-              Déploiement & Suivi
+              Conteneurisation
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-100 relative z-10">
-              Je vous accompagne jusqu’à la mise en production, avec un suivi pour assurer la pérennité et l’évolution de vos solutions.
-            </p>
+              Expérimentations et déploiements avec Docker, utilisation d’outils pour un flux de travail collaboratif et efficace.            </p>
             <div className="flex items-center justify-center gap-[10px] px-2 py-1 rounded-full relative w-min h-min overflow-hidden">
               <div className="w-[12px] h-[12px] rounded-full bg-[#FF9300] flex-none" />
               <div className="flex flex-col justify-start flex-none relative">
                 <p className="text-[14px] font-semibold leading-[1.2em] text-[#FF9300] font-[Inter] whitespace-nowrap">
-                  Déploiement
+                  Conteneurisation
                 </p>
               </div>
               <div className="absolute inset-0 bg-[#FF9300] opacity-10 pointer-events-none" />
@@ -593,16 +590,15 @@ export default function Home() {
                               group-hover:translate-x-[400px] group-hover:translate-y-[400px]" style={{ "background": "radial-gradient(40.2% 99.24% at 50% 50%, rgba(68,68,68,0.45) 0%, rgba(68,68,68,0) 100%)" }}>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px] relative z-10">
-              Optimisation continue
+              Sécurité intégrée
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-100 relative z-10">
-              Au-delà du déploiement, j&apos;optimise vos projets pour maximiser leur performance, leur sécurité et leur évolutivité.
-            </p>
+              Mise en œuvre de pratiques de sécurité telles que l’authentification JWT/OAuth ou la prévention des failles XSS/CSRF.</p>
             <div className="flex items-center justify-center gap-[10px] px-2 py-1 rounded-full relative w-min h-min overflow-hidden">
               <div className="w-[12px] h-[12px] rounded-full bg-[#A956F7] flex-none" />
               <div className="flex flex-col justify-start flex-none relative">
                 <p className="text-[14px] font-semibold leading-[1.2em] text-[#A956F7] font-[Inter] whitespace-nowrap">
-                  Optimisation
+                  Sécurité
                 </p>
               </div>
               <div className="absolute inset-0 bg-[#A956F7] opacity-10 pointer-events-none" />
@@ -617,16 +613,16 @@ export default function Home() {
                               group-hover:translate-x-[400px] group-hover:translate-y-[400px]" style={{ "background": "radial-gradient(40.2% 99.24% at 50% 50%, rgba(68,68,68,0.45) 0%, rgba(68,68,68,0) 100%)" }}>
             </div>
             <h4 className="text-[24px] font-semibold text-white font-inter leading-[1.2] tracking-[-0.8px] relative z-10">
-              Sécurité
+              Qualité & monitoring
             </h4>
             <p className="text-white font-semibold opacity-50 leading-[1.6] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-100 relative z-10">
-              Je prends en compte la sécurité en respectent les bonnes pratiques pour protéger les données de vos utilisateurs.
+              Intégration d’outils de suivi et d’observabilité pour détecter les anomalies, anticiper les risques et assurer la stabilité en production.
             </p>
             <div className="flex items-center justify-center gap-[10px] px-2 py-1 rounded-full relative w-min h-min overflow-hidden">
               <div className="w-[12px] h-[12px] rounded-full bg-[#FFFFFF] flex-none" />
               <div className="flex flex-col justify-start flex-none relative">
                 <p className="text-[14px] font-semibold leading-[1.2em] text-[#FFFFFF] font-[Inter] whitespace-nowrap">
-                  Sécurité
+                  Qualité & monitoring
                 </p>
               </div>
               <div className="absolute inset-0 bg-[#FFFFFF] opacity-10 pointer-events-none" />

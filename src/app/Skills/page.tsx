@@ -156,7 +156,7 @@ export default function Skills() {
               <CardContent className="z-10 p-0 space-y-5">
                 {[
                   { label: "VS Code / Extensions", value: 80 },
-                  { label: "Postman / Insomnia", value: 75 },
+                  { label: "Github / Gitlab", value: 60 },
                   { label: "Linux / Terminal", value: 70 }
                 ].map((tech) => (
                   <div key={tech.label} className="space-y-1">
@@ -317,15 +317,15 @@ export default function Skills() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap justify-center gap-4 pt-2 text-zinc-300 text-sm">
-                <Badge variant="secondary">Wireshark</Badge>
-                <Badge variant="secondary">Nmap</Badge>
-                <Badge variant="secondary">Burp Suite</Badge>
-                <Badge variant="secondary">Fail2ban</Badge>
-                <Badge variant="secondary">Metasploit</Badge>
-                <Badge variant="secondary">Kali Linux</Badge>
-                <Badge variant="secondary">ClamAV</Badge>
-                <Badge variant="secondary">OWASP ZAP</Badge>
-                <Badge variant="secondary">UFW / iptables</Badge>
+                <Badge variant="secondary">Wireshark ☑️</Badge>
+                <Badge variant="secondary">Nmap ☑️</Badge>
+                <Badge variant="secondary">Burp Suite ☑️</Badge>
+                <Badge variant="secondary">Fail2ban ⌛</Badge>
+                <Badge variant="secondary">Metasploit ⌛</Badge>
+                <Badge variant="secondary">Kali Linux ⌛</Badge>
+                <Badge variant="secondary">ClamAV ⌛</Badge>
+                <Badge variant="secondary">OWASP ZAP ⌛</Badge>
+                <Badge variant="secondary">UFW / iptables ☑️</Badge>
               </CardContent>
             </Card>
           </div>
@@ -343,9 +343,9 @@ export default function Skills() {
             <Card className="bg-black text-white border border-white/10 relative">
               <CardHeader className="pb-2 flex flex-row items-start justify-between">
                 <div>
-                  <CardTitle className="text-xl">Q2 2025</CardTitle>
+                  <CardTitle className="text-xl">E1 2025</CardTitle>
                   <Badge variant="outline" className="text-xs mt-1 border-white/20">
-                    En cours
+                    Terminé
                   </Badge>
                 </div>
                 <CalendarDays className="w-5 h-5 text-white/70" />
@@ -369,9 +369,9 @@ export default function Skills() {
             <Card className="bg-black text-white border border-white/10 relative">
               <CardHeader className="pb-2 flex flex-row items-start justify-between">
                 <div>
-                  <CardTitle className="text-xl">Q3 2025</CardTitle>
+                  <CardTitle className="text-xl">E2 2025</CardTitle>
                   <Badge variant="outline" className="text-xs mt-1 border-white/20">
-                    Prévu
+                    En cours
                   </Badge>
                 </div>
                 <CalendarDays className="w-5 h-5 text-white/70" />
@@ -390,7 +390,7 @@ export default function Skills() {
             <Card className="bg-black text-white border border-white/10 relative">
               <CardHeader className="pb-2 flex flex-row items-start justify-between">
                 <div>
-                  <CardTitle className="text-xl">Q4 2025</CardTitle>
+                  <CardTitle className="text-xl">E3 2025</CardTitle>
                   <Badge variant="outline" className="text-xs mt-1 border-white/20">
                     Prévu
                   </Badge>
@@ -402,7 +402,7 @@ export default function Skills() {
                   <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0L0 6v12l12 6 12-6V6z" />
                   </svg>
-                  <span>Apprentissage de Rust pour le backend système</span>
+                  <span>Azure DevOps (CI/CD & gestion de projets)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <ActivitySquare className="w-5 h-5 text-pink-400" />

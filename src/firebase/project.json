@@ -1,77 +1,80 @@
 {
-  "title": "Projet - Serveur Mail Personnel (Postfix + Dovecot + Rainloop)",
+  "title": "Projet - Spring Petclinic Microservices (CI/CD)",
   "mainTool": {
-    "name": "Postfix",
-    "avatarUrl": "/icon/Postfix-logo.svg"
+    "name": "GitLab CI/CD",
+    "avatarUrl": "/icon/gitlab-svgrepo-com.svg"
   },
-  "coverImage": "https://i.postimg.cc/CxkBMFZS/screen-rainloop.png",
+  "coverImage": "https://i.postimg.cc/cJDVkTYH/spring-petclinic.png",
   "tags": [
-    { "name": "Postfix" },
-    { "name": "Dovecot" },
-    { "name": "Rainloop" },
-    { "name": "PHP" },
-    { "name": "MariaDB" },
-    { "name": "Linux (Debian)" }
+    { "name": "Spring Boot" },
+    { "name": "Microservices" },
+    { "name": "Java" },
+    { "name": "GitLab CI/CD" },
+    { "name": "Docker" },
+    { "name": "JUnit" },
+    { "name": "Prometheus"},
+    { "typeProject" : "DevOps" }
   ],
-  "summary": "Un serveur mail personnel auto-hébergé avec Postfix, Dovecot, Rainloop et une interface d'administration PHP.",
+  "summary": "Mise en place d’un pipeline CI/CD pour le projet Spring Petclinic Microservices avec tests automatisés et déploiement Docker.",
   "links": {
     "demo": "",
-    "github": "https://github.com/SofianBelbacha/Projet_solution_messagerie"
+    "github": "https://gitlab.com/sofianbelbacha-group/spring-petclinic-microservices"
   },
-  "overview": "Ce projet met en place un serveur mail personnel complet auto-hébergé sur une machine Debian. Il s'appuie sur Postfix pour la gestion de l'envoi des mails (SMTP), Dovecot pour la réception (IMAP), et Rainloop comme interface Webmail simple et moderne. Une interface d’administration en PHP permet également de redémarrer les services facilement. La gestion des comptes utilisateurs est assurée via une base de données MariaDB.",
+  "overview": "Ce projet consiste à mettre en place un pipeline d’intégration continue pour l’application Spring Petclinic basée sur une architecture microservices. Le pipeline inclut la compilation, les tests unitaires et d’intégration avec JUnit, ainsi que le packaging et le déploiement dans des conteneurs Docker. L’objectif est de garantir un cycle de développement fluide et automatisé, conforme aux bonnes pratiques DevOps.",
   "features": [
     {
-      "title": "Service SMTP avec Postfix",
-      "description": "Permet l’envoi d’e-mails avec authentification SMTP sécurisée."
+      "title": "Pipeline CI/CD GitLab",
+      "description": "Automatisation des builds, tests et déploiements des microservices via GitLab CI/CD."
     },
     {
-      "title": "Service IMAP avec Dovecot",
-      "description": "Permet la réception des e-mails avec accès distant via IMAP."
+      "title": "Tests automatisés",
+      "description": "Exécution des tests unitaires et d’intégration JUnit à chaque commit pour assurer la qualité du code."
     },
     {
-      "title": "Webmail moderne",
-      "description": "Accès aux boîtes mail via Rainloop, interface web légère et rapide."
+      "title": "Conteneurisation Docker",
+      "description": "Déploiement des microservices dans des conteneurs Docker pour assurer portabilité et isolation."
     },
     {
-      "title": "Interface d’administration",
-      "description": "Mini dashboard PHP pour redémarrer Postfix et Dovecot."
+      "title": "Microservices Spring Boot",
+      "description": "Architecture modulable avec services indépendants communiquant via REST."
     },
     {
-      "title": "Gestion via MariaDB",
-      "description": "Stockage des utilisateurs, mots de passe et domaines dans une base de données MariaDB."
+      "title": "Monitoring avec Prometheus",
+      "description": "Mise en place de la supervision des microservices avec Prometheus pour collecter et analyser des métriques en temps réel."
     }
   ],
   "technologies": [
     {
-      "name": "Postfix",
-      "iconUrl": "/icon/Postfix-logo.svg",
-      "description": "Postfix est un agent de transfert de mail (MTA) rapide et sécurisé utilisé pour l’envoi des courriels (SMTP)."
+      "name": "GitLab CI/CD",
+      "iconUrl": "/icon/gitlab-svgrepo-com.svg",
+      "description": "Outil d’intégration et de déploiement continu pour automatiser les builds, tests et déploiements."
     },
     {
-      "name": "Dovecot",
-      "iconUrl": "/icon/dovecot.svg",
-      "description": "Dovecot est un serveur IMAP léger et sécurisé pour la réception et la consultation des emails."
+      "name": "Spring Boot",
+      "iconUrl": "/icon/spring-svgrepo-com.svg",
+      "description": "Framework Java pour créer des microservices robustes et modulaires."
     },
     {
-      "name": "Rainloop",
-      "iconUrl": "/icon/email-18-svgrepo-com",
-      "description": "Rainloop est un client webmail moderne, rapide et simple à intégrer."
+      "name": "Docker",
+      "iconUrl": "/icon/docker-svgrepo-com.svg",
+      "description": "Conteneurisation des applications pour simplifier le déploiement et garantir l’isolation."
     },
     {
-      "name": "MariaDB",
-      "iconUrl": "/icon/mariadb.svg",
-      "description": "Système de gestion de base de données relationnelle open source, utilisé pour gérer les utilisateurs."
+      "name": "JUnit",
+      "iconUrl": "/icon/JUnit.svg",
+      "description": "Framework de tests unitaires et d’intégration pour Java."
     },
     {
-      "name": "PHP",
-      "iconUrl": "/icon/php.svg",
-      "description": "Langage de script côté serveur utilisé ici pour créer l’interface d’administration web."
+      "name": "Java",
+      "iconUrl": "/icon/java-logo-svgrepo-com.svg",
+      "description": "Langage de programmation utilisé pour développer les microservices Spring Boot."
     },
     {
-      "name": "Linux (Debian)",
-      "iconUrl": "/icon/debian.svg",
-      "description": "Distribution Linux stable et robuste utilisée pour héberger le serveur de messagerie."
+      "name": "Prometheus",
+      "iconUrl": "/icon/prometheus-svgrepo-com.svg",
+      "description": "Langage de programmation utilisé pour développer les microservices Spring Boot."
     }
   ],
-  "createdAt": "2025-06-15"
+  "createdAt": "2025-09-01"
 }
+

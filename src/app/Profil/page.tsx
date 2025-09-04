@@ -60,15 +60,17 @@ export default function Profil() {
                         <div className="text-muted-foreground text-sm">Développeur Full Stack</div>
                       </div>
                     </div>
-                    <div className="bg-muted grid grid-cols-2 divide-x rounded-md border text-center *:py-3">
+                    <div className="bg-muted grid grid-cols-3 divide-x rounded-md border text-center *:py-3">
                       <div className="flex flex-col items-center gap-[5px] justify-center">
-                        <Image src="linkedin-svgrepo-com.svg" alt={"Linkedin Logo"} className="h-[20px]" width={30} height={20} />
+                        <Image src="linkedin-svgrepo-com.svg" alt={"Linkedin Logo"} width={31} height={21} />
                         <Link href="https://www.linkedin.com/in/sofian-belbacha/" target="_blank" className="text-muted-foreground text-sm">Linkedin</Link>
                       </div>
                       <div className="flex flex-col items-center gap-[5px] justify-center">
-                        <svg data-v-54e46119="" width={30} height={20} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="github-link--logo">
-                          <path data-v-54e46119="" fillRule="evenodd" clipRule="evenodd" d="M12.3019 0C5.50526 0 0 5.50526 0 12.3019C0 17.7392 3.52669 22.3458 8.4127 23.977C9.0244 24.0902 9.25095 23.7126 9.25095 23.3804C9.25095 23.0858 9.2434 22.3156 9.23585 21.2885C5.81488 22.0286 5.08991 19.6422 5.08991 19.6422C4.53108 18.2225 3.72304 17.8373 3.72304 17.8373C2.60537 17.0746 3.80611 17.0897 3.80611 17.0897C5.03705 17.1803 5.69405 18.3584 5.69405 18.3584C6.78906 20.2388 8.57129 19.6951 9.27361 19.3779C9.38688 18.585 9.70406 18.0412 10.0514 17.7316C7.32524 17.4295 4.45556 16.3723 4.45556 11.66C4.45556 10.3158 4.93132 9.22074 5.72426 8.35984C5.59588 8.04266 5.17298 6.79662 5.83754 5.10501C5.83754 5.10501 6.87213 4.77274 9.22074 6.36616C10.2025 6.0943 11.2522 5.95837 12.3019 5.95082C13.344 5.95837 14.4013 6.0943 15.383 6.36616C17.7316 4.77274 18.7662 5.10501 18.7662 5.10501C19.4383 6.79662 19.0154 8.05021 18.887 8.35984C19.6724 9.22074 20.1482 10.3158 20.1482 11.66C20.1482 16.3874 17.271 17.422 14.5297 17.7316C14.9677 18.1092 15.3679 18.8644 15.3679 20.0123C15.3679 21.6586 15.3528 22.9801 15.3528 23.3879C15.3528 23.7202 15.5718 24.0978 16.1986 23.977C21.0846 22.3458 24.6038 17.7392 24.6038 12.3094C24.6038 5.50526 19.0985 0 12.3019 0Z" fill="white"></path>
-                        </svg>
+                        <Image src="gitlab-svgrepo-com.svg" alt={"Linkedin Logo"} width={31} height={21}/>
+                        <Link href="https://gitlab.com/SofianBelbacha/" target="_blank" className="text-muted-foreground text-sm">Gitlab</Link>
+                      </div>
+                      <div className="flex flex-col items-center gap-[5px] justify-center">
+                        <Image src="github-svgrepo-com.svg" alt={"Linkedin Logo"} width={31} height={21} />
                         <Link href="https://github.com/SofianBelbacha" target="_blank" className="text-muted-foreground text-sm">Github</Link>
                       </div>
                     </div>
@@ -81,17 +83,6 @@ export default function Profil() {
                       </div>
                       <div className="flex items-center gap-3 text-sm">
                         <MapPin className="size-4 text-muted-foreground" /> Béziers, Occitanie, France
-                      </div>
-                      <div className="flex items-center gap-3 text-sm">
-                        <Link2 className="size-4 text-muted-foreground" />
-                        <a
-                          href="https://shadcnuikit.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-primary hover:underline"
-                        >
-                          https://shadcnuikit.com
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -130,7 +121,7 @@ export default function Profil() {
                   <p>
                     Au-delà du développement web, je me forme activement aux pratiques DevOps (automatisation, CI/CD, Docker, gestion d’infrastructures) dans une démarche d’amélioration continue.</p>
                   <p>
-                    Au delà de ça, je m’intéresse particulièrement à la cybersécurité, un domaine essentiel face aux enjeux actuels du numérique. J’explore les bonnes pratiques de sécurisation des applications, la protection des données sensibles et la conformité aux normes en vigueur.                  </p>
+                    Par ailleurs, je m’intéresse particulièrement à la cybersécurité, un domaine essentiel face aux enjeux actuels du numérique. J’explore les bonnes pratiques de sécurisation des applications, la protection des données sensibles et la conformité aux normes en vigueur.                  </p>
                   <p>
                     Aujourd’hui, je cherche à intégrer une équipe en tant que salarié, dans laquelle je pourrais continuer à apprendre, apporter mes compétences et relever de nouveaux défis techniques.
                   </p>
@@ -186,6 +177,7 @@ export default function Profil() {
                         qui prépare les étudiants à devenir des développeurs polyvalents, capables de répondre
                         aux besoins actuels du marché du numérique. Cette troisième année du cursus informatique
                         est axée sur la consolidation des compétences techniques et le développement de projets concrets.
+                        Cursus interrompu faute d’alternance.
                       </p>
                       <ul className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                         <li className="pl-4 relative">
