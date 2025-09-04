@@ -481,7 +481,7 @@ export default function Home() {
       {/* section expértise */}
       <section className="other-items-sections flex flex-col items-center justify-center gap-16 px-10 py-24 w-full relative overflow-visible">
         <div className="flex flex-col items-center justify-center gap-2.5 w-full max-w-[800px]">
-          <h2 className="text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
+          <h2 className="consulting-section-title text-[64px] leading-[1.2] tracking-[-0.03em] font-semibold text-white text-center font-[Inter,sans-serif]">
             De la Conception au Déploiement
           </h2>
           <p className="text-[24px] leading-[1.2] tracking-[-0.8px] font-semibold text-[#999999] text-center font-[Inter,sans-serif]">
