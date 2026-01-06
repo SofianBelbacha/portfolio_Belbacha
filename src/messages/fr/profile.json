@@ -1,0 +1,110 @@
+{
+  "page": {
+    "title": "Page de Profil",
+    "description": "Vous trouverez sur cette page toutes les informations me concernant, tels que <accent>mon parcours, mon CV, mes expériences...</accent>"
+  },
+  "identity": {
+    "name": "Sofian Belbacha",
+    "role": "Développeur Full Stack"
+  },
+  "contact": {
+    "title": "Coordonnées",
+    "location": "Béziers, Occitanie, France"
+  },
+  "about": {
+    "title": "À propos",
+    "text": "Passionné par le développement web, j’aime concevoir des applications modernes et performantes. J’explore aussi les pratiques DevOps et la cybersécurité pour comprendre l’ensemble du cycle de vie d’une application."
+  },
+  "skills": {
+    "list": [
+      "Angular",
+      "Next.js",
+      "ASP.NET Core",
+      "Git / GitHub",
+      "Résolution de problèmes",
+      "Veille technologique",
+      "Autonomie & rigueur",
+      "Capacité d’adaptation"
+    ]
+  },
+  "interests": {
+    "title": "Centres d’intérêt",
+    "list": [
+      "Développement web",
+      "DevOps & infrastructure",
+      "Cybersécurité",
+      "Nouvelles technologies",
+      "Veille technologique",
+      "Sport & discipline"
+    ]
+  },
+  "cv": {
+    "label": "Voir le CV"
+  },
+  "timeline": {
+    "education": {
+      "title": "Parcours",
+      "items": [
+        {
+          "title": "Bachelor 3 Informatique",
+          "date": "Sep 2024 – Janv 2025",
+          "description": "Formation orientée développement web, architecture logicielle et projets professionnels.",
+          "tags": [
+            "Web",
+            "Architecture",
+            "Projet"
+          ]
+        },
+        {
+          "title": "BTS SIO SLAM",
+          "date": "Sep 2023 – Juin 2024",
+          "description": "Formation orientée développement d’applications métier, couvrant la programmation web et orientée objet, la gestion de bases de données, l’analyse des besoins, les tests et les fondamentaux de la sécurité informatique.",
+          "tags": [
+            "Dév",
+            "BDD",
+            "Réseau"
+          ]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Expériences",
+      "items": [
+        {
+          "title": "Développeur Backend PHP — Stage",
+          "company": "ADSL Informatique, Sérignan (34)",
+          "date": "Mai 2023 – Juil 2023 | Janv 2024 – Mars 2024",
+          "description": "Développement d’une interface avancée de création de road trips personnalisés pour la plateforme Tentation Voyage.",
+          "tasks": [
+            "Génération PDF dynamique",
+            "Backend PHP (MVC)",
+            "Gestion BDD & API interne",
+            "Dashboard administrateur"
+          ],
+          "tags": [
+            "PHP",
+            "MVC",
+            "MySQL"
+          ]
+        },
+        {
+          "title": "Développeur Full Stack — Projets Perso",
+          "date": "Janv 2025 – Aujourd’hui",
+          "description": "Conception et développement de projets full-stack orientés performance, maintenabilité et bonnes pratiques, dans un cadre d’autoformation continue.",
+          "tasks": [
+            "Développement avec Symfony, React, Next.js et ASP.NET Core",
+            "Mise en place de pipelines CI/CD",
+            "Conteneurisation avec Docker",
+            "Infrastructure as Code (Terraform, Ansible)",
+            "Veille technologique continue"
+          ],
+          "tags": [
+            "Full-Stack",
+            "DevOps",
+            "CI/CD"
+          ]
+        }
+      ]
+    }
+  }
+}

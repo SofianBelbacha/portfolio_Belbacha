@@ -1,0 +1,90 @@
+{
+    "nav": {
+        "brand": "SOFIAN",
+        "links": {
+            "profil": "Profile",
+            "portfolio": "Portfolio",
+            "skills": "Skills",
+            "blog": "Blog"
+        },
+        "social": {
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "blogInProgress": {
+            "title": "Coming soon...",
+            "description": "This page is currently under development",
+            "actionLabel": "Close"
+        }
+    },
+    "contact": {
+        "title": "Looking for a collaborator?",
+        "subtitle": "I am available to discuss your projects, share ideas, or answer your questions.",
+        "subtitleAccent": "Feel free to contact me.",
+        "form": {
+            "name": {
+                "label": "Full name",
+                "placeholder": "Jane Smith"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "JaneSmith@[yourmail].com"
+            },
+            "subject": {
+                "label": "Subject",
+                "placeholder": "Select…",
+                "options": {
+                    "bug": "Report an issue",
+                    "collaboration": "Project collaboration",
+                    "information": "Information / Inquiry",
+                    "job": "Job opportunity",
+                    "other": "Other"
+                }
+            },
+            "message": {
+                "label": "Message",
+                "placeholder": "Your message"
+            },
+            "submit": {
+                "default": "Send",
+                "loading": "Sending..."
+            }
+        },
+        "toast": {
+            "success": {
+                "title": "Message sent",
+                "description": "Thank you for your message. I will get back to you as soon as possible."
+            },
+            "error": {
+                "title": "Error",
+                "description": "An error occurred. Please try again."
+            },
+            "close": "Close"
+        },
+        "errors": {
+            "name": {
+                "tooShort": "The name is too short",
+                "tooLong": "The name is too long",
+                "invalid": "The name should only contain letters"
+            },
+            "email": { "invalid": "Invalid email" },
+            "service": { "required": "Please select a subject" },
+            "message": {
+                "tooShort": "The message is too short",
+                "tooLong": "The message is too long"
+            },
+            "generic": "An error occurred. Please try again."
+        }
+    },
+    "footer": {
+        "brand": "SOFIAN",
+        "links": {
+            "profil": "Profile",
+            "portfolio": "Portfolio",
+            "skills": "Skills",
+            "blog": "Blog"
+        },
+        "copyright": "© 2025 Sofian, Inc. All rights reserved.",
+        "builtBy": "Built by Sofian"
+    }
+}

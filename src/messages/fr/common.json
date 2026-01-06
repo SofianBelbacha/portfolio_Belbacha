@@ -1,0 +1,94 @@
+{
+    "nav": {
+        "brand": "SOFIAN",
+        "links": {
+            "profil": "Profil",
+            "portfolio": "Portfolio",
+            "skills": "Compétences",
+            "blog": "Blog"
+        },
+        "social": {
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "blogInProgress": {
+            "title": "En cours...",
+            "description": "Page en cours de développement",
+            "actionLabel": "Fermer"
+        }
+    },
+    "contact": {
+        "title": "Vous cherchez un collaborateur?",
+        "subtitle": "Je suis disponible pour discuter de vos projets, partager des idées ou répondre à vos questions.",
+        "subtitleAccent": "N'hésitez pas à me contacter.",
+        "form": {
+            "name": {
+                "label": "Nom complet",
+                "placeholder": "Jane Smith"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "JaneSmith@[yourmail].com"
+            },
+            "subject": {
+                "label": "Sujet",
+                "placeholder": "Sélectionner…",
+                "options": {
+                    "bug": "Signalement d'un dysfonctionnement rencontré",
+                    "collaboration": "Collaboration pour vos projets",
+                    "information": "Échange / Renseignement",
+                    "job": "Opportunité professionnelle",
+                    "other": "Autres"
+                }
+            },
+            "message": {
+                "label": "Message",
+                "placeholder": "Votre message"
+            },
+            "submit": {
+                "default": "Envoyer",
+                "loading": "Envoi..."
+            }
+        },
+        "toast": {
+            "success": {
+                "title": "Message envoyé",
+                "description": "Merci pour votre message. Je vous répondrai dans les plus brefs délais."
+            },
+            "error": {
+                "title": "Erreur",
+                "description": "Une erreur s’est produite. Veuillez réessayer."
+            },
+            "close": "Fermer"
+        },
+        "errors": {
+            "name": {
+                "tooShort": "Le nom est trop court",
+                "tooLong": "Le nom est trop long",
+                "invalid": "Le nom ne doit contenir que des lettres"
+            },
+            "email": {
+                "invalid": "Email invalide"
+            },
+            "service": {
+                "required": "Veuillez sélectionner un sujet"
+            },
+            "message": {
+                "tooShort": "Le message est trop court",
+                "tooLong": "Le message est trop long"
+            },
+            "generic": "Une erreur est survenue. Veuillez réessayer."
+        }
+    },
+    "footer": {
+        "brand": "SOFIAN",
+        "links": {
+            "profil": "Profil",
+            "portfolio": "Portfolio",
+            "skills": "Compétences",
+            "blog": "Blog"
+        },
+        "copyright": "© 2025 Sofian, Inc. Tous droits réservés.",
+        "builtBy": "Développé par Sofian"
+    }
+}

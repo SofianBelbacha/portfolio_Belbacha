@@ -1,31 +1,44 @@
-export interface Project {
-    id: string;
-    title: string;
-    mainTool: {
-        [x: string]: unknown;
-        name: string;
-        avatarUrl: string;
-    };
-    coverImage: string;
-    tags: {
-        typeProject: string; 
-        name: string 
-    }[];
-    summary: string;
-    links: {
-        demo?: string;
-        github?: string;
-    };
-    overview: string;
-    features: {
-        title: string;
-        description: string;
-    }[];
-    technologies: {
-        name: string;
-        iconUrl: string;
-        description: string;
-    }[];
-    createdAt: Date;
-}
+import { Timestamp } from "firebase/firestore";
 
+export type LocalizedString = {
+  fr: string;
+  en: string;
+};
+
+export interface Project {
+  id: string;
+
+  title: LocalizedString;
+  summary: LocalizedString;
+  overview: LocalizedString;
+
+  mainTool: {
+    name: string;
+    avatarUrl: string;
+  };
+
+  coverImage: string;
+
+  tags: {
+    typeProject?: string;
+    name: LocalizedString;
+  }[];
+
+  features: {
+    title: LocalizedString;
+    description: LocalizedString;
+  }[];
+
+  technologies: {
+    name: string;
+    iconUrl: string;
+    description: LocalizedString;
+  }[];
+
+  links: {
+    demo?: string;
+    github?: string;
+  };
+
+  createdAt: number | null;
+}

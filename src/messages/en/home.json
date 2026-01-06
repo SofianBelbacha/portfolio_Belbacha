@@ -1,0 +1,109 @@
+{
+    "hero": {
+        "badge": "👋 Hi, I'm Sofian",
+        "title": "Full-stack Web Developer",
+        "subtitle": "Passionate junior developer, ready to contribute to the success of a dynamic team",
+        "cta": {
+            "contact": "Contact me",
+            "projects": "View my projects"
+        },
+        "carouselTitle": "Key skills for your projects",
+        "skills": {
+            "autodidacte": "Self-taught",
+            "flexibility": "Flexibility",
+            "uiux": "UI/UX Design",
+            "seo": "SEO / Optimization"
+        }
+    },
+    "consulting": {
+        "badge": "Full Stack Developer · DevOps Enthusiast",
+        "title": "I am Sofian Belbacha, Passionate Developer",
+        "description": "Versatile, I build performant, secure, and modern applications. I am currently learning DevOps (CI/CD, automation, cloud) to expand my skillset. Open to professional opportunities, I am looking to join a dynamic and passionate team.",
+        "cta": {
+            "profile": "View my Profile",
+            "downloadCV": "Download my CV"
+        }
+    },
+    "devops": {
+        "title": "DevOps Positioning",
+        "subtitle": "I adopt an approach focused on <emphasis>automation, reliability, and software quality</emphasis>, from design to production.",
+        "careerGoals": {
+            "architecture": {
+                "title": "Development & Architecture",
+                "description": "Designing reliable backend services, structured APIs, and robust databases for maintainable and scalable applications."
+            },
+            "cicd": {
+                "title": "Automation & CI/CD",
+                "description": "Setting up CI/CD pipelines to automate testing, builds, and deployments with reproducible processes."
+            },
+            "containers": {
+                "title": "Containerization & Environments",
+                "description": "Containerizing applications and standardizing environments to ensure portability and consistency from development to production."
+            },
+            "security": {
+                "title": "Monitoring & Built-in Security",
+                "description": "Application monitoring, proactive incident detection, and integrating security best practices from the development phase."
+            }
+        }
+    },
+    "workflow": {
+        "title": "DevOps Approach & Workflow",
+        "subtitle": "I promote a structured view of the software lifecycle, from <emphasis>design</emphasis> to <emphasis>production deployment</emphasis>.",
+        "steps": {
+            "analysis": {
+                "title": "Analysis & Design",
+                "description": "Understanding requirements, making appropriate technical choices, and anticipating deployment and operational constraints."
+            },
+            "development": {
+                "title": "Development",
+                "description": "Implementing features with clean, testable, and maintainable code focused on quality."
+            },
+            "deployment": {
+                "title": "Automation & Deployment",
+                "description": "Setting up CI/CD pipelines to reliably automate testing, builds, and deployments."
+            },
+            "improvement": {
+                "title": "Operations & Continuous Improvement",
+                "description": "Application monitoring, incident analysis, and continuous optimization of performance and stability."
+            }
+        },
+        "cta": "View my skills"
+    },
+    "architecture": {
+        "title": "Architecture & Technical Choices",
+        "subtitle": "This portfolio is designed as a <emphasis>technical product</emphasis> that is performant, maintainable, and deployed following modern best practices.",
+        "nextjs": {
+            "badge": "Modern Framework",
+            "title": "Next.js as the application foundation",
+            "description": "Next.js combines performance, SEO, and user experience. Hybrid SSR/SSG rendering ensures fast load times while maintaining a flexible and scalable architecture.",
+            "features": {
+                "ssr": "Server-side rendering (SSR)",
+                "seo": "Native SEO optimization",
+                "performance": "Fast & smooth navigation",
+                "ux": "Modern & performant UX"
+            }
+        },
+        "firebase": {
+            "badge": "Powered by Firebase",
+            "title": "Serverless deployment & real-time data",
+            "description": "Deployment on Vercel ensures fast, scalable, and automated production releases. Firebase handles dynamic data with real-time synchronization and built-in security.",
+            "features": {
+                "realtime": "Real-time synchronization",
+                "security": "Built-in security",
+                "serverless": "Serverless hosting",
+                "vercel": "Instant deployment (Vercel)"
+            }
+        },
+        "frontend": {
+            "badge": "Utility-first Styling",
+            "title": "Structured & maintainable front-end",
+            "description": "The interface is built with Tailwind CSS and shadcn/ui to ensure a consistent and easily maintainable component base. This approach delivers clean, performant, and controlled interfaces.",
+            "features": {
+                "responsive": "Responsive design",
+                "maintenance": "Improved maintainability",
+                "ecosystem": "Rich ecosystem",
+                "compatibility": "Compatibility"
+            }
+        }
+    }
+}

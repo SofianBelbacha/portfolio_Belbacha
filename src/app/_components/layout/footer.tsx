@@ -1,38 +1,40 @@
 import React from 'react';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 export default function Footer() {
+    const t = useTranslations("common.footer");
     return (
-        <footer className="relative w-full flex flex-col items-center justify-start gap-[30px] p-[80px_40px] overflow-hidden bg-black border border-white/20">
+        <footer className="relative w-full flex flex-col items-center justify-start gap-[30px] p-[80px_40px] overflow-hidden border border-black/20 dark:border-white/20">
             <div className="contents">
                 <div style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", flexShrink: 0, transform: "none", opacity: 1 }}>
-                    <h4 className="text-[20px] font-bold text-white">SOFIAN</h4>
+                    <h4 className="text-[20px] font-bold">{t("brand")}</h4>
                 </div>
             </div>
             <div
                 className="relative flex flex-row items-center justify-center gap-[20px] rounded-full overflow-visible p-0 w-min">
                 <div className="contents">
-                    <Link className="text-white font-semibold" data-highlight="true"
-                        href="./#expertise" tabIndex={0} style={{ opacity: 1 }}>
-                        Profil
+                    <Link className="font-semibold" data-highlight="true"
+                        href="/profil" tabIndex={0} style={{ opacity: 1 }}>
+                        {t("links.profil")}
                     </Link>
                 </div>
                 <div className="contents">
-                    <Link className="text-white font-semibold" data-highlight="true"
-                        href="./#Services" tabIndex={1} style={{ opacity: 1 }}>
-                        Portfolio
+                    <Link className="font-semibold" data-highlight="true"
+                        href="/portfolio" tabIndex={1} style={{ opacity: 1 }}>
+                        {t("links.portfolio")}
                     </Link>
                 </div>
                 <div className="contents">
-                    <Link className="text-white font-semibold" data-highlight="true"
-                        href="./#Solutions" tabIndex={2} style={{ opacity: 1 }}>
-                        Compétences
+                    <Link className="font-semibold" data-highlight="true"
+                        href="/skills" tabIndex={2} style={{ opacity: 1 }}>
+                        {t("links.skills")}
                     </Link>
                 </div>
                 <div className="contents">
-                    <Link className="text-white font-semibold" data-highlight="true"
-                        href="./#Pricing" tabIndex={3} style={{ opacity: 1 }}>
-                        Blog
+                    <Link className="font-semibold" data-highlight="true"
+                        href="/blog" tabIndex={3} style={{ opacity: 1 }}>
+                        {t("links.blog")}
                     </Link>
                 </div>
             </div>
@@ -44,13 +46,13 @@ export default function Footer() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
                 </Link>
             </div>
-            <div className="relative w-auto opacity-50 text-[#FFFFFF]"
+            <div className="relative w-auto text-zinc-600 dark:text-white/50"
                 style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", flexShrink: 0, transform: "none" }}>
-                <p className="text-[14px] font-semibold">© 2025 Sofian, Inc. All rights reserved.</p>
+                <p className="text-[14px] font-semibold">{t("copyright")}</p>
             </div>
-            <div className="relative w-auto opacity-50 text-[#FFFFFF]"
+            <div className="relative w-auto text-zinc-600 dark:text-white/50"
                 style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", flexShrink: 0, transform: "none" }}>
-                <p className="text-[14px] font-semibold">Built by Sofian</p>
+                <p className="text-[14px] font-semibold">{t("builtBy")}</p>
             </div>
         </footer>
 

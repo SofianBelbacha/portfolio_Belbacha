@@ -3,14 +3,12 @@ import "./globals.css";
 import { Inter } from "next/font/google"; // Import de la police
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "./_components/layout/header";
-import Footer from "./_components/layout/footer";
-import Contact from "./_components/layout/contact";
 import { ReactNode } from "react";
 import { AnalyticsProvider } from '@/app/_components/providers/AnalyticsProvider';
 import { Toaster } from "@/app/_components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script"
+import { ThemeProvider } from "next-themes";
 
 
 const inter = Inter({
@@ -37,11 +35,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
-    <html lang="fr" className={`dark ${inter.variable} ${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="fr" suppressHydrationWarning className={`${inter.variable} ${geistSans.variable} ${geistMono.variable}`}>
       <head>
-      <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          {/* Google Tag (gtag.js) - Chargé uniquement en production */}
-          {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        {/* Google Tag (gtag.js) - Chargé uniquement en production */}
+        {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
             <Script
@@ -58,16 +56,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
       </head>
-      <body className="bg-black text-white">
-        <AnalyticsProvider />
-        <Header />
-        <main>{children}</main>
-        <Toaster richColors />
-        <Contact />
-        <Footer />
-        <div className="pointer-events-none fixed bottom-0 left-0 right-0 h-[100px] z-10 bg-gradient-to-b from-[rgba(5,5,5,0)] to-black opacity-100">
+      <body className="relative overflow-x-hidden">
+        <div className="fixed inset-0 -z-20 bg-[rgb(248,248,248)] dark:bg-black" />
+
+        <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+          <div className="absolute inset-0
+            bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.085),transparent_70%)]" />
+          <div className="absolute inset-0
+            bg-[radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.045),transparent_60%)]" />
         </div>
-        <Analytics />
+
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AnalyticsProvider />
+          <main>{children}</main>
+          <Toaster richColors />
+          <div className="pointer-events-none fixed bottom-0 left-0 right-0 h-[100px] z-10 bg-gradient-to-b from-[rgba(5,5,5,0)] to-black opacity-100">
+          </div>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

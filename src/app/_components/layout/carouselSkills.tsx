@@ -1,1044 +1,272 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle
-} from "@/app/_components/ui/card"
-import { Badge } from "@/app/_components/ui/badge"
-import { Button } from "@/app/_components/ui/button"
-import { Progress } from "@/app/_components/ui/progress"
-import { Separator } from "@/app/_components/ui/separator"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/_components/ui/tooltip"
+
+import React, { useState, JSX } from "react";
 import Image from "next/image";
-import { useState, useRef } from "react";
-import clsx from "clsx";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, type CarouselApi } from "@/app/_components/ui/carousel"
-import { ScrollHint } from "@/app/_components/ui/scroll-hint"
-import React from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { Card, CardHeader, CardTitle, CardContent } from "@/app/_components/ui/card";
+import { Badge } from "@/app/_components/ui/badge";
+import { Button } from "@/app/_components/ui/button";
+import { Separator } from "@/app/_components/ui/separator";
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/app/_components/ui/tooltip";
+import { motion } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { useTranslations } from "next-intl";
+
+/* ------------------------------------------------------------
+   SKILLS LIST
+------------------------------------------------------------- */
+
+const skills: Record<string, Array<any>> = {
+  frontend: [
+    {
+      id: "javascript",
+      value: 75,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      link: "https://developer.mozilla.org/fr/docs/Web/JavaScript",
+    },
+    {
+      id: "typescript",
+      value: 60,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      link: "https://www.typescriptlang.org/docs",
+    },
+    {
+      id: "react",
+      value: 60,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      link: "https://fr.react.dev/learn",
+    },
+    {
+      id: "nextjs",
+      value: 55,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      link: "https://nextjs.org/docs",
+    },
+    {
+      id: "angular",
+      value: 60,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+      link: "https://angular.io/docs",
+    },
+  ],
+
+  backend: [
+    {
+      id: "php",
+      value: 80,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+      link: "https://www.php.net/docs.php",
+    },
+    {
+      id: "symfony",
+      value: 50,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg",
+      link: "https://symfony.com/doc/current/index.html",
+    },
+    {
+      id: "csharp",
+      value: 90,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+      link: "https://learn.microsoft.com/fr-fr/dotnet/csharp/",
+    },
+    {
+      id: "aspnet",
+      value: 65,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
+      link: "https://learn.microsoft.com/fr-fr/aspnet/core/",
+    },
+  ],
+
+  devops: [
+    {
+      id: "docker",
+      value: 70,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+      link: "https://docs.docker.com/",
+    },
+    {
+      id: "git",
+      value: 85,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      link: "https://git-scm.com/doc",
+    },
+    {
+      id: "linux",
+      value: 65,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+      link: "https://www.gnu.org/",
+    },
+    {
+      id: "gitlab",
+      value: 45,
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
+      link: "https://docs.gitlab.com/ee/ci/",
+    },
+  ],
+};
 
 
-export default function CarouselSkills() {
+export default function CarouselSkills(): JSX.Element {
+  const t = useTranslations("skills.hardskills");
   const router = useRouter();
-  const [activeBlock, setActiveBlock] = useState("php")
-  const [api, setApi] = React.useState<CarouselApi>()
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [current, setCurrent] = React.useState(0)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [count, setCount] = React.useState(0)
-  const contentRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname();
+  const [activeCategory, setActiveCategory] = useState("frontend");
+  const [activeSkill, setActiveSkill] = useState(skills.frontend[0]);
 
-  React.useEffect(() => {
-    if (!api) {
-      return
-    }
+  /* Pagination verticale – 3 par 3 */
+  const pageSize = 3;
+  const [pageIndex, setPageIndex] = useState(0);
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+  const totalPages = Math.ceil(skills[activeCategory].length / pageSize);
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
+  const visibleItems = skills[activeCategory].slice(
+    pageIndex * pageSize,
+    pageIndex * pageSize + pageSize
+  );
+
+  const categories = ["frontend", "backend", "devops"];
 
   return (
-    <div className="w-full lg:max-w-[1130px] mx-auto py-20 px-4">
-      <div className="max-w-[500px] flex flex-col gap-[20px] mb-7">
-        <h2 className="text-left text-4xl font-bold tracking-tight mb-16">Des bases solides pour construire des projets web robustes</h2>
+    <div className="w-full lg:max-w-[1130px] mx-auto px-4">
+      <div className="max-w-[560px]">
+        <h2 className="text-4xl font-bold leading-tight bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent gradient-title">
+          {t("title")}
+        </h2>
       </div>
-      <Carousel setApi={setApi} className="max-w-[600px] mx-auto relative">
-        <div className="flex justify-center gap-x-2 px-2 size-min absolute left-[46%] top-[-6%] z-10 md:hidden">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
-        <CarouselPrevious className="hidden md:visible" />
-        <CarouselContent>
-          <CarouselItem className="select-none">
-            <TooltipProvider>
-              <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                        alt="HTML"
-                        width={40}
-                        height={40}
-                        className="rounded-md"
-                      />
-                      <div>
-                        <CardTitle className="text-2xl font-semibold">HTML</CardTitle>
-                        <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                      </div>
-                    </div>
+      <div className="w-full max-w-[1150px] mx-auto py-20 px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col items-center gap-10 relative w-full">
+          <div className="flex gap-6">
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat;
 
-                  </div>
-                </CardHeader>
-
-                <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                  <p className="text-zinc-300 text-base leading-relaxed">
-                    Maîtrise du langage de structure d&apos;une page web. Je suis capable de concevoir des documents bien organisés
-                    et accessibles grâce à une utilisation précise des balises HTML.
-                  </p>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-zinc-400">
-                      <span>Niveau</span>
-                      <span>85%</span>
-                    </div>
-                    <Progress value={85} className="h-3 bg-zinc-800" />
-                  </div>
-
-                  <Separator className="bg-zinc-800" />
-
-                  <div className="flex justify-between items-center pt-2">
-                    <Link target="_blank" href="https://developer.mozilla.org/fr/docs/Web/HTML">
-                      <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                        Docummentation
-                      </Button>
-                    </Link>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                          onClick={() => router.push(`/Portfolio?tag=HTML5`)}>
-                          Voir plus
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-zinc-900 text-white text-xs">
-                        Consulter les projets associés
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </CardContent>
-              </Card>
-            </TooltipProvider>
-          </CarouselItem>
-          <CarouselItem className="select-none">
-            <TooltipProvider>
-              <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                        alt="CSS"
-                        width={40}
-                        height={40}
-                        className="rounded-md"
-                      />
-                      <div>
-                        <CardTitle className="text-2xl font-semibold">CSS</CardTitle>
-                        <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                      </div>
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                  <p className="text-zinc-300 text-base leading-relaxed">
-                    Compétences en mise en forme et design. Je sais styliser les pages web avec des
-                    feuilles de style en cascade (CSS) pour un rendu esthétique et responsive.
-                  </p>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-zinc-400">
-                      <span>Niveau</span>
-                      <span>70%</span>
-                    </div>
-                    <Progress value={70} className="h-3 bg-zinc-800" />
-                  </div>
-
-                  <Separator className="bg-zinc-800" />
-
-                  <div className="flex justify-between items-center pt-2">
-                    <Link target="_blank" href="https://developer.mozilla.org/fr/docs/Web/CSS">
-                      <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                        Docummentation
-                      </Button>
-                    </Link>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                          onClick={() => router.push(`/Portfolio?tag=CSS3`)}>
-                          Voir plus
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-zinc-900 text-white text-xs">
-                        Consulter les projets associés
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </CardContent>
-              </Card>
-            </TooltipProvider>
-          </CarouselItem>
-          <CarouselItem className="select-none">
-            <TooltipProvider>
-              <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src="https://cdn-icons-png.flaticon.com/512/1034/1034112.png"
-                        alt="HTTP"
-                        width={40}
-                        height={40}
-                        className="rounded-md"
-                      />
-                      <div>
-                        <CardTitle className="text-2xl font-semibold">HTTP</CardTitle>
-                        <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                      </div>
-                    </div>
-
-                  </div>
-                </CardHeader>
-
-                <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                  <p className="text-zinc-300 text-base leading-relaxed">
-                    Je sais héberger un site web, le rendre accessible au public et comprendre les
-                    bases des noms de domaine, de l&apos;hébergement et du déploiement.
-                  </p>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-zinc-400">
-                      <span>Niveau</span>
-                      <span>90%</span>
-                    </div>
-                    <Progress value={90} className="h-3 bg-zinc-800" />
-                  </div>
-
-                  <Separator className="bg-zinc-800" />
-
-                  <div className="flex justify-between items-center pt-2">
-                    <Link target="_blank" href="https://developer.mozilla.org/fr/docs/Web/HTTP">
-                      <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                        Docummentation
-                      </Button>
-                    </Link>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button size="sm" className="bg-white text-black hover:bg-zinc-100">
-                          Voir plus
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-zinc-900 text-white text-xs">
-                        Consulter les projets associés
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </CardContent>
-              </Card>
-            </TooltipProvider>
-          </CarouselItem>
-          <CarouselItem className="select-none">
-            <TooltipProvider>
-              <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                        alt="Algorithmique"
-                        width={40}
-                        height={40}
-                        className="rounded-md"
-                      />
-                      <div>
-                        <CardTitle className="text-2xl font-semibold">Algorithmique</CardTitle>
-                        <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                      </div>
-                    </div>
-
-                  </div>
-                </CardHeader>
-
-                <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                  <p className="text-zinc-300 text-base leading-relaxed">
-                    Solide compréhension des fondamentaux de l’algorithmique (acquis à l&apos;aide des bases python), indispensable pour
-                    aborder n&apos;importe quel langage de programmation de manière logique et efficace.
-                  </p>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-zinc-400">
-                      <span>Niveau</span>
-                      <span>70%</span>
-                    </div>
-                    <Progress value={70} className="h-3 bg-zinc-800" />
-                  </div>
-
-                  <Separator className="bg-zinc-800" />
-
-                  <div className="flex justify-between items-center pt-2">
-                    <Link target="_blank" href="https://docs.python.org/fr/3.13/">
-                      <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                        Docummentation
-                      </Button>
-                    </Link>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button size="sm" className="bg-white text-black hover:bg-zinc-100">
-                          Voir plus
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-zinc-900 text-white text-xs">
-                        Consulter les projets associés
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </CardContent>
-              </Card>
-            </TooltipProvider>
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselNext className="hidden md:visible" />
-      </Carousel>
-      <div className="text-center py-16  text-sm uppercase relative tree-category">
-        Orientation : Choix du langage
-        <strong className="block text-white text-4xl font-semibold tracking-widest">stacks
-          maîtrisés
-        </strong>
-      </div>
-      <div className="relative flex flex-col lg:flex-row justify-center items-start gap-10 tree-split">
-        <div className="w-full lg:w-1/2">
-          <div className="text-center  text-sm uppercase py-16 relative tree-category">
-            Partie <strong className="block text-white text-4xl font-semibold tracking-widest">Frontend</strong>
+              return (
+                <Button
+                  key={cat}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    setActiveSkill(skills[cat][0]);
+                    setPageIndex(0);
+                  }}
+                  className={`px-4 py-2 rounded-lg font-semibold transition-all
+                    ${isActive ? `bg-black text-white dark:bg-white dark:text-black` : `
+                          bg-black/5 text-black border border-black/20 hover:bg-black/10
+                          dark:bg-white/5 dark:text-white
+                          dark:border-white/15 dark:hover:bg-white/10`
+                    }
+                  `}
+                >
+                  {t(`categories.${cat}`)}
+                </Button>
+              );
+            })}
           </div>
-          <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
-            <CarouselContent ref={contentRef}>
-              <CarouselItem className="select-none">
-                <TooltipProvider>
-                  <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                    <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                      <div className="flex justify-between items-start w-full">
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                            alt="JavaScript"
-                            width={40}
-                            height={40}
-                            className="rounded-md"
-                          />
-                          <div>
-                            <CardTitle className="text-2xl font-semibold">JavaScript</CardTitle>
-                            <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
+          <div className="gap-6 mt-6 lg:pt-6">
+            <div className="relative min-w-[340.8px] max-w-[340.8px] flex flex-col items-center">
+              <button onClick={() => pageIndex === 0 ? setPageIndex((p) => Math.min(totalPages - 1, p + 1)) : setPageIndex((p) => Math.max(0, p - 1)) }
+                disabled={totalPages <= 1}
+                className={`lg:absolute -left-16 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center transition-all cursor-pointer`}
+              >
+                {totalPages === 1 ? (
+                  <ChevronDown size={22} className="opacity-40" />
+                ) : pageIndex === 0 ? (
+                  <ChevronDown size={22} />
+                ) : (
+                  <ChevronUp size={22} />
+                )}
+              </button>
+              <div className="flex justify-center flex-wrap gap-4 sm:gap-6">
+                {visibleItems.map((skill) => {
+                  const isActive = activeSkill.id === skill.id;
 
-                    <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                      <p className="text-zinc-300 text-base leading-relaxed">
-                        Maîtrise de JavaScript pour créer des interfaces dynamiques et interactives, aussi bien côté navigateur que côté serveur (NodeJS, Deno).
-                      </p>
-
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm text-zinc-400">
-                          <span>Niveau</span>
-                          <span>75%</span>
-                        </div>
-                        <Progress
-                          value={75}
-                          className="h-3 bg-zinc-800"
-
-                        />
-                      </div>
-
-                      <Separator className="bg-zinc-800" />
-
-                      <div className="flex justify-between items-center pt-2">
-                        <Link target="_blank" href="https://developer.mozilla.org/fr/docs/Web/JavaScript">
-                          <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                            Docummentation
-                          </Button>
-                        </Link>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                              onClick={() => router.push(`/Portfolio?tag=JavaScript`)}>
-                              Voir plus
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent className="bg-zinc-900 text-white text-xs">
-                            Consulter les projets associés
-                          </TooltipContent>
-                        </Tooltip>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TooltipProvider>
-              </CarouselItem>
-              <CarouselItem className="select-none">
-                <TooltipProvider>
-                  <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                    <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                      <div className="flex justify-between items-start w-full">
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-                            alt="TypeScript"
-                            width={40}
-                            height={40}
-                            className="rounded-md"
-                          />
-                          <div>
-                            <CardTitle className="text-2xl font-semibold">TypeScript</CardTitle>
-                            <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                      <p className="text-zinc-300 text-base leading-relaxed">
-                        Utilisation de TypeScript dans des projets frontend avec React ou Next.js
-                        pour renforcer la fiabilité et la lisibilité et prévenir les erreurs à l’exécution du code. </p>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm text-zinc-400">
-                          <span>Niveau</span>
-                          <span>60%</span>
-                        </div>
-                        <Progress
-                          value={60}
-                          className="h-3 bg-zinc-800"
-
-                        />
-                      </div>
-
-                      <Separator className="bg-zinc-800" />
-
-                      <div className="flex justify-between items-center pt-2">
-                        <Link target="_blank" href="https://www.typescriptlang.org/docs">
-                          <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                            Docummentation
-                          </Button>
-                        </Link>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                              onClick={() => router.push(`/Portfolio?tag=Git`)}>
-                              Voir plus
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent className="bg-zinc-900 text-white text-xs">
-                            Consulter les projets associés
-                          </TooltipContent>
-                        </Tooltip>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TooltipProvider>
-              </CarouselItem>
-              <CarouselItem className="select-none">
-                <TooltipProvider>
-                  <Card className="relative rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                    <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                      <div className="flex justify-between items-start w-full">
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                            alt="Git"
-                            width={40}
-                            height={40}
-                            className="rounded-md"
-                          />
-                          <div>
-                            <CardTitle className="text-2xl font-semibold">Git</CardTitle>
-                            <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                      <p className="text-zinc-300 text-base leading-relaxed">
-                        Utilisation de l&apos;outil de versionning Git pour la gestion des versions de projet, travail collaboratif et gestion d’historique des modifications.</p>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm text-zinc-400">
-                          <span>Niveau</span>
-                          <span>85%</span>
-                        </div>
-                        <Progress value={85} className="h-3 bg-zinc-800" />
-                      </div>
-
-                      <Separator className="bg-zinc-800" />
-
-                      <div className="flex justify-between items-center pt-2">
-                        <Link target="_blank" href="https://git-scm.com/doc">
-                          <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                            Docummentation
-                          </Button>
-                        </Link>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                              onClick={() => router.push(`/Portfolio?tag=Git`)}>
-                              Voir plus
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent className="bg-zinc-900 text-white text-xs">
-                            Consulter les projets associés
-                          </TooltipContent>
-                        </Tooltip>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TooltipProvider>
-              </CarouselItem>
-            </CarouselContent>
-            <ScrollHint scrollRef={contentRef} />
-          </Carousel>
-          <div className="text-center py-16  text-sm uppercase relative tree-category">
-            Spécialisation <strong className="block text-white text-4xl font-semibold tracking-widest">Framework</strong>
-          </div>
-          <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
-            <CarouselContent ref={contentRef}>
-              <CarouselItem className="select-none">
-                <TooltipProvider>
-                  <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                    <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                      <div className="flex justify-between items-start w-full">
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                            alt="React"
-                            width={40}
-                            height={40}
-                            className="rounded-md"
-                          />
-                          <div>
-                            <CardTitle className="text-2xl font-semibold">React</CardTitle>
-                            <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                      <p className="text-zinc-300 text-base leading-relaxed">
-                        J’utilise React pour concevoir des interfaces interactive, dynamique et modulaire
-                        en utilisant des composants, les hooks de base comme useState et useEffect,
-                        et l’intégration des APIs
-                      </p>
-
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm text-zinc-400">
-                          <span>Niveau</span>
-                          <span>60%</span>
-                        </div>
-                        <Progress
-                          value={60}
-                          className="h-3 bg-zinc-800"
-
-                        />
-                      </div>
-
-                      <Separator className="bg-zinc-800" />
-
-                      <div className="flex justify-between items-center pt-2">
-                        <Link target="_blank" href="https://fr.react.dev/learn">
-                          <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                            Docummentation
-                          </Button>
-                        </Link>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                              onClick={() => router.push(`/Portfolio?tag=React`)}>
-                              Voir plus
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent className="bg-zinc-900 text-white text-xs">
-                            Consulter les projets associés
-                          </TooltipContent>
-                        </Tooltip>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TooltipProvider>
-              </CarouselItem>
-              <CarouselItem className="select-none">
-                <TooltipProvider>
-                  <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                    <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                      <div className="flex justify-between items-start w-full">
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                            alt="Next"
-                            width={40}
-                            height={40}
-                            className="rounded-md"
-                          />
-                          <div>
-                            <CardTitle className="text-2xl font-semibold">Next Js</CardTitle>
-                            <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                      <p className="text-zinc-300 text-base leading-relaxed">
-                        J’ai commencé à travailler avec Next.js pour améliorer mes projets React.
-                        J’apprends à gérer les pages, les routes dynamiques et à tirer parti du rendu statique.
-                      </p>
-
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm text-zinc-400">
-                          <span>Niveau</span>
-                          <span>60%</span>
-                        </div>
-                        <Progress
-                          value={60}
-                          className="h-3 bg-zinc-800"
-
-                        />
-                      </div>
-                      <Separator className="bg-zinc-800" />
-                      <div className="flex justify-between items-center pt-2">
-                        <Link target="_blank" href="https://nextjs.org/docs">
-                          <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                            Docummentation
-                          </Button>
-                        </Link>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                              onClick={() => router.push(`/Portfolio?tag=Next.Js`)}>
-                              Voir plus
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent className="bg-zinc-900 text-white text-xs">
-                            Consulter les projets associés
-                          </TooltipContent>
-                        </Tooltip>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TooltipProvider>
-              </CarouselItem>
-            </CarouselContent>
-            <ScrollHint scrollRef={contentRef} />
-          </Carousel>
-        </div>
-        <div className="w-full lg:w-1/2">
-          <div className="relative tree-split-backend">
-            <div className="text-center  text-sm uppercase py-16 relative tree-category">
-              Partie <strong className="block text-white text-4xl font-semibold tracking-widest">BackEnd</strong>
+                  return (
+                    <TooltipProvider key={skill.id}>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            onClick={() => setActiveSkill(skill)}
+                            className={`w-fit flex flex-col items-center gap-2 p-4 rounded-xl transition-all border cursor-pointer
+                              ${isActive ? "dark:border-white/30 dark:bg-white/10 dark:shadow-xl" : "dark:border-white/5 dark:bg-black/40 dark:hover:bg-white/5"}
+                              ${isActive ? "border-black/30 bg-black/5 shadow-md" : "border-black/10 bg-white hover:bg-black/5"}
+              `             }
+                          >
+                          <Image src={skill.img} alt={skill.id} width={64} height={64} 
+                            className={`transition-opacity ${isActive ? "opacity-100" : "opacity-60 dark:opacity-40"}`}
+                            />
+                          </motion.div>
+                        </TooltipTrigger>
+                        <TooltipContent>{skill.id}</TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <div className="relative flex justify-between max-w-[330px] mx-auto w-full gap-28 ">
-            <button data-target="php" onClick={() => setActiveBlock("php")} className="flex flex-col items-center focus:outline-none">
-              <div className="w-[3px] h-24 bg-white opacity-30"></div>
-              <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width={80} height={80} className="transition-transform duration-300 hover:scale-110" />
-              <div className={`w-[3px] h-24 bg-white branch-split-aspnet ${activeBlock === "php" ? "opacity-30" : "opacity-0"}`}></div>
-            </button>
-
-            <button data-target="aspnet" onClick={() => setActiveBlock("aspnet")} className="flex flex-col items-center focus:outline-none">
-              <div className="w-[3px] h-24 bg-white opacity-30"></div>
-              <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" width={80} height={80} className="transition-transform duration-300 hover:scale-110" />
-              <div className={`w-[3px] h-24 bg-white branch-split-aspnet ${activeBlock === "aspnet" ? "opacity-30" : "opacity-0"}`}></div>
-         
-            </button>
-          </div>
-          <div id="php" className={clsx("backend-block", { hidden: activeBlock !== "php" })}>
-            <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
-              <CarouselContent ref={contentRef}>
-                <CarouselItem className="select-none">
-                  <TooltipProvider>
-                    <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                      <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                        <div className="flex justify-between items-start w-full">
-                          <div className="flex items-center gap-4">
-                            <Image
-                              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg"
-                              alt="SQL"
-                              width={40}
-                              height={40}
-                              className="rounded-md"
-                            />
-                            <div>
-                              <CardTitle className="text-2xl font-semibold">SQL</CardTitle>
-                              <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                        <p className="text-zinc-300 text-base leading-relaxed">
-                          Je maîtrise SQL pour concevoir et interroger des BDD relationnelles.
-                          Je l’utilise notamment pour gérer la persistance des données avec des outils comme MySQL ou PostgreSQL.
-                        </p>
-
-                        <div className="space-y-2">
-                          <div className="flex justify-between text-sm text-zinc-400">
-                            <span>Niveau</span>
-                            <span>85%</span>
-                          </div>
-                          <Progress
-                            value={85}
-                            className="h-3 bg-zinc-800"
-
-                          />
-                        </div>
-
-                        <Separator className="bg-zinc-800" />
-
-                        <div className="flex justify-between items-center pt-2">
-                          <Link target="_blank" href="https://sql.sh">
-                            <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                              Docummentation
-                            </Button>
-                          </Link>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                                onClick={() => router.push(`/Portfolio?tag=SQL`)}>
-                                Voir plus
-                              </Button>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-zinc-900 text-white text-xs">
-                              Consulter les projets associés
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TooltipProvider>
-                </CarouselItem>
-                <CarouselItem className="select-none">
-                  <TooltipProvider>
-                    <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                      <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                        <div className="flex justify-between items-start w-full">
-                          <div className="flex items-center gap-4">
-                            <Image
-                              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-                              alt="PHP"
-                              width={40}
-                              height={40}
-                              className="rounded-md"
-                            />
-                            <div>
-                              <CardTitle className="text-2xl font-semibold">PHP</CardTitle>
-                              <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                        <p className="text-zinc-300 text-base leading-relaxed">
-                          Je maîtrise PHP pour la création d&apos;applications web côté serveur.
-                          Je peut concevoir des architectures solides tout en respectant les bonnes pratiques
-                          du développement backend.</p>
-
-                        <div className="space-y-2">
-                          <div className="flex justify-between text-sm text-zinc-400">
-                            <span>Niveau</span>
-                            <span>80%</span>
-                          </div>
-                          <Progress
-                            value={80}
-                            className="h-3 bg-zinc-800"
-
-                          />
-                        </div>
-
-                        <Separator className="bg-zinc-800" />
-
-                        <div className="flex justify-between items-center pt-2">
-                          <Link target="_blank" href="https://www.php.net/docs.php">
-                            <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                              Docummentation
-                            </Button>
-                          </Link>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                                onClick={() => router.push(`/Portfolio?tag=PHP`)}>
-                                Voir plus
-                              </Button>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-zinc-900 text-white text-xs">
-                              Consulter les projets associés
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TooltipProvider>
-                </CarouselItem>
-              </CarouselContent>
-              <ScrollHint scrollRef={contentRef} />
-            </Carousel>
-            <div className="text-center py-16  text-sm uppercase relative tree-category">
-              Spécialisation
-              <strong className="block text-white text-4xl font-semibold tracking-widest">Framework</strong>
-            </div>
-            <TooltipProvider>
-              <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg"
-                        alt="Symfony"
-                        width={40}
-                        height={40}
-                        className="rounded-md"
-                      />
-                      <div>
-                        <CardTitle className="text-2xl font-semibold">Symfony</CardTitle>
-                        <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Fondamental</Badge>
-                      </div>
-                    </div>
-
-                  </div>
-                </CardHeader>
-                <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                  <p className="text-zinc-300 text-base leading-relaxed">
-                    Je développe mes compétences sur Symfony en construisant des applications backend robustes, sécurisées et évolutives
-                    grâce à son architecture modulaire et son écosystème mature.
-                  </p>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-zinc-400">
-                      <span>Niveau</span>
-                      <span>50%</span>
-                    </div>
-                    <Progress
-                      value={50}
-                      className="h-3 bg-zinc-800"
-
-                    />
-                  </div>
-
-                  <Separator className="bg-zinc-800" />
-
-                  <div className="flex justify-between items-center pt-2">
-                    <Link target="_blank" href="https://symfony.com/doc/current/index.html">
-                      <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                        Docummentation
-                      </Button>
-                    </Link>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                          onClick={() => router.push(`/Portfolio?tag=Symfony`)}>
-                          Voir plus
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-zinc-900 text-white text-xs">
-                        Consulter les projets associés
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </CardContent>
-              </Card>
-            </TooltipProvider>
-          </div>
-          <div id="aspnet" className={clsx("backend-block", { hidden: activeBlock !== "aspnet" })}>
-            <Carousel setApi={setApi} className="max-w-[600px] mx-auto">
-              <CarouselContent ref={contentRef}>
-                <CarouselItem className="select-none">
-                  <TooltipProvider>
-                    <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                      <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                        <div className="flex justify-between items-start w-full">
-                          <div className="flex items-center gap-4">
-                            <Image
-                              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg"
-                              alt="SQL"
-                              width={40}
-                              height={40}
-                              className="rounded-md"
-                            />
-                            <div>
-                              <CardTitle className="text-2xl font-semibold">SQL</CardTitle>
-                              <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                        <p className="text-zinc-300 text-base leading-relaxed">
-                          Je maîtrise SQL pour concevoir et interroger des BDD relationnelles.
-                          Je l’utilise notamment pour gérer la persistance des données avec des outils comme MySQL ou PostgreSQL.
-                        </p>
-
-                        <div className="space-y-2">
-                          <div className="flex justify-between text-sm text-zinc-400">
-                            <span>Niveau</span>
-                            <span>85%</span>
-                          </div>
-                          <Progress
-                            value={85}
-                            className="h-3 bg-zinc-800"
-
-                          />
-                        </div>
-
-                        <Separator className="bg-zinc-800" />
-
-                        <div className="flex justify-between items-center pt-2">
-                          <Link target="_blank" href="https://sql.sh">
-                            <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                              Docummentation
-                            </Button>
-                          </Link>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                                onClick={() => router.push(`/Portfolio?tag=SQL`)}>
-                                Voir plus
-                              </Button>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-zinc-900 text-white text-xs">
-                              Consulter les projets associés
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TooltipProvider>
-                </CarouselItem>
-                <CarouselItem className="select-none">
-                  <TooltipProvider>
-                    <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                      <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                        <div className="flex justify-between items-start w-full">
-                          <div className="flex items-center gap-4">
-                            <Image
-                              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-                              alt="C#"
-                              width={40}
-                              height={40}
-                              className="rounded-md"
-                            />
-                            <div>
-                              <CardTitle className="text-2xl font-semibold">C#</CardTitle>
-                              <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Avancé</Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                        <p className="text-zinc-300 text-base leading-relaxed">
-                          J&apos;utilise C# pour répondre à des besoins variés. Allant de la conception d&apos; applications web avec ASP.NET, jusqu&apos;a la
-                          création d&apos;applications de bureau avec Windows Forms.
-                        </p>
-
-                        <div className="space-y-2">
-                          <div className="flex justify-between text-sm text-zinc-400">
-                            <span>Niveau</span>
-                            <span>90%</span>
-                          </div>
-                          <Progress
-                            value={90}
-                            className="h-3 bg-zinc-800"
-
-                          />
-                        </div>
-
-                        <Separator className="bg-zinc-800" />
-
-                        <div className="flex justify-between items-center pt-2">
-                          <Link target="_blank" href="https://learn.microsoft.com/fr-fr/dotnet/csharp/">
-                            <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                              Docummentation
-                            </Button>
-                          </Link>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                                onClick={() => router.push(`/Portfolio?tag=${encodeURIComponent('C#')}`)}>
-                                Voir plus
-                              </Button>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-zinc-900 text-white text-xs">
-                              Consulter les projets associés
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TooltipProvider>
-                </CarouselItem>
-              </CarouselContent>
-              <ScrollHint scrollRef={contentRef} />
-            </Carousel>
-
-            <div className="text-center py-16  text-sm uppercase relative tree-category">
-              Spécialisation
-              <strong className="block text-white text-4xl font-semibold tracking-widest">ASP.NET Core</strong>
-            </div>
-            <TooltipProvider>
-              <Card className="relative max-w-[600px] mx-auto rounded-2xl bg-black text-white shadow-xl border border-white/20 transition-transform hover:shadow-2xl">
-                <CardHeader className="flex flex-col gap-4 p-6 pb-2">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
-                        alt="ASP.NET Core MVC"
-                        width={40}
-                        height={40}
-                        className="rounded-md"
-                      />
-                      <div>
-                        <CardTitle className="text-2xl font-semibold">ASP.NET Core MVC</CardTitle>
-                        <Badge variant="outline" className="text-white border-white/20 text-xs mt-1">Niveau Opérationnel</Badge>
-                      </div>
-                    </div>
-
-                  </div>
-                </CardHeader>
-                <CardContent className="px-6 pb-6 pt-2 space-y-6">
-                  <p className="text-zinc-300 text-base leading-relaxed">
-                    J’utilise ASP.NET pour développer des applications web robustes côté serveur.
-                    Grâce à sa puissance et sa flexibilité en C#, je conçois des des solutions web performantes
-                    et sécurisées, adaptées aux besoins des entreprises modernes.</p>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-zinc-400">
-                      <span>Niveau</span>
-                      <span>65%</span>
-                    </div>
-                    <Progress
-                      value={65}
-                      className="h-3 bg-zinc-800"
-
-                    />
-                  </div>
-
-                  <Separator className="bg-zinc-800" />
-
-                  <div className="flex justify-between items-center pt-2">
-                    <Link target="_blank" href="https://learn.microsoft.com/fr-fr/aspnet/core/?view=aspnetcore-9.0">
-                      <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 cursor-pointer">
-                        Docummentation
-                      </Button>
-                    </Link>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button size="sm" className="bg-white text-black hover:bg-zinc-100"
-                          onClick={() => router.push(`/Portfolio?tag=${encodeURIComponent('ASP.NET Core')}`)}>
-                          Voir plus
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-zinc-900 text-white text-xs">
-                        Consulter les projets associés
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </CardContent>
-              </Card>
-            </TooltipProvider>
-          </div>
         </div>
+        <motion.div
+          key={activeSkill.id}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.28 }}
+        >
+          <Card className="rounded-2xl backdrop-blur-xl pt-6 lg:p-6 shadow-xl dark:bg-[#0a0a0a]/80 dark:border dark:border-white/10 bg-white border border-black/10">
+            <CardHeader className="flex gap-4 items-center">
+              <div className="w-14 h-14 flex items-center justify-center">
+                <Image
+                  src={activeSkill.img}
+                  width={48}
+                  height={48}
+                  alt={t(`items.${activeSkill.id}.title`)}
+                />
+              </div>
+
+              <div>
+                <CardTitle className="text-3xl font-semibold text-black dark:text-white">
+                  {t(`items.${activeSkill.id}.title`)}
+                </CardTitle>
+
+                <Badge
+                  className="mt-2 text-xs dark:bg-white/5 dark:border-white/20 dark:text-white bg-black/5 border-black/20 text-black">
+                  {t(`levels.${activeSkill.id}`)}
+                </Badge>
+              </div>
+            </CardHeader>
+
+            <CardContent className="space-y-6 mt-4">
+              <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {t(`items.${activeSkill.id}.description`)}
+              </p>
+
+              {/* Progress */}
+              <div>
+                <div className="flex justify-between text-sm mb-1 text-zinc-500 dark:text-zinc-500">
+                  <span>{t("labels.level")}</span>
+                  <span>{activeSkill.value}%</span>
+                </div>
+
+                <div className="h-3 rounded-full overflow-hidden bg-zinc-200 dark:bg-zinc-900">
+                  <div
+                    className="h-full bg-gradient-to-r from-zinc-500 to-zinc-700 dark:from-zinc-300 dark:to-zinc-500"
+                    style={{ width: `${activeSkill.value}%` }}
+                  />
+                </div>
+              </div>
+
+              <Separator className="bg-black/10 dark:bg-white/10" />
+
+              <div className="flex w-full">
+                <Button onClick={() => router.push(`/portfolio?tag=${encodeURIComponent(t(`items.${activeSkill.id}.title`))}`)}
+                  className="ml-auto cursor-pointer font-semibold dark:bg-white dark:text-black dark:hover:bg-zinc-200 bg-black text-white hover:bg-zinc-800">
+                  {t("actions.viewProjects")}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </div>
+
   );
 }

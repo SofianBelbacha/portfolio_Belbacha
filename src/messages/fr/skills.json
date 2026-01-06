@@ -1,0 +1,229 @@
+{
+    "page": {
+        "title": "Compétences",
+        "description": "Voici un ensemble de <accent>savoir-faire techniques</accent> développés au fil de ma veille continue."
+    },
+    "cyber": {
+        "titleToolCyber": "Outils maîtrisés",
+        "title": "Compétences en Cybersécurité",
+        "levelLabel": "Niveau : {level}",
+        "items": [
+            {
+                "icon": "shield",
+                "title": "Sécurité Web",
+                "level": "Opérationnel",
+                "progress": 65,
+                "points": [
+                    "Prévention XSS / CSRF / Injection SQL",
+                    "HTTP headers, CORS, CSP, HSTS",
+                    "Utilisation de Snyk, OWASP ZAP"
+                ]
+            },
+            {
+                "icon": "lock",
+                "title": "Authentification & Sessions",
+                "level": "Opérationnel",
+                "progress": 65,
+                "points": [
+                    "OAuth 2.0, JWT, SSO, MFA",
+                    "Renforcement des tokens, gestion des expirations",
+                    "Utilisation de Passport.js et IdentityServer"
+                ]
+            },
+            {
+                "icon": "scan",
+                "title": "Audit & Monitoring",
+                "level": "Opérationnel",
+                "progress": 80,
+                "points": [
+                    "Audit de logs (SIEM), analyse réseau",
+                    "Outils : Wireshark, Nmap, Fail2ban",
+                    "Alerting & détection d’intrusion (IDS)"
+                ]
+            },
+            {
+                "icon": "settings",
+                "title": "Conformité & RGPD",
+                "level": "Opérationnel",
+                "progress": 60,
+                "points": [
+                    "Gestion des droits : portabilité, suppression",
+                    "Consentement explicite & documentation",
+                    "Politique de confidentialité claire & accessible"
+                ]
+            }
+        ]
+    },
+    "roadmap": {
+        "title": "Roadmap d’apprentissage 2026",
+        "description": "Cette roadmap représente les étapes que je me suis fixées pour progresser tout au long de l’année 2026.",
+        "statuses": {
+            "done": "Terminé",
+            "inProgress": "En cours",
+            "planned": "Prévu"
+        },
+        "steps": [
+            {
+                "title": "E1 2026",
+                "status": "done",
+                "items": [
+                    {
+                        "icon": "docker",
+                        "text": "Découverte de Docker & conteneurisation"
+                    },
+                    {
+                        "icon": "gitlab",
+                        "text": "Prise en main du CI/CD (GitLab CI)"
+                    }
+                ]
+            },
+            {
+                "title": "E2 2026",
+                "status": "inProgress",
+                "items": [
+                    {
+                        "icon": "kubernetes",
+                        "text": "Déploiement d’applications (Kubernetes)"
+                    },
+                    {
+                        "icon": "terraform",
+                        "text": "Infrastructure as Code (Terraform)"
+                    }
+                ]
+            },
+            {
+                "title": "E3 2026",
+                "status": "planned",
+                "items": [
+                    {
+                        "icon": "aws",
+                        "text": "AWS DevOps (CI/CD et pilotage du cloud)"
+                    },
+                    {
+                        "icon": "grafana",
+                        "text": "Observabilité (Prometheus, Grafana)"
+                    }
+                ]
+            }
+        ],
+        "footer": "Roadmap 2026"
+    },
+    "complementary": {
+        "title": "Compétences complémentaires",
+        "items": [
+            {
+                "title": "Méthodologie & Organisation",
+                "description": "Approches et outils favorisant la qualité, la collaboration et la livraison continue.",
+                "skills": [
+                    "Méthodes Agile / Scrum",
+                    "Gestion de projet",
+                    "Documentation technique",
+                    "Code review & bonnes pratiques"
+                ]
+            },
+            {
+                "title": "Performance & Qualité",
+                "description": "Optimisation, robustesse et maintenabilité des applications.",
+                "skills": [
+                    "Optimisation front & back",
+                    "Tests unitaires & fonctionnels",
+                    "Analyse de performances",
+                    "Refactoring continu"
+                ]
+            },
+            {
+                "title": "Culture Tech & Veille",
+                "description": "Amélioration continue par la veille et l’expérimentation.",
+                "skills": [
+                    "Veille technologique",
+                    "Proof of Concept",
+                    "Exploration de nouveaux frameworks",
+                    "Auto-formation continue"
+                ]
+            }
+        ]
+    },
+    "hardskills": {
+        "title": "Des bases solides pour construire des projets web robustes",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "devops": "DevOps"
+        },
+        "labels": {
+            "level": "Niveau"
+        },
+        "actions": {
+            "viewProjects": "Voir projets"
+        },
+        "levels": {
+            "javascript": "Niveau opérationnel",
+            "typescript": "Niveau opérationnel",
+            "react": "Niveau opérationnel",
+            "nextjs": "Niveau opérationnel",
+            "angular": "Niveau intermédiaire",
+            "php": "Niveau avancé",
+            "symfony": "Niveau fondamental",
+            "csharp": "Niveau avancé",
+            "aspnet": "Niveau opérationnel",
+            "docker": "Niveau opérationnel",
+            "git": "Niveau avancé",
+            "linux": "Niveau opérationnel",
+            "gitlab": "Niveau fondamental"
+        },
+        "items": {
+            "javascript": {
+                "title": "JavaScript",
+                "description": "Création d’interfaces dynamiques, manipulation du DOM, logique applicative moderne et intégration API."
+            },
+            "typescript": {
+                "title": "TypeScript",
+                "description": "Typage statique pour des applications plus fiables, maintenables et évolutives (React, Next.js)."
+            },
+            "react": {
+                "title": "React",
+                "description": "Développement d’interfaces modernes et modulaires basées sur les composants et les hooks."
+            },
+            "nextjs": {
+                "title": "Next.js",
+                "description": "Framework React avancé : rendu hybride, performance, API routes et optimisation SEO."
+            },
+            "angular": {
+                "title": "Angular",
+                "description": "Framework front-end basé sur TypeScript, composants, services, routing et architecture MVVM."
+            },
+            "php": {
+                "title": "PHP",
+                "description": "Développement backend robuste, conception MVC et manipulation SQL."
+            },
+            "symfony": {
+                "title": "Symfony",
+                "description": "Routing, contrôleurs, services, sécurité et environnement Symfony."
+            },
+            "csharp": {
+                "title": "C#",
+                "description": "Programmation .NET moderne, objets, services et logique serveur."
+            },
+            "aspnet": {
+                "title": "ASP.NET Core MVC",
+                "description": "Applications web performantes : entités, services, vues et sécurité."
+            },
+            "docker": {
+                "title": "Docker",
+                "description": "Conteneurisation, images, réseaux et environnements reproductibles."
+            },
+            "git": {
+                "title": "Git",
+                "description": "Branches, workflows, merges, rebase et intégration CI/CD."
+            },
+            "linux": {
+                "title": "Linux",
+                "description": "Permissions, services, scripts et gestion d’environnements serveur."
+            },
+            "gitlab": {
+                "title": "GitLab CI",
+                "description": "Pipelines CI/CD, automatisation des tests, déploiements et intégration continue."
+            }
+        }
+    }
+}

@@ -1,80 +1,79 @@
-{
-  "title": "Projet - Spring Petclinic Microservices (CI/CD)",
+{  
+  "title": {
+    "fr": "Projet - La Maison Jungle",
+    "en": "Project - La Maison Jungle"
+  },
+
+  "summary": {
+    "fr": "Site de vente de plantes d’intérieur réalisé en React dans le cadre d’un exercice fil rouge d’un cours OpenClassrooms, visant à maîtriser les bases du framework.",
+    "en": "Indoor plant e-commerce website built with React as a capstone project for an OpenClassrooms course, aimed at mastering the basics of the framework."
+  },
+
+  "overview": {
+    "fr": "La Maison Jungle est une application web conçue dans le cadre d’un projet pédagogique sur OpenClassrooms. Ce site de vente de plantes a été développé avec React pour apprendre les concepts fondamentaux du framework : composants, props, state, événements, conditionnels, listes et hooks. L'interface simple et agréable met l'accent sur l'interactivité, la modularité du code et la réactivité côté client.",
+    "en": "La Maison Jungle is a web application developed as part of an OpenClassrooms educational project. This plant e-commerce site was built with React to learn fundamental framework concepts: components, props, state, events, conditionals, lists, and hooks. The simple and user-friendly interface emphasizes interactivity, code modularity, and client-side responsiveness."
+  },
+
   "mainTool": {
-    "name": "GitLab CI/CD",
-    "avatarUrl": "/icon/gitlab-svgrepo-com.svg"
+    "name": "React",
+    "avatarUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
   },
-  "coverImage": "https://i.postimg.cc/cJDVkTYH/spring-petclinic.png",
+
+  "coverImage": "https://i.postimg.cc/d0wR4Z32/La-maison-jungle.png",
+
   "tags": [
-    { "name": "Spring Boot" },
-    { "name": "Microservices" },
-    { "name": "Java" },
-    { "name": "GitLab CI/CD" },
-    { "name": "Docker" },
-    { "name": "JUnit" },
-    { "name": "Prometheus"},
-    { "typeProject" : "DevOps" }
+    { "name": { "fr": "React", "en": "React" } },
+    { "name": { "fr": "JavaScript", "en": "JavaScript" } },
+    { "typeProject": "Frontend", "name": { "fr": "Frontend", "en": "Frontend" } },
+    { "name": { "fr": "SQL", "en": "SQL" } }
   ],
-  "summary": "Mise en place d’un pipeline CI/CD pour le projet Spring Petclinic Microservices avec tests automatisés et déploiement Docker.",
-  "links": {
-    "demo": "",
-    "github": "https://gitlab.com/sofianbelbacha-group/spring-petclinic-microservices"
-  },
-  "overview": "Ce projet consiste à mettre en place un pipeline d’intégration continue pour l’application Spring Petclinic basée sur une architecture microservices. Le pipeline inclut la compilation, les tests unitaires et d’intégration avec JUnit, ainsi que le packaging et le déploiement dans des conteneurs Docker. L’objectif est de garantir un cycle de développement fluide et automatisé, conforme aux bonnes pratiques DevOps.",
+
   "features": [
     {
-      "title": "Pipeline CI/CD GitLab",
-      "description": "Automatisation des builds, tests et déploiements des microservices via GitLab CI/CD."
+      "title": { "fr": "Catalogue de plantes", "en": "Plant Catalog" },
+      "description": { "fr": "Affichage dynamique d’une liste de plantes avec leurs caractéristiques : nom, catégorie, prix, et besoin en lumière/eau.", "en": "Dynamic display of a list of plants with their details: name, category, price, and light/water requirements." }
     },
     {
-      "title": "Tests automatisés",
-      "description": "Exécution des tests unitaires et d’intégration JUnit à chaque commit pour assurer la qualité du code."
+      "title": { "fr": "Panier interactif", "en": "Interactive Cart" },
+      "description": { "fr": "Ajout et suppression de plantes dans un panier fonctionnel stocké dans le state React.", "en": "Add and remove plants in a functional cart stored in React state." }
     },
     {
-      "title": "Conteneurisation Docker",
-      "description": "Déploiement des microservices dans des conteneurs Docker pour assurer portabilité et isolation."
+      "title": { "fr": "Filtres par catégorie", "en": "Category Filters" },
+      "description": { "fr": "Navigation facilitée grâce à un filtre permettant de trier les plantes par type (plantes d'intérieur, grasses, etc.).", "en": "Easy navigation using a filter to sort plants by type (indoor, succulent, etc.)." }
     },
     {
-      "title": "Microservices Spring Boot",
-      "description": "Architecture modulable avec services indépendants communiquant via REST."
-    },
-    {
-      "title": "Monitoring avec Prometheus",
-      "description": "Mise en place de la supervision des microservices avec Prometheus pour collecter et analyser des métriques en temps réel."
+      "title": { "fr": "Design responsive", "en": "Responsive Design" },
+      "description": { "fr": "Adaptabilité de l'interface aux différents formats d’écran (mobile, tablette, desktop).", "en": "Interface adapts to different screen sizes (mobile, tablet, desktop)." }
     }
   ],
+
   "technologies": [
     {
-      "name": "GitLab CI/CD",
-      "iconUrl": "/icon/gitlab-svgrepo-com.svg",
-      "description": "Outil d’intégration et de déploiement continu pour automatiser les builds, tests et déploiements."
+      "name": "React",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      "description": { "fr": "Framework JavaScript utilisé pour construire l’interface utilisateur de manière réactive à l’aide de composants.", "en": "JavaScript framework used to build a reactive user interface using components." }
     },
     {
-      "name": "Spring Boot",
-      "iconUrl": "/icon/spring-svgrepo-com.svg",
-      "description": "Framework Java pour créer des microservices robustes et modulaires."
+      "name": "JavaScript",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      "description": { "fr": "Langage de programmation utilisé pour structurer les interactions et logiques métier.", "en": "Programming language used to structure interactions and business logic." }
     },
     {
-      "name": "Docker",
-      "iconUrl": "/icon/docker-svgrepo-com.svg",
-      "description": "Conteneurisation des applications pour simplifier le déploiement et garantir l’isolation."
+      "name": "HTML5",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      "description": { "fr": "Structure des pages et composants React.", "en": "Structure of pages and React components." }
     },
     {
-      "name": "JUnit",
-      "iconUrl": "/icon/JUnit.svg",
-      "description": "Framework de tests unitaires et d’intégration pour Java."
-    },
-    {
-      "name": "Java",
-      "iconUrl": "/icon/java-logo-svgrepo-com.svg",
-      "description": "Langage de programmation utilisé pour développer les microservices Spring Boot."
-    },
-    {
-      "name": "Prometheus",
-      "iconUrl": "/icon/prometheus-svgrepo-com.svg",
-      "description": "Langage de programmation utilisé pour développer les microservices Spring Boot."
+      "name": "CSS3",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      "description": { "fr": "Styles de présentation du site, en complément du rendu React.", "en": "Presentation styles for the site, complementing React rendering." }
     }
   ],
-  "createdAt": "2025-09-01"
-}
 
+  "links": {
+    "demo": "",
+    "github": ""
+  },
+
+  "createdAt": 1741906800079
+}

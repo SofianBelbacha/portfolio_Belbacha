@@ -3,137 +3,179 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, ContactFormData } from "@/lib/contactSchema";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import Form from 'next/form'
+import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
+
 
 export default function ContactForm() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [success, setSuccess] = useState(false);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [error, setError] = useState("");
+    const t = useTranslations("common.contact");
+    const pathname = usePathname();
 
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
         reset,
+        setFocus,
     } = useForm<ContactFormData>({
         resolver: zodResolver(contactSchema),
+        mode: "onSubmit",
+        defaultValues: {
+            name: "",
+            email: "",
+            service: "",
+            message: "",
+        },
     });
 
+    /**
+     * Focus automatique sur le premier champ en erreur
+     */
+    useEffect(() => {
+        const firstError = Object.keys(errors)[0] as keyof ContactFormData | undefined;
+        if (firstError) {
+            setFocus(firstError);
+        }
+    }, [errors, setFocus]);
+
+    /**
+     * Soumission du formulaire
+     */
     const onSubmit = async (data: ContactFormData) => {
-        setError("");
-        setSuccess(false);
         try {
-            console.log(data)
             const res = await fetch("/api/contact", {
                 method: "POST",
                 body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
             });
 
-            if (!res.ok) throw new Error("Une erreur est survenue");
+            if (!res.ok) {
+                const body = await res.json().catch(() => null);
+                throw new Error(body?.error || "errors.generic");
+            }
 
-            setSuccess(true);
-            reset();
+            reset(undefined, {
+                keepErrors: false,
+                keepDirty: false,
+                keepTouched: false,
+            });
 
-            toast("Message envoyé",{
-                description: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+
+            toast(t("toast.success.title"), {
+                description: t("toast.success.description"),
                 action: {
-                  label: "Fermer",
-                  onClick: () => console.log("Toast fermé"),
+                    label: t("toast.close"),
+                    onClick: () => { },
                 },
-              });
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any   
-        } catch (err: any) {
-            setError(err.message || "Erreur");
-            toast("Erreur", {
-                description: err.message || "Une erreur s’est produite.",
+            });
+        } catch (err: unknown) {
+            const message =
+                err instanceof Error ? err.message : "errors.generic";
+
+            toast(t("toast.error.title"), {
+                description: t(message),
                 action: {
-                    label: "Fermer",
-                    onClick: () => console.log("Toast fermé"),
+                    label: t("toast.close"),
+                    onClick: () => { },
                 },
-            });          
+            });
         }
-    }; return (
-        <Form action={""} onSubmit={handleSubmit(onSubmit)} className="relative z-[1] flex flex-col gap-[20px] w-full p-[20px] border border-white/15 backdrop-blur-[5px] flex-1 basis-0">
+    };
+
+    /**
+     * Rendu d’erreur factorisé + accessible
+     */
+    const renderError = (
+        error?: { message?: string }
+    ) => {
+        if (!error?.message) return null;
+
+        return (
+            <p role="alert" className="mt-[2px] text-[13px] leading-[1.4] text-red-400 font-medium">
+                {t(error.message)}
+            </p>
+        );
+    };
+
+    useEffect(() => {
+        reset();
+    }, [pathname, reset]);
+
+
+    return (
+        <form noValidate onSubmit={handleSubmit(onSubmit)} className="relative z-[1] flex flex-col gap-[20px] w-full p-[20px] form-surface flex-1">
             <label className="flex flex-col gap-[10px] w-full">
-                <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Nom complet
+                <p className="font-[600] text-[16px] leading-[1.6em]">
+                    {t("form.name.label")}
                 </p>
-                <div className="relative w-full h-[40px] bg-white/15 rounded-[10px]">
+                <div className="relative w-full h-[40px] form-field rounded-[10px]">
                     <input
                         {...register("name")}
                         type="text"
-                        name="name"
-                        placeholder="Jane Smith"
-                        className="w-full h-full px-[12px] bg-transparent text-white outline-none"
+                        placeholder={t("form.name.placeholder")}
+                        className="w-full h-full px-[12px] bg-transparent outline-none"
                     />
-                    <p className="text-[15px] text-[#850000]">{errors.name?.message}</p>
+                    {renderError(errors.name)}
                 </div>
             </label>
             <label className="flex flex-col gap-[10px] w-full">
-                <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Email
+                <p className="font-[600] text-[16px] leading-[1.6em]">
+                    {t("form.email.label")}
                 </p>
-                <div className="relative w-full h-[40px] bg-white/15 rounded-[10px]">
+                <div className="relative w-full h-[40px] form-field rounded-[10px]">
                     <input
                         {...register("email")}
                         type="text"
-                        name="email"
-                        placeholder="JaneSmith@[yourmail].com"
-                        className="w-full h-full px-[12px] bg-transparent text-white outline-none"
+                        placeholder={t("form.email.placeholder")}
+                        className="w-full h-full px-[12px] bg-transparent outline-none"
                     />
-                    <p className="text-[15px] text-[#850000]">{errors.email?.message}</p>
+                    {renderError(errors.email)}
                 </div>
             </label>
             <label className="flex flex-col gap-[10px] w-full">
-                <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Sujet
+                <p className="font-[600] text-[16px] leading-[1.6em]">
+                    {t("form.subject.label")}
                 </p>
-                <div className="contact-select relative w-full h-[40px] bg-white/15 rounded-[10px]">
+                <div className="contact-select relative w-full h-[40px] form-field rounded-[10px]">
                     <select
                         {...register("service")}
-                        name="service"
                         defaultValue=""
-                        required
-                        className="w-full h-full px-[12px] bg-transparent text-[#888888] appearance-none">
-                        <option value="" disabled>Select…</option>
-                        <option value="Maintenance Agreements">Signalement d&apos;un dysfonctionnement rencontré</option>
-                        <option value="Firewall Solutions">Collaboration pour vos projets</option>
-                        <option value="DLP Solutions">Echange/Renseignement</option>
-                        <option value="Opportunité professionnelle">Opportunité professionnelle</option>
-                        <option value="Autres">Autres</option>
+                        className="w-full h-full px-[12px] bg-transparent outline-none appearance-none form-select">
+                        <option value="" disabled>{t("form.subject.placeholder")}</option>
+                        <option value="Maintenance Agreements">{t("form.subject.options.bug")}</option>
+                        <option value="Firewall Solutions">{t("form.subject.options.collaboration")}</option>
+                        <option value="DLP Solutions">{t("form.subject.options.information")}</option>
+                        <option value="Opportunité professionnelle">{t("form.subject.options.job")}</option>
+                        <option value="Autres">{t("form.subject.options.other")}</option>
                     </select>
-                    <p className="text-[15px] text-[#850000]">{errors.service?.message}</p>
+                    {renderError(errors.service)}
                 </div>
             </label>
             <label className="flex flex-col gap-[10px] w-full">
-                <p className="font-[600] text-[16px] leading-[1.6em] text-white">
-                    Message
+                <p className="font-[600] text-[16px] leading-[1.6em]">
+                    {t("form.message.label")}
                 </p>
-                <div className="relative w-full bg-white/15 rounded-[10px]">
+                <div className="relative w-full form-field rounded-[10px] ">
                     <textarea
                         {...register("message")}
-                        name="message"
                         rows={5}
                         cols={33}
-                        placeholder="Your message"
-                        className="w-full h-full px-[12px] py-[10px] bg-transparent text-white outline-none resize-none"
+                        placeholder={t("form.message.placeholder")}
+                        className="w-full h-full px-[12px] py-[10px] bg-transparent outline-none resize-none"
                     />
                 </div>
-                <p className="text-[15px] text-[#850000]">{errors.message?.message}</p>
+                {renderError(errors.message)}
             </label>
-            <button type="submit"
-                disabled={isSubmitting}
-                className="bg-[rgb(255,255,255)] hover:bg-[rgba(255,255,255,0.8)] h-[40px] flex items-center justify-center cursor-pointer rounded-[10px]">
-                <p className="font-semibold text-[14px] text-[#050505]">
-                    {isSubmitting ? "Envoi..." : "Envoyer"}
+            <button type="submit" disabled={isSubmitting} className="h-[40px] rounded-[10px] flex items-center justify-center cursor-pointer form-submit transition">
+                <p className="font-semibold text-[14px]">
+                    {isSubmitting
+                        ? t("form.submit.loading")
+                        : t("form.submit.default")}
                 </p>
             </button>
-        </Form>
+        </form>
     );
 }

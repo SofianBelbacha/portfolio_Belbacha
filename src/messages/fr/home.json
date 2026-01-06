@@ -1,0 +1,109 @@
+{
+    "hero": {
+        "badge": "👋, Je suis Sofian",
+        "title": "Développeur web full-stack",
+        "subtitle": "Junior passionné, prêt à contribuer au succès d'une équipe dynamique",
+        "cta": {
+            "contact": "Me contacter",
+            "projects": "Voir mes projets"
+        },
+        "carouselTitle": "Compétences clés pour vos projets",
+        "skills": {
+            "autodidacte": "Autodidacte",
+            "flexibility": "Flexibilité",
+            "uiux": "UI/UX Design",
+            "seo": "SEO / Optimisation"
+        }
+    },
+    "consulting": {
+        "badge": "Développeur Full Stack · Passionné de DevOps",
+        "title": "Je suis Sofian Belbacha, Développeur Passionné",
+        "description": "Polyvalent, je conçois des applications performantes, sécurisées et modernes. Je me forme actuellement au DevOps (CI/CD, automatisation, cloud) pour élargir mes compétences. Ouvert aux opportunités professionnelles, je cherche à intégrer une équipe dynamique et passionnée.",
+        "cta": {
+            "profile": "Voir mon Profil",
+            "downloadCV": "Télécharger mon CV"
+        }
+    },
+    "devops": {
+        "title": "Positionnement DevOps",
+        "subtitle": "Je mène une approche orientée <emphasis>automatisation, fiabilité et qualité logicielle</emphasis>, de la conception jusqu’à la production.",
+        "careerGoals": {
+            "architecture": {
+                "title": "Développement & Architecture",
+                "description": "Conception de services backend fiables, APIs structurées et bases de données robustes pour des applications maintenables et évolutives."
+            },
+            "cicd": {
+                "title": "Automatisation & CI/CD",
+                "description": "Mise en place de pipelines CI/CD pour automatiser les tests, les builds et les déploiements, avec des processus reproductibles."
+            },
+            "containers": {
+                "title": "Conteneurisation & Environnements",
+                "description": "Conteneurisation des applications et standardisation des environnements pour assurer portabilité et cohérence du développement à la production."
+            },
+            "security": {
+                "title": "Monitoring & Sécurité intégrée",
+                "description": "Surveillance des applications, détection proactive des incidents et intégration des bonnes pratiques de sécurité dès le développement."
+            }
+        }
+    },
+    "workflow": {
+        "title": "Approche & Workflow DevOps",
+        "subtitle": "Je favorise une vision structurée du cycle de vie logiciel, de la <emphasis>conception</emphasis> à la <emphasis>mise en production</emphasis>.",
+        "steps": {
+            "analysis": {
+                "title": "Analyse & Conception",
+                "description": "Compréhension du besoin, choix techniques adaptés et anticipation des contraintes de déploiement et d’exploitation."
+            },
+            "development": {
+                "title": "Développement",
+                "description": "Implémentation de fonctionnalités avec un code structuré, testable et maintenable, orienté qualité."
+            },
+            "deployment": {
+                "title": "Automatisation & Déploiement",
+                "description": "Mise en place de pipelines CI/CD pour automatiser les tests, les builds et les déploiements de manière fiable."
+            },
+            "improvement": {
+                "title": "Exploitation & Amélioration continue",
+                "description": "Surveillance des applications, analyse des incidents et optimisation continue des performances et de la stabilité."
+            }
+        },
+        "cta": "Voir mes compétences"
+    },
+    "architecture": {
+        "title": "Architecture & Choix Techniques",
+        "subtitle": "Ce portfolio est conçu comme un <emphasis>produit technique</emphasis> performant, maintenable et déployé selon de bonnes pratiques modernes.",
+        "nextjs": {
+            "badge": "Framework Moderne",
+            "title": "Next.js comme base pour l'application",
+            "description": "Next.js permet de combiner performance, SEO et expérience utilisateur. Le rendu hybride SSR/SSG assure des temps de chargement optimisés tout en conservant une architecture flexible et évolutive.",
+            "features": {
+                "ssr": "Rendu côté serveur (SSR)",
+                "seo": "Optimisation SEO native",
+                "performance": "Navigation rapide & fluide",
+                "ux": "UX moderne et performante"
+            }
+        },
+        "firebase": {
+            "badge": "Propulsé par Firebase",
+            "title": "Déploiement serverless & données temps réel",
+            "description": "Le déploiement sur Vercel garantit une mise en production rapide, scalable et automatisée. Firebase est utilisé pour la gestion de données dynamiques, avec synchronisation en temps réel et sécurité intégrée.",
+            "features": {
+                "realtime": "Synchronisation en temps réel",
+                "security": "Sécurité intégrée",
+                "serverless": "Hébergement Serverless",
+                "vercel": "Déploiement instantané (Vercel)"
+            }
+        },
+        "frontend": {
+            "badge": "Stylisation Utilitaire",
+            "title": "Front-End structuré et maintenable",
+            "description": "L’interface est construite avec Tailwind CSS et shadcn/ui afin de garantir une base de composants cohérente et facilement maintenable. Cette approche permet de livrer des interfaces propres, performantes et maîtrisées.",
+            "features": {
+                "responsive": "Design Adaptatif",
+                "maintenance": "Maintenabilité améliorée",
+                "ecosystem": "Écosystème riche",
+                "compatibility": "Compatibilité"
+            }
+        }
+    }
+}

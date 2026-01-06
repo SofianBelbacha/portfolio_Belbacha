@@ -1,0 +1,229 @@
+{
+    "page": {
+        "title": "Skills",
+        "description": "Here is a set of <accent>technical skills</accent> developed through continuous learning and monitoring."
+    },
+    "cyber": {
+        "titleToolCyber": "Tools mastered",
+        "title": "Cybersecurity Skills",
+        "levelLabel": "Level: {level}",
+        "items": [
+            {
+                "icon": "shield",
+                "title": "Web Security",
+                "level": "Operational",
+                "progress": 65,
+                "points": [
+                    "XSS / CSRF / SQL Injection prevention",
+                    "HTTP headers, CORS, CSP, HSTS",
+                    "Use of Snyk and OWASP ZAP"
+                ]
+            },
+            {
+                "icon": "lock",
+                "title": "Authentication & Sessions",
+                "level": "Operational",
+                "progress": 65,
+                "points": [
+                    "OAuth 2.0, JWT, SSO, MFA",
+                    "Token hardening and expiration management",
+                    "Use of Passport.js and IdentityServer"
+                ]
+            },
+            {
+                "icon": "scan",
+                "title": "Audit & Monitoring",
+                "level": "Operational",
+                "progress": 80,
+                "points": [
+                    "Log auditing (SIEM) and network analysis",
+                    "Tools: Wireshark, Nmap, Fail2ban",
+                    "Alerting and intrusion detection (IDS)"
+                ]
+            },
+            {
+                "icon": "settings",
+                "title": "Compliance & GDPR",
+                "level": "Operational",
+                "progress": 60,
+                "points": [
+                    "Rights management: portability and deletion",
+                    "Explicit consent and documentation",
+                    "Clear and accessible privacy policies"
+                ]
+            }
+        ]
+    },
+    "roadmap": {
+        "title": "Learning Roadmap 2026",
+        "description": "This roadmap represents the milestones I have set for myself to progress throughout the year 2026.",
+        "statuses": {
+            "done": "Completed",
+            "inProgress": "In progress",
+            "planned": "Planned"
+        },
+        "steps": [
+            {
+                "title": "Q1 2026",
+                "status": "done",
+                "items": [
+                    {
+                        "icon": "docker",
+                        "text": "Introduction to Docker & containerization"
+                    },
+                    {
+                        "icon": "gitlab",
+                        "text": "Getting started with CI/CD (GitLab CI)"
+                    }
+                ]
+            },
+            {
+                "title": "Q2 2026",
+                "status": "inProgress",
+                "items": [
+                    {
+                        "icon": "kubernetes",
+                        "text": "Application deployment (Kubernetes)"
+                    },
+                    {
+                        "icon": "terraform",
+                        "text": "Infrastructure as Code (Terraform)"
+                    }
+                ]
+            },
+            {
+                "title": "Q3 2026",
+                "status": "planned",
+                "items": [
+                    {
+                        "icon": "aws",
+                        "text": "AWS DevOps (CI/CD & cloud operations)"
+                    },
+                    {
+                        "icon": "grafana",
+                        "text": "Observability (Prometheus, Grafana)"
+                    }
+                ]
+            }
+        ],
+        "footer": "2026 Roadmap"
+    },
+    "complementary": {
+        "title": "Complementary Skills",
+        "items": [
+            {
+                "title": "Methodology & Organization",
+                "description": "Approaches and tools that promote quality, collaboration, and continuous delivery.",
+                "skills": [
+                    "Agile / Scrum methodologies",
+                    "Project management",
+                    "Technical documentation",
+                    "Code reviews & best practices"
+                ]
+            },
+            {
+                "title": "Performance & Quality",
+                "description": "Optimization, robustness, and maintainability of applications.",
+                "skills": [
+                    "Front-end & back-end optimization",
+                    "Unit & functional testing",
+                    "Performance analysis",
+                    "Continuous refactoring"
+                ]
+            },
+            {
+                "title": "Tech Culture & Monitoring",
+                "description": "Continuous improvement through technology monitoring and experimentation.",
+                "skills": [
+                    "Technology monitoring",
+                    "Proof of Concept",
+                    "Exploration of new frameworks",
+                    "Continuous self-learning"
+                ]
+            }
+        ]
+    },
+    "hardskills": {
+        "title": "Strong foundations to build robust web projects",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "devops": "DevOps"
+        },
+        "labels": {
+            "level": "Level"
+        },
+        "actions": {
+            "viewProjects": "View projects"
+        },
+        "levels": {
+            "javascript": "Operational level",
+            "typescript": "Operational level",
+            "react": "Operational level",
+            "nextjs": "Operational level",
+            "angular": "Intermediate level",
+            "php": "Advanced level",
+            "symfony": "Fundamental level",
+            "csharp": "Advanced level",
+            "aspnet": "Operational level",
+            "docker": "Operational level",
+            "git": "Advanced level",
+            "linux": "Operational level",
+            "gitlab": "Fundamental level"
+        },
+        "items": {
+            "javascript": {
+                "title": "JavaScript",
+                "description": "Building dynamic interfaces, DOM manipulation, modern application logic and API integration."
+            },
+            "typescript": {
+                "title": "TypeScript",
+                "description": "Static typing for more reliable, maintainable and scalable applications (React, Next.js)."
+            },
+            "react": {
+                "title": "React",
+                "description": "Developing modern and modular interfaces based on components and hooks."
+            },
+            "nextjs": {
+                "title": "Next.js",
+                "description": "Advanced React framework: hybrid rendering, performance, API routes and SEO optimization."
+            },
+            "angular": {
+                "title": "Angular",
+                "description": "Framework front-end basé sur TypeScript, composants, services, routing et architecture MVVM."
+            },
+            "php": {
+                "title": "PHP",
+                "description": "Robust backend development, MVC architecture and SQL handling."
+            },
+            "symfony": {
+                "title": "Symfony",
+                "description": "Routing, controllers, services, security and Symfony environment."
+            },
+            "csharp": {
+                "title": "C#",
+                "description": "Modern .NET programming, objects, services and server-side logic."
+            },
+            "aspnet": {
+                "title": "ASP.NET Core MVC",
+                "description": "High-performance web applications: entities, services, views and security."
+            },
+            "docker": {
+                "title": "Docker",
+                "description": "Containerization, images, networking and reproducible environments."
+            },
+            "git": {
+                "title": "Git",
+                "description": "Branching, workflows, merges, rebasing and CI/CD integration."
+            },
+            "linux": {
+                "title": "Linux",
+                "description": "Permissions, services, scripting and server environment management."
+            },
+            "gitlab": {
+                "title": "GitLab CI",
+                "description": "CI/CD pipelines, automated testing, deployments and continuous integration."
+            }
+        }
+    }
+}

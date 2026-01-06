@@ -1,0 +1,110 @@
+{
+  "page": {
+    "title": "Profile Page",
+    "description": "On this page you will find all information about me, such as <accent>my background, my CV, and my experience...</accent>"
+  },
+  "identity": {
+    "name": "Sofian Belbacha",
+    "role": "Full Stack Developer"
+  },
+  "contact": {
+    "title": "Contact details",
+    "location": "Béziers, Occitanie, France"
+  },
+  "about": {
+    "title": "About",
+    "text": "Passionate about web development, I enjoy designing modern and high-performance applications. I also explore DevOps practices and cybersecurity to better understand the entire application lifecycle."
+  },
+  "skills": {
+    "list": [
+      "Angular",
+      "Next.js",
+      "ASP.NET Core",
+      "Git / GitHub",
+      "Problem solving",
+      "Technology watch",
+      "Autonomy & rigor",
+      "Adaptability"
+    ]
+  },
+  "interests": {
+    "title": "Interests",
+    "list": [
+      "Web development",
+      "DevOps & infrastructure",
+      "Cybersecurity",
+      "New technologies",
+      "Technology watch",
+      "Sports & discipline"
+    ]
+  },
+  "cv": {
+    "label": "View CV"
+  },
+  "timeline": {
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "title": "Bachelor's Degree in Computer Science (Year 3)",
+          "date": "Sep 2024 – Jan 2025",
+          "description": "Program focused on web development, software architecture, and professional project work.",
+          "tags": [
+            "Web",
+            "Architecture",
+            "Project"
+          ]
+        },
+        {
+          "title": "BTS SIO SLAM (Software Solutions & Business Applications)",
+          "date": "Sep 2023 – Jun 2024",
+          "description": "Program focused on business application development, covering web and object-oriented programming, database management, requirements analysis, testing, and core IT security fundamentals.",
+          "tags": [
+            "Development",
+            "Databases",
+            "Networking"
+          ]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "items": [
+        {
+          "title": "PHP Backend Developer — Internship",
+          "company": "ADSL Informatique, Sérignan (France)",
+          "date": "May 2023 – Jul 2023 | Jan 2024 – Mar 2024",
+          "description": "Development of an advanced interface for creating personalized road trips for the Tentation Voyage platform.",
+          "tasks": [
+            "Dynamic PDF generation",
+            "PHP backend development (MVC)",
+            "Database management & internal API integration",
+            "Administrative dashboard development"
+          ],
+          "tags": [
+            "PHP",
+            "MVC",
+            "MySQL"
+          ]
+        },
+        {
+          "title": "Full Stack Developer — Personal Projects",
+          "date": "Jan 2025 – Present",
+          "description": "Design and development of full-stack projects focused on performance, maintainability, and best practices, within a continuous self-learning process.",
+          "tasks": [
+            "Application development with Symfony, React, Next.js, and ASP.NET Core",
+            "CI/CD pipeline setup for deployment automation",
+            "Application containerization using Docker",
+            "Infrastructure as Code with Terraform and Ansible",
+            "Continuous technology watch on modern web tools and practices"
+          ],
+          "tags": [
+            "Full-Stack",
+            "DevOps",
+            "CI/CD"
+          ]
+        }
+      ]
+    }
+  }
+}
