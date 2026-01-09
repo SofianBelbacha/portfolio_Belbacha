@@ -1,5 +1,3 @@
-export const dynamic = "force-static";
-
 import HomePortfolio from "../_components/layout/sectionHomePortfolio";
 import Image from "next/image";
 import { Badge } from "../_components/ui/badge";
@@ -8,37 +6,37 @@ import { ArrowUpRight, Download } from "lucide-react";
 import { Metadata } from "next";
 import CareerObjectivesSection from "../_components/layout/careerObjective";
 import ApprocheWorkflowDevOps from "../_components/layout/approcheWorkflowDevOps";
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Accueil | Sofian Belbacha - Développeur Full Stack",
-  description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
-  keywords: ["Sofian Belbacha", "portfolio", "développeur web", "frontend", "backend", "Next.js", "React", "ASP.NET Core", "projets web", "DevOps"],
-  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app/fr" }],
-  creator: "Sofian Belbacha",
-  openGraph: {
-    title: "Accueil | Sofian Belbacha - Développeur Full Stack",
-    description: "Bienvenue sur mon portfolio en ligne. Développeur web full stack passionné, je me forme actuellement aux pratiques DevOps pour allier développement et déploiement efficaces.",
-    url: "https://sofianbelbacha.vercel.app/fr",
-    siteName: "SOFIAN",
-    images: [
-      {
-        url: "https://i.postimg.cc/g2GzjDXf/og-portfolio.png",
-        alt: "Aperçu de mon portfolio",
-      },
-    ],
-    locale: "fr_FR",
-    type: "website",
-  },
-  metadataBase: new URL("https://sofianbelbacha.vercel.app/fr"),
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
-export default function Home() {
+  const t = await getTranslations({ locale, namespace: 'common.metadata.home' });
 
-  const t = useTranslations('home.hero');
-  const tConsulting = useTranslations('home.consulting');
-  const tArchitecture = useTranslations('home.architecture');
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website',
+      url: `/${locale}`,
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
+    },
+  };
+}
+
+export default async function Home({params}: {params: { locale: string }}) {
+  const { locale } = await params;
+
+  const t = await getTranslations({locale, namespace: 'home.hero'});
+  const tConsulting = await getTranslations({locale, namespace: 'home.consulting'});
+  const tArchitecture = await getTranslations({locale, namespace: 'home.architecture'});
 
   return (
     <>

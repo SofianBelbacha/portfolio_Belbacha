@@ -1,18 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface SectionHeaderProps {
-  title: string;
-  description: React.ReactNode;
+  translationKey: string;
   center?: boolean;
 }
 
 export default function TitlePageSection({
-  title,
-  description,
+  translationKey,
   center = true,
 }: SectionHeaderProps) {
+  const t = useTranslations(translationKey);
+
   return (
     <motion.div
       className={`max-w-3xl flex flex-col gap-4 my-8 ${
@@ -23,11 +24,15 @@ export default function TitlePageSection({
       transition={{ duration: 0.8 }}
     >
       <h2 className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent leading-[1.15] gradient-title">
-        {title}
+        {t('title')}
       </h2>
 
       <p className="subtitle">
-        {description}
+        {t.rich('description', {
+          accent: (chunks) => (
+            <span className="subtitle-accent">{chunks}</span>
+          ),
+        })}
       </p>
     </motion.div>
   );

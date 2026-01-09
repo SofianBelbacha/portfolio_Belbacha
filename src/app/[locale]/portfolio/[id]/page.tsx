@@ -14,36 +14,48 @@ const LOCALES = ['fr', 'en'] as const;
 export async function generateStaticParams() {
   const snapshot = await adminDb.collection('projet').get();
 
-  return snapshot.docs.flatMap((doc) =>
-    LOCALES.map((locale) => ({
-      locale,
-      id: doc.id,
-    }))
-  );
+  return snapshot.docs
+    .filter(doc => doc.id)
+    .flatMap(doc =>
+      LOCALES.map((locale) => ({
+        locale,
+        id: doc.id,
+      }))
+    );
 }
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // 24h
 
 async function fetchProject(id: string): Promise<Project | null> {
+  if (!id) return null;
+
   const docRef = adminDb.collection('projet').doc(id);
   const docSnap = await docRef.get();
 
   if (!docSnap.exists) return null;
 
-  const data = docSnap.data()!;
+  const data = docSnap.data();
+  if (!data) return null;
+
+  // Vérifier que les champs essentiels existent
+  if (
+    !data.title || 
+    !data.summary ||
+    !data.mainTool?.name
+  ) return null;
 
   return {
     id: docSnap.id,
     title: data.title,
     summary: data.summary,
-    overview: data.overview,
+    overview: data.overview ?? { fr: '', en: '' },
     mainTool: data.mainTool,
-    coverImage: data.coverImage,
-    tags: data.tags,
-    features: data.features,
-    technologies: data.technologies,
-    links: data.links,
+    coverImage: data.coverImage ?? '',
+    tags: data.tags ?? [],
+    features: data.features ?? [],
+    technologies: data.technologies ?? [],
+    links: data.links ?? [],
     createdAt: data.createdAt?.toMillis?.() ?? null,
   };
 }
@@ -51,50 +63,70 @@ async function fetchProject(id: string): Promise<Project | null> {
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: 'fr' | 'en'; id: string };
+  params: Promise<{ locale: 'fr' | 'en'; id: string }>;
 }): Promise<Metadata> {
-  const project = await fetchProject(params.id);
+  const { locale, id } = await params;
+  const project = await fetchProject(id);
+  
   if (!project) {
     return {
-      title: params.locale === 'fr' ? 'Projet introuvable' : 'Project not found',
+      title: locale === 'fr' ? 'Projet introuvable' : 'Project not found',
     };
   }
 
-  const title = project.title[params.locale];
-  const summary = project.summary[params.locale];
+  const title = project.title[locale];
+  const summary = project.summary[locale];
 
   return {
     title: `${title} | Sofian Belbacha`,
     description: summary,
-    authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app/fr" }],
-    creator: "Sofian Belbacha",
+    keywords: [
+      ...project.tags.map(t => t.name[locale]),
+      ...project.technologies.map(t => t.name[locale]),
+    ],
+    authors: [{ name: "Sofian Belbacha" }],
     openGraph: {
       title,
       description: summary,
-      url: `https://sofianbelbacha.vercel.app/fr/portfolio/${params.id}`,
-      siteName: "SOFIAN",
+      url: `https://sofianbelbacha.vercel.app/${locale}/portfolio/${id}`,
+      siteName: "Sofian Belbacha Portfolio",
       images: [
         {
           url: project.coverImage || "https://i.postimg.cc/g2GzjDXf/og-portfolio.png",
+          width: 1200,
+          height: 630,
           alt: title,
         },
       ],
-      locale: params.locale === 'fr' ? 'fr_FR' : 'en_US',
-      type: 'website',
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
+      type: 'article',
+      publishedTime: project.createdAt ? new Date(project.createdAt).toISOString() : undefined,
     },
-    metadataBase: new URL("https://sofianbelbacha.vercel.app/fr"),
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: summary,
+      images: [project.coverImage],
+    },
   };
 }
 
+
 type PageProps = {
-  params: { locale: 'fr' | 'en'; id: string };
+  params: Promise<{ locale: 'fr' | 'en'; id: string }>;
 };
 
 const ProjectDetail = async ({ params }: PageProps) => {
-  const project = await fetchProject(params.id);
-  if (!project) return notFound();
+  // Attendre la résolution de params
+  const { id, locale } = await params;
 
-  const locale = params.locale;
+  if (!id || !LOCALES.includes(locale)) {
+    return notFound();
+  }
+
+  const project = await fetchProject(id);
+
+  if (!project) return notFound();
 
   return (
     <div className="border-b border-black/10 dark:border-dark-800 pt-24 pb-12 lg:pb-24 lg:pt-36">

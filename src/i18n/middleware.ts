@@ -1,7 +1,9 @@
+// middleware.ts
 import createMiddleware from 'next-intl/middleware';
+import { NextResponse } from 'next/server';
 import { routing } from './routing';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   locales: routing.locales,
   defaultLocale: routing.defaultLocale,
   localePrefix: 'always',

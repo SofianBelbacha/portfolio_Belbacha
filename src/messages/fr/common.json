@@ -1,4 +1,22 @@
 {
+    "metadata": {
+        "home": {
+            "title": "Accueil",
+            "description": "Bienvenue sur mon portfolio en ligne. Je suis Sofian, développeur web full stack passionné, je me forme actuellement aux pratiques DevOps."
+        },
+        "portfolio": {
+            "title": "Portfolio",
+            "description": "Découvrez les projets que j'ai réalisés : applications web, sites modernes, intégration et bien plus."
+        },
+        "profile": {
+            "title": "Profil",
+            "description": "Développeur passionné, je vous invite à découvrir mon parcours, mon expérience, mes centres d'intérêt et les technologies que j’ai apprises et maîtrisées."
+        },
+        "skills": {
+            "title": "Compétences",
+            "description": "Découvrez mes compétences techniques : React, Next.js, Angular, ASP.NET, JavaScript, HTML, UI/UX..."
+        }
+    },
     "nav": {
         "brand": "SOFIAN",
         "links": {

@@ -15,34 +15,35 @@ import AnimatedSkills from "../../_components/layout/AnimatedSkills";
 import CyberSkills from "../../_components/layout/CyberSkills";
 import Roadmap from "../../_components/layout/roadmap";
 import TitlePageSection from "../../_components/layout/titlePageSection";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Compétences | Sofian Belbacha - Développeur Full Stack",
-  description: "Découvrez mes compétences techniques : React, Next.js, ASP.NET, JavaScript, HTML, UI/UX et bien plus.",
-  keywords: ["Sofian Belbacha", "profil", "développeur", "parcours", "compétences", "JavaScript", "React", "Next.js"],
-  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app/fr" }],
-  creator: "Sofian Belbacha",
-  openGraph: {
-    title: "Compétences | Sofian Belbacha - Développeur Full Stack",
-    description: "Découvrez mes compétences techniques : React, Next.js, ASP.NET, JavaScript, HTML, UI/UX et bien plus.",
-    url: "https://sofianbelbacha.vercel.app/fr/skills",
-    siteName: "SOFIAN",
-    images: [
-      {
-        url: "https://i.postimg.cc/g2GzjDXf/og-portfolio.png",
-        alt: "Aperçu de mon portfolio",
-      },
-    ],
-    locale: "fr_FR",
-    type: "website",
-  },
-  metadataBase: new URL("https://sofianbelbacha.vercel.app/fr"),
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: 'common.metadata.skills' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website',
+      url: `/${locale}/skills`,
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
+    },
+  };
+}
 
 
-export default function Skills() {
-  const t = useTranslations("skills");
+export default async function Skills({params}: {params: Promise<{ locale: string }>}) {
+  const { locale } = await params;
+
+  const t = await getTranslations({locale, namespace: "skills"});
 
   const cyberIcons: Record<string, React.ElementType> = {
     shield: ShieldCheck,
@@ -61,15 +62,7 @@ export default function Skills() {
 
   return (
     <section className="other-items-sections flex flex-col items-center justify-center gap-16 py-24 w-full relative overflow-visible">
-      <TitlePageSection
-        title={t("page.title")}
-        description={t.rich("page.description", {
-          accent: (chunks) => (
-            <span className="subtitle-accent">{chunks}</span>
-          ),
-        })}
-
-      />
+      <TitlePageSection translationKey="skills.page"/>
       <CarouselSkills />
       <AnimatedSkills />
       <div className="max-w-[1130px] mx-auto py-24 relative overflow-hidden">

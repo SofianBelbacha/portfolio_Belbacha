@@ -6,6 +6,7 @@ export async function loadMessages(locale: string) {
     const home = (await import(`../messages/${locale}/home.json`)).default;
     const common = (await import(`../messages/${locale}/common.json`)).default;
     const profile = (await import(`../messages/${locale}/profile.json`)).default;
+    const portfolio = (await import(`../messages/${locale}/portfolio.json`)).default;
     const skills = (await import(`../messages/${locale}/skills.json`)).default;
 
 
@@ -13,7 +14,8 @@ export async function loadMessages(locale: string) {
       home,
       common,
       profile,
-      skills
+      skills,
+      portfolio
     };
   } catch {
     notFound();

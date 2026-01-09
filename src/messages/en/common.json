@@ -1,4 +1,22 @@
 {
+    "metadata": {
+        "home": {
+            "title": "Home",
+            "description": "Welcome to my online portfolio. I'm Sofian, a passionate full-stack web developer, currently training in DevOps practices."
+        },
+        "portfolio": {
+            "title": "Portfolio",
+            "description": "Discover the projects I've completed: web applications, modern websites, integration and much more."
+        },
+        "profile": {
+            "title": "Profile",
+            "description": "As a passionate developer, I invite you to discover my background, my experience, my interests and the technologies I have learned and mastered."
+        },
+        "skills": {
+            "title": "Skills",
+            "description": "Discover my technical skills: React, Next.js, Angular, ASP.NET, JavaScript, HTML, UI/UX..."
+        }
+    },
     "nav": {
         "brand": "SOFIAN",
         "links": {
@@ -67,8 +85,12 @@
                 "tooLong": "The name is too long",
                 "invalid": "The name should only contain letters"
             },
-            "email": { "invalid": "Invalid email" },
-            "service": { "required": "Please select a subject" },
+            "email": {
+                "invalid": "Invalid email"
+            },
+            "service": {
+                "required": "Please select a subject"
+            },
             "message": {
                 "tooShort": "The message is too short",
                 "tooLong": "The message is too long"
