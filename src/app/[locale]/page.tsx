@@ -19,7 +19,6 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'common.metadata.home' });
 
   return {
-    title: t('title'),
     description: t('description'),
     openGraph: {
       title: t('title'),

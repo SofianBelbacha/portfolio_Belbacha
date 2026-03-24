@@ -29,29 +29,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Sofian Belbacha - Développeur Full Stack & DevOps",
-    template: "%s | Sofian Belbacha - Développeur Full Stack & DevOps"
-  },
-  description: "Portfolio de Sofian Belbacha, développeur full stack passionné, spécialisé en React, Next.js, ASP.NET Core et pratiques DevOps.",
-  keywords: ["Sofian Belbacha", "développeur full stack", "React", "Next.js", "ASP.NET", "DevOps", "portfolio développeur"],
-  authors: [{ name: "Sofian Belbacha", url: "https://sofianbelbacha.vercel.app" }],
-  creator: "Sofian Belbacha",
   metadataBase: new URL("https://sofianbelbacha.vercel.app"),
-  alternates: {
-    canonical: "/",
-    languages: {
-      'fr': '/fr',
-      'en': '/en',
-    },
-  },
+  authors: [
+    {
+      name: "Sofian Belbacha",
+      url: "https://sofianbelbacha.vercel.app"
+    }
+  ],
+  creator: "Sofian Belbacha",
   openGraph: {
     type: "website",
-    locale: "fr_FR",
-    url: "https://sofianbelbacha.vercel.app",
     siteName: "Sofian Belbacha Portfolio",
-    title: "Sofian Belbacha - Développeur Full Stack & DevOps",
-    description: "Portfolio de Sofian Belbacha, développeur full stack passionné",
     images: [
       {
         url: "https://i.postimg.cc/g2GzjDXf/og-portfolio.png",
@@ -61,12 +49,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Sofian Belbacha - Développeur Full Stack & DevOps",
-    description: "Portfolio de Sofian Belbacha, développeur full stack passionné",
     images: ["https://i.postimg.cc/g2GzjDXf/og-portfolio.png"],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -79,7 +67,6 @@ export const metadata: Metadata = {
     },
   },
 };
-
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 
